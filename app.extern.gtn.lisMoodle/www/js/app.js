@@ -1,5 +1,5 @@
 var app = {
-	doDebuging : true,
+	doDebuging : false,
 	debug : function(text) {
 		if (this.doDebuging)
 			alert("Debug: " + text)
