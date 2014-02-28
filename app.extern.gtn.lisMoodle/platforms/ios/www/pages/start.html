@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<title>My Page</title>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<!-- css includes -->
+<link rel="stylesheet" href="../ext/jquery.mobile-1.4.0.min.css">
+<!-- js includes -->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="../ext/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="../ext/jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript" src="../js/webServiceClient.js"></script>
+</head>
+<body>
+	<div id="start" data-role="page">
+		<!-- script -->
+		<script type="text/javascript">
+			$("#start").on('pageshow', function(event) {
+				alert("Token: " + window.localStorage.getItem("token"));
+			});
+		</script>
+		<div data-role="header">
+			<a href="login.html">Back</a>
+			<h1>gtn Moodle App</h1>
+			<a href="login.html">Logout</a>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+			<a href="index.html" data-role="button">Competencies</a> <a href="index.html" data-role="button">e Portfolio</a> <a href="index.html" data-role="button">Views</a><a href="index.html" data-role="button">Settings</a>
+		</div>
+		<!-- /content -->
+	</div>
+	<!-- /page -->
+</body>
+</html>

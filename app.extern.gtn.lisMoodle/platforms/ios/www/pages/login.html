@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<title>My Page</title>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<!-- css includes -->
+<link rel="stylesheet" href="../ext/jquery.mobile-1.4.0.min.css">
+<!-- js includes -->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="../ext/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="../ext/jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript" src="../js/webServiceClient.js"></script>
+<!-- script -->
+<script type="text/javascript">
+	$(document).bind("mobileinit", function() {
+		$.support.cors = true;
+		$.mobile.allowCrossDomainPages = true;
+	});
+
+	$(document).ready(function() {
+		$("#frmLogin").on("submit", function(e) {
+			e.preventDefault();
+			var username = $("#txtUsername").val();
+			var password = $("#pwdPassword").val();
+			var ret = getToken(username, password);
+			if (ret == 1)
+				window.location.href = "start.html";
+			else if (ret == -1)
+				alert("Benutzername oder Passwort falsch");
+			else if (ret == -2)
+				alert("connection error");
+		});
+	});
+</script>
+</head>
+<body>
+	<div data-role="page">
+		<div data-role="header">
+			<h1>gtn Moodle App</h1>
+		</div>
+		<!-- /header -->
+		<div data-role="content" data-ajax="false">
+			<form id="frmLogin" data-ajax="false">
+				<div data-role="fieldcontain" class="ui-hide-label">
+					<label for="txtUsername">Username:</label>
+					<input type="text" name="txtUsername" id="txtUsername" value="" placeholder="Username" />
+				</div>
+				<div data-role="fieldcontain" class="ui-hide-label">
+					<label for="pwdPassword">Password:</label>
+					<input type="password" name="pwdPassword" id="pwdPassword" value="" placeholder="Password" />
+				</div>
+				<div data-role="fieldcontain" class="ui-hide-label">
+					<fieldset data-role="controlgroup">
+						<legend>Save username and password</legend>
+						<input type="checkbox" name="cbxSave" id="cbxSave" class="custom" />
+						<label for="cbxSave">Save username and password</label>
+					</fieldset>
+				</div>
+				<input type="submit" name="submit" value="Login" />
+			</form>
+		</div>
+		<!-- /content -->
+	</div>
+	<!-- /page -->
+</body>
+</html>

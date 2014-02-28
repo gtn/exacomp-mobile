@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>exalis</title>
+<link rel="stylesheet" href="../ext/jquery.mobile-1.4.0.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="../ext/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="../ext/jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript" src="../js/webServiceClient.js"></script>
+<script type="text/javascript" src="../js/gtnMoodle.js"></script>
+<!-- script -->
+<script type="text/javascript">
+	$(document).bind("mobileinit", function() {
+		$.support.cors = true;
+		$.mobile.allowCrossDomainPages = true;
+	});
+
+	$(document).ready(function() {
+		//do the login
+		$("#frmLogin").on("submit", function(e) {
+			e.preventDefault();
+			var token;
+			var username = $("#txtUsername").val();
+			var password = $("#pwdPassword").val();
+			if ($("#cbxSave").is(':checked')) {
+				app.debug("Store username and password in HTML5 storage");
+				window.localStorage.setItem("username", username);
+				window.localStorage.setItem("password", password);
+			}
+
+			app.debug("Start Login");
+			gtnMoodle.getToken(username, password);
+			app.debug("Token: " + gtnMoodle.token);
+			window.localStorage.setItem("token", gtnMoodle.token);
+			window.localStorage.setItem("tokenExacomp", gtnMoodle.tokenExacomp);
+			window.localStorage.setItem("tokenExaport", gtnMoodle.tokenExaport);
+			if (gtnMoodle.token != null) {
+				app.debug("redirect to start page.");
+				$(location).attr('href', 'start.html');
+			}
+		});
+		// set username and password
+		if (window.localStorage.getItem("username")) {
+			$("#txtUsername").val(window.localStorage.getItem("username"));
+		}
+		if (window.localStorage.getItem("password")) {
+			$("#pwdPassword").val(window.localStorage.getItem("password"));
+		}
+
+	});
+</script>
+</head>
+<body>
+	<div data-role="page">
+		<div class="ui-header ui-bar-a" role="banner" data-role="header" data-form="ui-bar-a" data-theme="a" data-swatch="a">
+			<a id="btnBack" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Home " data-role="button" role="button"> back </a>
+			<h1 class="ui-title" aria-level="1" role="heading" tabindex="0">Kompetenz</h1>
+			<a id="btnHome" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Navigation " data-role="button" role="button"> Home </a>
+		</div>
+		<!-- /header -->
+		<div data-role="content" data-ajax="false">
+			<form id="frmLogin" data-ajax="false">
+				<div data-role="fieldcontain" class="ui-hide-label">
+					<label for="txtUsername">Username:</label>
+					<input type="text" name="txtUsername" id="txtUsername" value="" placeholder="Username" />
+				</div>
+				<div data-role="fieldcontain" class="ui-hide-label">
+					<label for="pwdPassword">Password:</label>
+					<input type="password" name="pwdPassword" id="pwdPassword" value="" placeholder="Password" />
+				</div>
+				<div data-role="fieldcontain" class="ui-hide-label">
+					<fieldset data-role="controlgroup">
+						<legend>Save username and password</legend>
+						<input type="checkbox" name="cbxSave" id="cbxSave" class="custom" checked="checked" />
+						<label for="cbxSave">Save username and password</label>
+					</fieldset>
+				</div>
+				<input type="submit" name="submit" value="Login" />
+			</form>
+		</div>
+		<!-- /content -->
+	</div>
+	<!-- /page -->
+</body>
+</html>
