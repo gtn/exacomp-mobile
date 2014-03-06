@@ -7,7 +7,7 @@ var gtnMoodle = {
 	webServiceUrl : "/webservice/rest/server.php",
 
 	init : function(pageId, pagename) {
-		app.debug("init(" + pageId + ", " + pagename + ")");
+		app.debug("init(" + pageId + ", " + pagename + ")", 2);
 		this.setToken();
 		this.checkToken();
 		this.writeHeader(pageId, pagename);
@@ -38,9 +38,7 @@ var gtnMoodle = {
 	},
 
 	getToken : function(username, password) {
-		// {"token":"7e90aa23c5615e4e69c1ff8463b24d3c"}
-		app.debug("gtnMoodle.getToken(" + username + ", " + password +
-		// ")");
+		app.debug("gtnMoodle.getToken(" + username + ", " + password + ")");
 		var json;
 		var data;
 		var url = this.moodleUrl + this.tokenPage;
@@ -60,8 +58,8 @@ var gtnMoodle = {
 		json = wsc.getJson(url, data);
 		if (json.error) {
 			app.debug("Token error: " + json.error);
-			// this.tokenExaport = null;
-			this.tokenExaport = "7b13b05e668b1118711d42b5a898a616";
+			this.tokenExaport = null;
+			// this.tokenExaport = "7b13b05e668b1118711d42b5a898a616";
 		} else {
 			this.tokenExaport = json.token;
 		}
@@ -69,28 +67,28 @@ var gtnMoodle = {
 		// exacompservices
 		data = "username=" + username + "&password=" + password + "&service=exacompservices";
 		json = wsc.getJson(url, data);
-		if ("Debug: Token error: " + json.error) {
-			alert(json.error);
-			// this.tokenExacomp = null;
-			this.tokenExacomp = "4aafa2c09ae274e7d2c1a6f2b968872e";
+		if (json.error) {
+			app.debug("Token error: " + json.error);
+			this.tokenExacomp = null;
+			// this.tokenExacomp = "4aafa2c09ae274e7d2c1a6f2b968872e";
 		} else {
 			this.tokenExacomp = json.token;
 		}
 
+		app.debug("Moodle token: " + gtnMoodle.token + "\nExaport token: " + gtnMoodle.tokenExaport + "\nExacomp token: " + gtnMoodle.tokenExacomp, 2);
+
 	},
 	getMoodleXml : function(wsfuction, token, data) {
-		app.debug("getMoodleXml(" + wsfuction + ", " + token + ", " + data
-		// + ")");
+		app.debug("getMoodleXml(" + wsfuction + ", " + token + ", " + data + ")", 2);
 		if (!data) {
 			data = "";
 		}
 		var xml = wsc.getXml(this.moodleUrl + this.webServiceUrl, "&wstoken=" + token + "&wsfunction=" + wsfuction + data);
-		app.debug("xml: " + new XMLSerializer().serializeToString(xml));
+		app.debug("xml: " + new XMLSerializer().serializeToString(xml), 2);
 		return xml;
 	},
 	getMoodleJson : function(wsfuction, token, data) {
-		app.debug("getMoodleJson(" + wsfuction + ", " + token + ", " +
-		// data + ")");
+		app.debug("getMoodleJson(" + wsfuction + ", " + token + ", " + data + ")");
 		var xml = this.getMoodleXml(wsfuction, token, data);
 		var x2js = new X2JS();
 		var json = x2js.xml2json(xml);

@@ -7,22 +7,29 @@
 <link rel="stylesheet" href="../ext/jquery.mobile-1.4.0.min.css">
 <link rel="stylesheet" href="../css/custom.css">
 <link rel="stylesheet" href="../css/fonts.css">
+<!-- initial scripts -->
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="../ext/jquery-2.1.0.min.js"></script>
-<script type="text/javascript" src="../ext/jquery.mobile-1.4.0.min.js"></script>
+<!-- page scripts -->
+<script type="text/javascript" src="../js/page.competencies.js"></script>
+<script type="text/javascript" src="../js/page.eportfolio.js"></script>
+<script type="text/javascript" src="../js/page.grid.js"></script>
+<script type="text/javascript" src="../js/page.login.js"></script>
+<script type="text/javascript" src="../js/page.start.js"></script>
+<script type="text/javascript" src="../js/page.listcompetencies.js"></script>
+<script type="text/javascript" src="../js/page.competence.js"></script>
+<script type="text/javascript" src="../js/page.settings.js"></script>
+<!-- other -->
+<script type="text/javascript" src="../js/pageEvents.js"></script>
 <script type="text/javascript" src="../js/webServiceClient.js"></script>
 <script type="text/javascript" src="../js/gtnMoodle.js"></script>
-<script type="text/javascript" src="../js/pageEvents.js"></script>
+<script type="text/javascript" src="../js/app.js"></script>
 <script type="text/javascript" src="../js/md5.js"></script>
 <script type="text/javascript" src="../js/xml2json.js"></script>
-<script type="text/javascript" src="../js/app.js"></script>
+<script type="text/javascript" src="../ext/jquery.mobile-1.4.0.min.js"></script>
+
 <!-- script -->
 <script type="text/javascript">
-	$(document).bind("mobileinit", function() {
-		$.support.cors = true;
-		$.mobile.allowCrossDomainPages = true;
-	});
-
 	$(document).ready(function() {
 		//do the login
 		$("#frmLogin").on("submit", function(e) {
@@ -60,10 +67,10 @@
 </head>
 <body>
 	<div data-role="page">
-		<div class="ui-header ui-bar-a" role="banner" data-role="header" data-form="ui-bar-a" data-theme="a" data-swatch="a">
-			<a id="btnBack" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Home " data-role="button" role="button"> back </a>
-			<h1 class="ui-title" aria-level="1" role="heading" tabindex="0">Kompetenz</h1>
-			<a id="btnHome" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Navigation " data-role="button" role="button"> Home </a>
+		<div id="divHeader" class="ui-header ui-bar-a" role="banner" data-role="header" data-form="ui-bar-a" data-theme="a" data-swatch="a">
+			<a data-rel="back" id="btnBack" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Home " data-role="button" role="button" data-dom-cache="false"> back </a>
+			<h1 class="app-pagename ui-title" aria-level="1" role="heading" tabindex="0">Start</h1>
+			<a href="start.html" id="btnHome" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Navigation " data-role="button" role="button" data-dom-cache="false"> Home </a>
 		</div>
 		<!-- /header -->
 		<div data-role="content" data-ajax="false">
@@ -85,6 +92,7 @@
 				</div>
 				<input type="submit" name="submit" value="Login" />
 			</form>
+			<a href="settings.html" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-gear ui-btn-icon-left" data-dom-cache="false">Einstellungen</a>
 		</div>
 		<!-- /content -->
 	</div>

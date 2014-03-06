@@ -7,7 +7,7 @@ var gtnMoodle = {
 	webServiceUrl : "/webservice/rest/server.php",
 
 	init : function(pageId, pagename) {
-		app.debug("init(" + pageId + ", " + pagename + ")");
+		app.debug("init(" + pageId + ", " + pagename + ")", 2);
 		this.setToken();
 		this.checkToken();
 		this.writeHeader(pageId, pagename);
@@ -58,8 +58,8 @@ var gtnMoodle = {
 		json = wsc.getJson(url, data);
 		if (json.error) {
 			app.debug("Token error: " + json.error);
-			// this.tokenExaport = null;
-			this.tokenExaport = "7b13b05e668b1118711d42b5a898a616";
+			this.tokenExaport = null;
+			// this.tokenExaport = "7b13b05e668b1118711d42b5a898a616";
 		} else {
 			this.tokenExaport = json.token;
 		}
@@ -69,20 +69,22 @@ var gtnMoodle = {
 		json = wsc.getJson(url, data);
 		if (json.error) {
 			app.debug("Token error: " + json.error);
-			// this.tokenExacomp = null;
-			this.tokenExacomp = "4aafa2c09ae274e7d2c1a6f2b968872e";
+			this.tokenExacomp = null;
+			// this.tokenExacomp = "4aafa2c09ae274e7d2c1a6f2b968872e";
 		} else {
 			this.tokenExacomp = json.token;
 		}
 
+		app.debug("Moodle token: " + gtnMoodle.token + "\nExaport token: " + gtnMoodle.tokenExaport + "\nExacomp token: " + gtnMoodle.tokenExacomp, 2);
+
 	},
 	getMoodleXml : function(wsfuction, token, data) {
-		app.debug("getMoodleXml(" + wsfuction + ", " + token + ", " + data + ")");
+		app.debug("getMoodleXml(" + wsfuction + ", " + token + ", " + data + ")", 2);
 		if (!data) {
 			data = "";
 		}
 		var xml = wsc.getXml(this.moodleUrl + this.webServiceUrl, "&wstoken=" + token + "&wsfunction=" + wsfuction + data);
-		app.debug("xml: " + new XMLSerializer().serializeToString(xml));
+		app.debug("xml: " + new XMLSerializer().serializeToString(xml), 2);
 		return xml;
 	},
 	getMoodleJson : function(wsfuction, token, data) {

@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<title>exalis</title>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<title>exalis</title>
+<link rel="stylesheet" href="../ext/jquery.mobile-1.4.0.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<!-- initial scripts -->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="../ext/jquery-2.1.0.min.js"></script>
+<!-- page scripts -->
+<script type="text/javascript" src="../js/page.competencies.js"></script>
+<script type="text/javascript" src="../js/page.eportfolio.js"></script>
+<script type="text/javascript" src="../js/page.grid.js"></script>
+<script type="text/javascript" src="../js/page.login.js"></script>
+<script type="text/javascript" src="../js/page.start.js"></script>
+<script type="text/javascript" src="../js/page.listcompetencies.js"></script>
+<script type="text/javascript" src="../js/page.competence.js"></script>
+<script type="text/javascript" src="../js/page.settings.js"></script>
+<!-- other -->
+<script type="text/javascript" src="../js/pageEvents.js"></script>
+<script type="text/javascript" src="../js/webServiceClient.js"></script>
+<script type="text/javascript" src="../js/gtnMoodle.js"></script>
+<script type="text/javascript" src="../js/app.js"></script>
+<script type="text/javascript" src="../js/md5.js"></script>
+<script type="text/javascript" src="../js/xml2json.js"></script>
+<script type="text/javascript" src="../ext/jquery.mobile-1.4.0.min.js"></script>
+
+</head>
+<body>
+	<div id="settings" data-role="page">
+		<!-- script -->
+		<script type="text/javascript">
+			
+		</script>
+		<div id="divHeader" class="ui-header ui-bar-a" role="banner" data-role="header" data-form="ui-bar-a" data-theme="a" data-swatch="a">
+			<a data-rel="back" id="btnBack" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Home " data-role="button" role="button" data-dom-cache="false"> back </a>
+			<h1 class="app-pagename ui-title" aria-level="1" role="heading" tabindex="0">Start</h1>
+			<a href="start.html" id="btnHome" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Navigation " data-role="button" role="button" data-dom-cache="false"> Home </a>
+		</div>
+		<!-- /header -->
+		<div data-role="content" role="main" class="app-content app-ul ui-content exalis_list">
+			<form id="frmSettings" data-ajax="false">
+				<div data-role="fieldcontain">
+					<label for="txtServer">Server URL</label>
+					<input type="text" name="txtServer" id="txtServer" value="" placeholder="Server URL" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="txtWebService">Web Service URL</label>
+					<input type="text" name="txtWebService" id="txtWebService" value="" placeholder="Web Service URL" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="txtToken">Token URL</label>
+					<input type="text" name="txtToken" id="txtToken" value="" placeholder="Token URL" />
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<legend>Debug</legend>
+						<input type="checkbox" name="cbxDebug" id="cbxDebug" class="custom" />
+						<label for="cbxDebug">Debug</label>
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="txtDebug">Debug Level</label>
+					<input type="text" name="txtDebug" id="txtDebug" value="" placeholder="Debug Level" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="txtTimeout">Webservice Timeout</label>
+					<input type="text" name="txtTimeout" id="txtTimeout" value="" placeholder="Webservice Timeout" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="txtMethod">Webservice Method</label>
+					<input type="text" name="txtMethod" id="txtMethod" value="" placeholder="Webservice Method" />
+				</div>
+				<input type="submit" name="set" value="Speichern" />
+			</form>
+
+		</div>
+		<!-- /content -->
+	</div>
+	<!-- /page -->
+</body>
+</html>

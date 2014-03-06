@@ -2,7 +2,7 @@ var wsc = {
 	timeout : 10000,
 	method : "get",
 	getJson : function(url, data) {
-		app.debug("wsc.getJson(" + url + ", " + data + ")");
+		app.debug("wsc.getJson(" + url + ", " + data + ")", 3);
 		$.ajax({
 			type : this.method,
 			dataType : "json",
@@ -23,7 +23,7 @@ var wsc = {
 		return rc;
 	},
 	getXml : function(url, data) {
-		app.debug("wsc.getXml(" + url + ", " + data + ")");
+		app.debug("wsc.getXml(" + url + ", " + data + ")", 3);
 		$.ajax({
 			type : this.method,
 			dataType : "xml",
