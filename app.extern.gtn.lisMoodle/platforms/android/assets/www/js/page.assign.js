@@ -92,7 +92,7 @@ var assign = {
 
 		$('#assign #btnUpload').on('click', function() {
 			assign.uploadPhoto();
-			$('#assign #pFilename').text(window.localStorage.getItem('data-app-photofilename');
+			$('#assign #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
 		});
 	}
 };
