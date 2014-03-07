@@ -1,60 +1,67 @@
-var webServiceUrl = "http://gtn02.gtn-solutions.com/moodlelis/blocks/exaport/epop.php";
-
-function getToken(username, password) {
-	var token = 0;
-	var rc = 99;
-	var data = "action=login&username=" + username + "&password=" + password;
-	$.ajax({
-		type : "post",
-		url : webServiceUrl,
-		async : false,
-		data : data,
-		timeout : 10000,
-		success : function(data) {
-			var split = data.split("=");
-			token = split[1];
-			window.localStorage.setItem("token", token);
-		},
-		error : function(jqXHR, textStatus, errorThrown) {
-			rc = -2;
-		},
-		complete : function(data) {
-			if (token != 0) {
-				rc = 1;
-			} else {
-				rc = -1;
+var wsc = {
+	timeout : 10000,
+	method : "get",
+	getJson : function(url, data) {
+		app.debug("wsc.getJson(" + url + ", " + data + ")", 3);
+		$.ajax({
+			type : this.method,
+			dataType : "json",
+			url : url,
+			async : false,
+			data : data,
+			timeout : this.timeout,
+			success : function(data) {
+				rc = data;
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				rc = -2;
+			},
+			complete : function(data) {
+				;
 			}
-		}
-	});
-	return rc;
-}
-
-function logout(){
-	window.localStorage.setItem("token", 0);
-	window.location.href = "login.html";
-}
-
-function getXML(serviceName, data) {
-	var XML = "";
-	var token = window.localStorage.getItem("token");
-	var rc = 99;
-
-	$.ajax({
-		type : "post",
-		dataType : "xml",
-		url : webServiceUrl,
-		async : false,
-		data : data,
-		timeout : 10000,
-		success : function(data) {
-			;
-		},
-		error : function(jqXHR, textStatus, errorThrown) {
-			rc = -2;
-		},
-		complete : function(data) {
-			;
-		}
-	});
-	return rc;
-}
+		});
+		return rc;
+	},
+	getXml : function(url, data) {
+		app.debug("wsc.getXml(" + url + ", " + data + ")", 3);
+		$.ajax({
+			type : this.method,
+			dataType : "xml",
+			url : url,
+			async : false,
+			data : data,
+			timeout : this.timeout,
+			success : function(data) {
+				rc = data;
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				rc = -2;
+			},
+			complete : function(data) {
+				;
+			}
+		});
+		return rc;
+	},
+	isConnected : function(url) {
+		app.debug("wsc.isConnected(" + url + ")", 3);
+		var rc = null;
+		$.ajax({
+			type : this.method,
+			dataType : "text",
+			url : url,
+			async : false,
+			timeout : 500,
+			success : function(data) {
+				rc = true;
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				rc = false;
+			},
+			complete : function(data) {
+				;
+			}
+		});
+		return rc;
+	}
+};

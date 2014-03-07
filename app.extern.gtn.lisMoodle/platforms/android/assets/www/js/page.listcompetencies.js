@@ -1,9 +1,10 @@
 $(document).on('pagebeforecreate', '#listcompetencies', function(event) {
-	app.debug("pagebeforecreate: listcompetencies");
+	app.debug("pagebeforecreate: listcompetencies", 3);
 	gtnMoodle.init("listcompetencies", "listcompetencies");
 	var courseId = window.localStorage.getItem('data-app-courseid');
 	var subtopicId = window.localStorage.getItem('data-app-subtopicid');
 	listcompetencies.loadCompetencies(courseId, subtopicId);
+	listcompetencies.defineEvents();
 	initIds();
 });
 
@@ -24,9 +25,9 @@ var listcompetencies = {
 
 			var teachercomp = "";
 			var studentcomp = "";
-			if (values['teachercomp'])
+			if (parseInt(values['teachercomp']))
 				teachercomp = 'checked="checked"';
-			if (values['studentcomp'])
+			if (parseInt(values['studentcomp']))
 				studentcomp = 'checked="checked"';
 
 			var append = '<div class="clear">&nbsp;</div>';
@@ -36,7 +37,7 @@ var listcompetencies = {
 			append += '<a href="competence.html" class="ui-btn ui-btn-icon-right ui-icon-carat-r exalis_heading" data-app-descriptorid="' + values['descriptorid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
 			append += '</li>';
 			append += '<li>';
-			append += '<input name="checkbox-1a" id="checkbox-1a" type="checkbox" ' + studentcomp + '>';
+			append += '<input class="app-studentcomp" name="checkbox-1a" id="checkbox-1a" data-app-descriptorid="' + values['descriptorid'] + '" type="checkbox" ' + studentcomp + '>';
 			append += '<label for="checkbox-1a">Selbsteinschaetzung Teilbereich</label>';
 			append += '</li>';
 			append += '<li>';
@@ -46,6 +47,37 @@ var listcompetencies = {
 			append += '</ul>';
 			append += '</fieldset>';
 			$("#listcompetencies .app-content").append(append);
+		});
+	},
+	setCompetenceStudentcomp : function(courseid, descriptorid, value) {
+		app.debug("listcompetencies.setCompetenceStudentcomp(" + courseid + ", " + descriptorid + ", " + value + ")", 2);
+		var success = null;
+		data = "&courseid=" + courseid + "&descriptorid=" + descriptorid + "&value=" + value;
+		xml = gtnMoodle.getMoodleXml("block_exacomp_set_competence", gtnMoodle.tokenExacomp, data);
+		$(xml).find('SINGLE').each(function() {
+			app.debug("SINGLE", 1);
+			var values = new Array();
+			$(this).find('KEY').each(function() {
+				app.debug("SINGLE>KEY", 1);
+				var name = $(this).attr('name');
+				values[name] = $(this).text();
+			});
+			app.debug("Success setting studentcomp: " + values['success'], 2);
+			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich geändert.");
+		});
+	},
+	defineEvents : function() {
+		app.debug("listcompetencies.defineEvents()", 2);
+		$("#listcompetencies .app-studentcomp").change(function() {
+			app.debug('Cbx changed to: ' + $(this).prop("checked"), 1);
+			var courseid = window.localStorage.getItem('data-app-courseid');
+			var descriptorid = $(this).attr('data-app-descriptorid');
+			var value = null;
+			if ($(this).prop("checked"))
+				value = 1;
+			else
+				value = 0;
+			listcompetencies.setCompetenceStudentcomp(courseid, descriptorid, value);
 		});
 	}
 };

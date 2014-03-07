@@ -4,7 +4,9 @@ var gtnMoodle = {
 	tokenExaport : null,
 	tokenPage : "login/token.php",
 	moodleUrl : "http://gtn02.gtn-solutions.com/moodle26/",
-	webServiceUrl : "/webservice/rest/server.php",
+	webServiceUrl : "webservice/rest/server.php",
+	uploadUrl : "webservice/upload.php",
+	keepAlive : "blocks/exacomp/styles.css",
 
 	init : function(pageId, pagename) {
 		app.debug("init(" + pageId + ", " + pagename + ")", 2);
@@ -76,6 +78,14 @@ var gtnMoodle = {
 		}
 
 		app.debug("Moodle token: " + gtnMoodle.token + "\nExaport token: " + gtnMoodle.tokenExaport + "\nExacomp token: " + gtnMoodle.tokenExacomp, 2);
+
+	},
+	checkMoodleConnectivity : function() {
+		app.debug("getMoodle.checkMoodleConnectivity()", 2);
+		if (wsc.isConnected(gtnMoodle.moodleUrl + gtnMoodle.keepAlive))
+			return true;
+		else
+			return false;
 
 	},
 	getMoodleXml : function(wsfuction, token, data) {

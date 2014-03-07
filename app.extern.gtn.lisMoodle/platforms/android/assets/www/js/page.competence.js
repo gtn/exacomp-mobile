@@ -1,5 +1,5 @@
 $(document).on('pagebeforecreate', '#competence', function(event) {
-	app.debug("pagebeforecreate: competence");
+	app.debug("pagebeforecreate: competence", 3);
 	gtnMoodle.init("competence", "competence");
 	var courseId = window.localStorage.getItem('data-app-courseid');
 	var descriptorId = window.localStorage.getItem('data-app-descriptorid');
@@ -22,15 +22,15 @@ var competence = {
 				values[name] = $(this).text();
 			});
 			var append = "";
-			if ($.trim(values['type']) == 'exaport') {
+			if ($.trim(values['type']) == 'exaport') { // Portfolio
 				append += '<li>';
 				append += '<a class="ui-btn ui-btn-icon-right ui-icon-portfolio" href="' + values['link'] + '" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
 				append += '</li>';
-			} else if ($.trim(values['type']) == 'assign') {
+			} else if ($.trim(values['type']) == 'assign') { // Aufgabe
 				append += '<li>';
-				append += '<a class="ui-btn ui-btn-icon-right ui-icon-star" href="' + values['link'] + '" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
+				append += '<a class="ui-btn ui-btn-icon-right ui-icon-star" href="assign.html" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
 				append += '</li>';
-			} else if ($.trim(values['type']) == 'example') {
+			} else if ($.trim(values['type']) == 'example') { // Beispiel
 				append += '<li>';
 				append += '<a class="ui-btn ui-btn-icon-right ui-icon-eye" href="' + values['link'] + '" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
 				append += '</li>';

@@ -1,8 +1,8 @@
 function initIds() {
-	app.debug("pageinit: save ids");
+	app.debug("pageinit: save ids", 2);
 	$("a").off("click");
 	$("a").on("click", function() {
-		app.debug("a.click: set ids");
+		app.debug("a.click: set ids", 2);
 		if ($(this).attr('data-app-courseid')) {
 			app.debug("cahnge: data-app-courseid");
 			window.localStorage.setItem('data-app-courseid', $(this).attr('data-app-courseid'));

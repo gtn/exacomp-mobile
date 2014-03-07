@@ -42,5 +42,26 @@ var wsc = {
 			}
 		});
 		return rc;
+	},
+	isConnected : function(url) {
+		app.debug("wsc.isConnected(" + url + ")", 3);
+		var rc = null;
+		$.ajax({
+			type : this.method,
+			dataType : "text",
+			url : url,
+			async : false,
+			timeout : 500,
+			success : function(data) {
+				rc = true;
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				rc = false;
+			},
+			complete : function(data) {
+				;
+			}
+		});
+		return rc;
 	}
 };
