@@ -2,7 +2,7 @@ $(document).on('pagebeforecreate', '#grid', function(event) {
 	app.debug("pagebeforecreate: grid");
 	gtnMoodle.init("grid", "grid");
 	grid.loadSubjects();
-	grid.loadTopics(grid.subjectId);
+	grid.loadTopics(grid.subjectId, window.localStorage.getItem('data-app-courseid'));
 	grid.defineEvents();
 	initIds();
 	// $("#grid").page()
@@ -30,10 +30,10 @@ var grid = {
 			$("#grid .app-subjects").append('<option class="app-subject" data-app-subjectid="' + values['subjectid'] + '" value="' + values['subjectid'] + '">' + values['title'] + '</option>');
 		});
 	},
-	loadTopics : function(subjectId) {
+	loadTopics : function(subjectId, courseId) {
 		app.debug("grid.loadTopics(" + subjectId + ")", 2);
 		$("#grid .app-gridarea").empty();
-		data = "&subjectid=" + subjectId;
+		data = "&subjectid=" + subjectId + "&courseid=" + courseId;
 		xml = gtnMoodle.getMoodleXml("block_exacomp_get_topics", gtnMoodle.tokenExacomp, data);
 		$(xml).find('MULTIPLE>SINGLE').each(function() {
 			app.debug("MULTIPLE>SINGLE", 1);
@@ -109,7 +109,7 @@ var grid = {
 		$("#grid .app-subjects").on("change", function(event, ui) {
 			page.changeId("data-app-subjectid", $(this).val());
 			$("#grid .app-gridarea").hide();
-			grid.loadTopics(window.localStorage.getItem("data-app-subjectid"));
+			grid.loadTopics(window.localStorage.getItem("data-app-subjectid"), window.localStorage.getItem('data-app-courseid'));
 			$("#grid .app-gridarea").trigger('create');
 			$("#grid .app-gridarea").show();
 			grid.defineEvents();

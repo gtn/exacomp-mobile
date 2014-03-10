@@ -5,6 +5,7 @@ $(document).bind("mobileinit", function() {
 	$.mobile.allowCrossDomainPages = true;
 	$.mobile.page.prototype.options.domCache = false;
 	settings.initSettings();
+	app.cordovaAvailable = true;
 });
 
 /* on cordova initialisation */
@@ -28,7 +29,8 @@ $(document).on('pageshow', function(event) {
 var app = {
 	debugDevice : true,
 	doDebuging : "false",
-	debugLevel : 1,
+	debugLevel : 2,
+	cordovaAvailable : false,
 	init : function() {
 	},
 	debug : function(text, level) {
