@@ -23,6 +23,14 @@ function initIds() {
 			app.debug("cahnge: data-app-contentid");
 			window.localStorage.setItem('data-app-contentid', $(this).attr('data-app-contentid'));
 		}
+		if ($(this).attr('data-app-portfolioid')) {
+			app.debug("cahnge: data-app-portfolioid");
+			window.localStorage.setItem('data-app-portfolioid', $(this).attr('data-app-portfolioid'));
+		}
+		if ($(this).attr('data-app-portfolioid-last')) {
+			app.debug("cahnge: data-app-portfolioid-last");
+			window.localStorage.setItem('data-app-portfolioid-last', $(this).attr('data-app-portfolioid-last'));
+		}
 	});
 }
 

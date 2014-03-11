@@ -52,7 +52,7 @@ var grid = {
 			append += '<div data-role="collapsible" data-content-theme="false" class="kompetenzraster_pushright">';
 			append += '<h4>' + values['title'] + '</h4>';
 			append += '<ul data-role="listview" class="app-subtopic-' + values['topicid'] + '">';
-			append += grid.loadSubtopics(subjectId, values['topicid']);
+			append += grid.loadSubtopics(courseId, values['topicid']);
 			append += '</ul>';
 			append += '</div>';
 			$("#grid .app-gridarea").append(append);
