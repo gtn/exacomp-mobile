@@ -1,6 +1,6 @@
 var nativeUpload = {
 	uploadPhoto : function(photoUri) {
-		var fileName = "mobilePhoto_" + Math.floor((Math.random() * 100000000) + 1) + ".jpg"
+		var fileName = "exalisAppPhoto_" + Math.floor((Math.random() * 1000000000) + 1) + ".jpg"
 		window.localStorage.setItem('data-app-photofilename', fileName);
 		var options = new FileUploadOptions();
 		options.fileKey = "file_box";

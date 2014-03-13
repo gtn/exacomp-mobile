@@ -42,7 +42,7 @@
 <script type="text/javascript" src="../ext/jquery.mobile-1.4.0.min.js"></script>
 </head>
 <body>
-	<div id="portfolioItems" data-role="page">
+	<div id="portfolioItems" data-role="page" data-dom-cache="false">
 		<div id="divHeader" class="ui-header ui-bar-a" role="banner" data-role="header" data-form="ui-bar-a" data-theme="a" data-swatch="a">
 			<a data-rel="back" id="btnBack" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Home " data-role="button" role="button" data-dom-cache="false"> back </a>
 			<h1 class="app-pagename ui-title" aria-level="1" role="heading" tabindex="0">Start</h1>
@@ -164,8 +164,7 @@
 						<a href="portfolioItem.html">Publikation und Kommunikation</a>
 					</div>
 					<div class="excomdos_tileedit">
-						<a href="portfolioEditItem.html" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a> 
-						<a href="#" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>
+						<a href="portfolioEditItem.html" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a> <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>
 					</div>
 				</div>
 				<!-- End excomdos_tile -->
@@ -193,7 +192,7 @@
 
 			<div class="clear">&nbsp;</div>
 			<p class="centered margin-top">
-				<a href="portfolioEditItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Item hinzufügen</a>
+				<a data-app-portfoliotype="category" href="portfolioEditItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Categorie</a> <a data-app-portfoliotype="link" href="portfolioEditItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Notiz</a> <a data-app-portfoliotype="note" href="portfolioEditItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neuer Link</a> <a data-app-portfoliotype="file" href="portfolioEditItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Datei</a>
 				<!-- <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-check">Lösung ändern</a> -->
 			</p>
 

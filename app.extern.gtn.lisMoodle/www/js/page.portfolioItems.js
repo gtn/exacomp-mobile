@@ -8,7 +8,7 @@ $(document).on('pagebeforecreate', '#portfolioItems', function(event) {
 
 var portfolioItems = {
 	loadPortfolioItems : function(id, lastId) {
-		app.debug("portfolioItems.portfolioItems(" + id + ", " + lastId + ")");
+		app.debug("portfolioItems.loadPortfolioItems(" + id + ", " + lastId + ")");
 		$("#portfolioItems .exalis_eport_raster").empty();
 		if (id != 0) {
 			var append = '';
@@ -50,11 +50,11 @@ var portfolioItems = {
 				append += '<img src="../img/note_tile.png" />';
 				append += '</div>';
 				append += '<div class="exomdos_tiletitle">';
-				append += '<a href="portfolioItem.html">' + values['name'] + '</a>';
+				append += '<a data-dom-cache="false" href="portfolioItem.html" data-app-portfoliotype="note" data-app-portfolioid="' + values['id'] + '">' + values['name'] + '</a>';
 				append += '</div>';
 				append += '<div class="excomdos_tileedit">';
-				append += '<a href="portfolioEditItem.html" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>';
-				append += '<a href="#" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
+				append += '<a data-dom-cache="false" href="portfolioEditItem.html" data-app-portfoliotype="note"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>';
+				append += '<a data-dom-cache="false" href="portfolioDeleteItem.html" data-app-portfoliotype="note"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
 				append += '</div>';
 				append += '</div>';
 				$("#portfolioItems .exalis_eport_raster").append(append);
@@ -68,11 +68,11 @@ var portfolioItems = {
 				append += '<img src="../img/file_tile.png" />';
 				append += '</div>';
 				append += '<div class="exomdos_tiletitle">';
-				append += '<a href="portfolioItem.html">' + values['name'] + '</a>';
+				append += '<a data-dom-cache="false" href="portfolioItem.html" data-app-portfoliotype="file" data-app-portfolioid="' + values['id'] + '">' + values['name'] + '</a>';
 				append += '</div>';
 				append += '<div class="excomdos_tileedit">';
-				append += '<a href="portfolioEditItem.html" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>';
-				append += '<a href="#" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
+				append += '<a data-dom-cache="false" href="portfolioEditItem.html" data-app-portfoliotype="file"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>';
+				append += '<a data-dom-cache="false" href="portfolioDeleteItem.html" data-app-portfoliotype="file"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
 				append += '</div>';
 				append += '</div>';
 				$("#portfolioItems .exalis_eport_raster").append(append);
@@ -86,11 +86,11 @@ var portfolioItems = {
 				append += '<img src="../img/logo.jpg" />';
 				append += '</div>';
 				append += '<div class="exomdos_tiletitle">';
-				append += '<a href="portfolioItem.html" data-app-portfolioid="' + values['id'] + '">' + values['name'] + '</a>';
+				append += '<a data-dom-cache="false" href="portfolioItem.html" data-app-portfoliotype="link"  data-app-portfolioid="' + values['id'] + '">' + values['name'] + '</a>';
 				append += '</div>';
 				append += '<div class="excomdos_tileedit">';
-				append += '<a href="portfolioEditItem.html" data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a> ';
-				append += '<a href="#" data-app-portfolioid="' + values['id'] + '"  class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
+				append += '<a data-dom-cache="false" href="portfolioEditItem.html" data-app-portfoliotype="link" data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a> ';
+				append += '<a data-dom-cache="false" href="portfolioDeleteItem.html" data-app-portfoliotype="link" data-app-portfolioid="' + values['id'] + '"  class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
 				append += '</div>';
 				append += '</div>';
 				$("#portfolioItems .exalis_eport_raster").append(append);
@@ -104,11 +104,11 @@ var portfolioItems = {
 				append += '<img src="../img/folder_tile.png" />';
 				append += '</div>';
 				append += '<div class="exomdos_tiletitle">';
-				append += '<a href="portfolioItems.html" class="app-category-change" data-app-portfolioid="' + values['id'] + '" data-app-portfolioid-last="' + lastId + '">' + values['name'] + '</a>';
+				append += '<a data-dom-cache="false" href="portfolioItems.html" data-app-portfoliotype="category"  class="app-category-change" data-app-portfolioid="' + values['id'] + '" data-app-portfolioid-last="' + lastId + '">' + values['name'] + '</a>';
 				append += '</div>';
 				append += '<div class="excomdos_tileedit">';
-				append += '<a href="portfolioEditItem.html" data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>';
-				append += '<a href="#" data-app-portfolioid="' + values['id'] + '"  class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
+				append += '<a data-dom-cache="false" href="#" data-app-portfoliotype="category"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>';
+				append += '<a data-dom-cache="false" href="#"data-app-portfoliotype="category"  data-app-portfolioid="' + values['id'] + '"  class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
 				append += '</div>';
 				append += '</div>';
 				$("#portfolioItems .exalis_eport_raster").append(append);

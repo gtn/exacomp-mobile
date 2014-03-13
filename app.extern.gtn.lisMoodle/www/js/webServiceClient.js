@@ -14,7 +14,7 @@ var wsc = {
 				rc = data;
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
-				rc = -2;
+				rc = false;
 			},
 			complete : function(data) {
 				;
@@ -35,7 +35,7 @@ var wsc = {
 				rc = data;
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
-				rc = -2;
+				rc = false;
 			},
 			complete : function(data) {
 				;
