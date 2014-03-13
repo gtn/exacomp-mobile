@@ -106,7 +106,7 @@ var portfolioNewItem = {
 
 		$('#portfolioNewItem #btnUpload').on('click', function() {
 			portfolioNewItem.uploadPhoto();
-			$('#assign #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
+			$('#portfolioNewItem #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
 		});
 	}
 };

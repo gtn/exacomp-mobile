@@ -12,7 +12,7 @@ $(document).bind("mobileinit", function() {
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-	;// alert("device ready");
+	app.cordovaAvailable = true;
 }
 
 /* on pagebeforecreate */
