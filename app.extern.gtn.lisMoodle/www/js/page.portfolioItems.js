@@ -114,6 +114,15 @@ var portfolioItems = {
 				$("#portfolioItems .exalis_eport_raster").append(append);
 			}
 		});
+		var append = '';
+		append += '<p class="centered margin-top">';
+		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="category" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Categorie</a> ';
+		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="note" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Notiz</a> ';
+		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="link" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neuer Link</a> ';
+		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="file" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Datei</a>';
+		append += '</p>';
+		$("#portfolioItems .app-buttons").empty();
+		$("#portfolioItems .app-buttons").append(append);
 	},
 	defineEvents : function() {
 		app.debug("portfolioItems.defineEvents()", 2);

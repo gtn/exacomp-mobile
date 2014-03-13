@@ -47,7 +47,7 @@
 <script type="text/javascript" src="../ext/jquery.mobile-1.4.0.min.js"></script>
 </head>
 <body>
-	<div id="portfolioView" data-role="page">
+	<div id="portfolioNewItem" data-role="page">
 		<div id="divHeader" class="ui-header ui-bar-a" role="banner" data-role="header" data-form="ui-bar-a" data-theme="a" data-swatch="a">
 			<a data-rel="back" id="btnBack" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Home " data-role="button" role="button" data-dom-cache="false"> back </a>
 			<h1 class="app-pagename ui-title" aria-level="1" role="heading" tabindex="0">Start</h1>
@@ -55,67 +55,51 @@
 		</div>
 		<!-- /header -->
 
-		<div role="main" class="ui-content exalis_views single_view">
+
+		<div role="main" class="ui-content exalis_menue exalis_list app-portfolioNewItem">
+
+			<h1>Static</h1>
 
 
-			<ul data-role="listview" data-split-icon="delete" data-split-theme="a" data-inset="true">
-				<li>
-					<a href="#"> <img src="../img/album-bb.jpg">
-						<h2>Publikation und Kommunikation</h2>
-						<p>For example, if a block of HTML markup (say a login form) was loaded in through Ajax, trigger the create event to automatically transform all the widgets it contains (inputs and buttons in this case) into the enhanced versions.</p></a> <a href="#">delete</a>
-				</li>
-				<li>
-					<a href="#"> <img src="../img/file_tile_square.png">
-						<h2>Publikation und Kommunikation</h2>
-						<p>Ajax, trigger the create event to automatically transform all the widgets it contains (inputs and buttons in this case) into the enhanced versions.</p></a> <a href="#">delete</a>
-				</li>
-				<li>
-					<a href="#"> <img src="../img/note_tile_square.png">
-						<h2>Publikation und Kommunikation</h2>
-						<p>Ajax, trigger the create event to automatically transform all the widgets it contains (inputs and buttons in this case) into the enhanced versions.</p></a> <a href="#">delete</a>
-				</li>
-				<li>
-					<a href="#"> <img src="../img/link_tile_square.png">
-						<h2>Publikation und Kommunikation</h2>
-						<p>Ajax, trigger the create event to automatically transform all the widgets it contains (inputs and buttons in this case) into the enhanced versions.</p></a> <a href="#">delete</a>
-				</li>
-				<li>
-					<a href="#"> <img src="../img/tesst2.png">
-						<h2>Publikation und Kommunikation</h2>
-						<p>Ajax, trigger the create event to automatically transform all the widgets it contains (inputs and buttons in this case) into the enhanced versions.</p></a> <a href="#">delete</a>
-				</li>
-			</ul>
+			<form>
 
 
-			<p class="centered margin-top">
-				<a href="#popupExternerLink" data-rel="popup" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-action ui-mini">Externen Link anzeigen</a>
-				<!-- <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-check">Lösung ändern</a> -->
-			</p>
+				<select name="select-choice-a" id="select-choice-a" data-native-menu="false">
+
+					<option value="standard">Category</option>
+					<option value="rush">File</option>
+					<option value="express">Link</option>
+					<option value="overnight">Note</option>
+				</select>
 
 
-			<div data-role="popup" id="popupExternerLink" class="ui-content" style="max-width: 280px">
-				<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-left">Close</a>
-				<p>
-					<a href="">http://gtn-solutions.com/moodle/blocks/exaport/shared_view.php?access=hash/2-9f1880c8</a>
+				<label for="text-basic">Beschreibung:</label>
+				<input name="text-basic" id="text-basic" value="" type="text">
+
+				<label for="text-basic">Link:</label>
+				<input name="text-basic" id="text-basic" value="" type="text">
+
+				<label for="file">Upload:</label>
+				<div class="file_upload">
+					<input name="file" id="file" value="" type="file">
+				</div>
+
+				<label for="textarea">Inhalt:</label>
+				<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+
+				<p class="centered">
+					<a href="item_uploaded.php" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-check ui-mini">Speichern</a>
+					<!-- <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-check">Lösung ändern</a> -->
 				</p>
+			</form>
 
-				<p class="centered margin-top">
-					<a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Link kopieren</a>
-				</p>
-			</div>
 
-			<p class="centered margin-top">
-				<a href="view.php" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Item hinzufügen</a>
-				<!-- <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-check">Lösung ändern</a> -->
-				<a href="item_uploaded.php" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-check ui-mini">Speichern</a>
-				<!-- <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-check">Lösung ändern</a> -->
-			</p>
+
 
 
 
 		</div>
 		<!-- /content -->
-
 
 
 

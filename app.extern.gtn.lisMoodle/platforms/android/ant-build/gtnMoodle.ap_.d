@@ -481,6 +481,9 @@
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/index.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/md5.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/native.camera.js \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/native.events.js \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/native.general.js \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/native.notification.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/native.upload.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/page.assign.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/page.competence.js \
@@ -494,6 +497,8 @@
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/page.portfolioEditView.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/page.portfolioItem.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/page.portfolioItems.js \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/page.portfolioNewItem.js \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/page.portfolioNewView.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/page.portfolioView.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/page.portfolioViews.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/page.settings.js \
@@ -514,6 +519,8 @@
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/portfolioEditView.html \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/portfolioItem.html \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/portfolioItems.html \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/portfolioNewItem.html \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/portfolioNewView.html \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/portfolioView.html \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/portfolioViews.html \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/settings.html \

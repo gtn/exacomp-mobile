@@ -12,7 +12,7 @@ $(document).bind("mobileinit", function() {
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-	;// alert("device ready");
+	app.cordovaAvailable = true;
 }
 
 /* on pagebeforecreate */
@@ -27,7 +27,7 @@ $(document).on('pageshow', function(event) {
 	}
 });
 var app = {
-	debugDevice : false,
+	debugDevice : true,
 	doDebuging : "false",
 	debugLevel : 2,
 	cordovaAvailable : false,
