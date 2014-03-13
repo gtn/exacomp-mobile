@@ -73,6 +73,7 @@ var portfolioEditItem = {
 		app.debug("portfolioEditItem.updateItem(" + id + ", " + title + ", " + url + ", " + intro + ", " + filename + ", " + type + ")");
 		var success = null;
 		data = "&id=" + id + "&title=" + title + "&url=" + url + "&intro=" + intro + "&filename=" + filename + "&type=" + type;
+		app.debug(data, 2);
 		xml = gtnMoodle.getMoodleXml("block_exaport_update_item", gtnMoodle.tokenExaport, data);
 		$(xml).find('SINGLE').each(function() {
 			app.debug("SINGLE", 1);

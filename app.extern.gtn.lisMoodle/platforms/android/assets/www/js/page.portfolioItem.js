@@ -29,7 +29,7 @@ var portfolioItem = {
 			append += '<p>File: ' + values['file'] + '</p>';
 			append += '<p>Is image: ' + values['isimage'] + '</p>';
 			if (parseInt(values['isimage'])) {
-				append += '<img src="' + values['file'] + '" class="portfolio_item" />';
+				append += '<img src="' + values['file'] + '&token=' + gtnMoodle.tokenExaport + '" class="portfolio_item" />';
 			}
 			append += '';
 			$("#portfolioItem .exalis_item").append(append);
