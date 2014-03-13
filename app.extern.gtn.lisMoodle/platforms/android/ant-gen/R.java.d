@@ -1,4 +1,4 @@
-/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/ant-gen/com/gtn_solutions/gtnMoodle/R.java \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/ant-gen/com/gtn_solutions/exalis/R.java \
  : /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/res/drawable/icon.png \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/res/drawable-hdpi/icon.png \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/res/drawable-ldpi/icon.png \

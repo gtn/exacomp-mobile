@@ -41,6 +41,7 @@ var portfolioEditItem = {
 				append += '<input id="btnSelectFromSavedPhotoAlbum" type="button" value="Foto aus Album">';
 				append += '<input id="btnTakePhoto" type="button" value="Foto aufnehmen">';
 				append += '<input id="btnSelectFromPhotoLibrary" type="button" value="Foto aus Bibliothek">';
+				append += '<input id="btnUpload" type="button" value="Upload Photo">';
 			}
 			if (values['type'].trim() == "link") {
 				append += '<label for="text-basic">Name:</label>';
@@ -61,21 +62,39 @@ var portfolioEditItem = {
 			append += '';
 			append += '';
 			append += '';
+			append += '<input id="btnSubmit" type="button" value="Update item">';
 			$("#portfolioEditItem .app-portfolioEditItem").append(append);
 		});
 	},
+	uploadPhoto : function() {
+		nativeUpload.uploadPhoto(window.localStorage.getItem('data-app-imageurl'));
+	},
+	updateItem : function() {
+		;
+	},
 	defineEvents : function() {
-		$('#assign #btnTakePhoto').on('click', function() {
+		$('#portfolioEditItem #btnTakePhoto').on('click', function() {
 			app.debug("on btn click: upload", 2)
 			nativeCamera.takePhoto();
 		});
-		$('#assign #btnSelectFromSavedPhotoAlbum').on('click', function() {
+		$('#portfolioEditItem #btnSelectFromSavedPhotoAlbum').on('click', function() {
 			app.debug("on btn click: selectFromSavedPhotoAlbum", 2)
 			nativeCamera.selectFromSavedPhotoAlbum();
 		});
-		$('#assign #btnSelectFromPhotoLibrary').on('click', function() {
+		$('#portfolioEditItem #btnSelectFromPhotoLibrary').on('click', function() {
 			app.debug("on btn click: selectFromPhotoLibrary", 2)
 			nativeCamera.selectFromPhotoLibrary();
+		});
+		$('#portfolioEditItem #btnSubmit').on('click', function() {
+			var filename = $('#assign #pFilename').text();
+			var onlinetext = $('#assign #txtText').val();
+			var assignid = window.localStorage.getItem('data-app-contentid');
+			assign.saveAssign(assignid, onlinetext, filename);
+		});
+
+		$('#portfolioEditItem #btnUpload').on('click', function() {
+			portfolioEditItem.uploadPhoto();
+			$('#assign #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
 		});
 	}
 };

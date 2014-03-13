@@ -27,7 +27,7 @@ $(document).on('pageshow', function(event) {
 	}
 });
 var app = {
-	debugDevice : true,
+	debugDevice : false,
 	doDebuging : "false",
 	debugLevel : 2,
 	cordovaAvailable : false,
