@@ -51,6 +51,8 @@ var gtnMoodle = {
 		if (json.error) {
 			app.debug("Token error: " + json.error);
 			this.token = null;
+		} else if (!json) {
+			app.notify("Moodle Timeout", "Moodle Timeout");
 		} else {
 			this.token = json.token;
 		}
@@ -62,6 +64,8 @@ var gtnMoodle = {
 			app.debug("Token error: " + json.error);
 			this.tokenExaport = null;
 			// this.tokenExaport = "7b13b05e668b1118711d42b5a898a616";
+		} else if (!json) {
+			app.notify("Moodle Timeout", "Moodle Timeout");
 		} else {
 			this.tokenExaport = json.token;
 		}
@@ -73,12 +77,12 @@ var gtnMoodle = {
 			app.debug("Token error: " + json.error);
 			this.tokenExacomp = null;
 			// this.tokenExacomp = "4aafa2c09ae274e7d2c1a6f2b968872e";
+		} else if (!json) {
+			app.notify("Moodle Timeout", "Moodle Timeout");
 		} else {
 			this.tokenExacomp = json.token;
 		}
-
 		app.debug("Moodle token: " + gtnMoodle.token + "\nExaport token: " + gtnMoodle.tokenExaport + "\nExacomp token: " + gtnMoodle.tokenExacomp, 2);
-
 	},
 	checkMoodleConnectivity : function() {
 		app.debug("getMoodle.checkMoodleConnectivity()", 2);
@@ -94,8 +98,13 @@ var gtnMoodle = {
 			data = "";
 		}
 		var xml = wsc.getXml(this.moodleUrl + this.webServiceUrl, "&wstoken=" + token + "&wsfunction=" + wsfuction + data);
-		app.debug("xml: " + new XMLSerializer().serializeToString(xml), 2);
-		return xml;
+		if (xml) {
+			app.debug("xml: " + new XMLSerializer().serializeToString(xml), 2);
+			return xml;
+		} else {
+			app.notify("Moodle Timeout", "Möglicherweise hat dein Gerät keine Internetverbindung");
+			return false;
+		}
 	},
 	getMoodleJson : function(wsfuction, token, data) {
 		app.debug("getMoodleJson(" + wsfuction + ", " + token + ", " + data + ")");

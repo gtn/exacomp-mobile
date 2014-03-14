@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>exalis</title>
 <link rel="stylesheet" href="../ext/jquery.mobile-1.4.0.min.css">
@@ -81,11 +83,11 @@
 </script>
 </head>
 <body>
-	<div data-role="page" id="login">
+	<div data-role="page" id="login" data-dom-cache="false">
 		<div id="divHeader" class="ui-header ui-bar-a" role="banner" data-role="header" data-form="ui-bar-a" data-theme="a" data-swatch="a">
-			<a data-rel="back" id="btnBack" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Home " data-role="button" role="button" data-dom-cache="false"> back </a>
+			<a data-ajax="false" data-rel="back" id="btnBack" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-carat-l ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Home " data-role="button" role="button"> back </a>
 			<h1 class="app-pagename ui-title" aria-level="1" role="heading" tabindex="0">Start</h1>
-			<a href="start.html" id="btnHome" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Navigation " data-role="button" role="button" data-dom-cache="false"> Home </a>
+			<a data-ajax="false" href="start.html" id="btnHome" class="ui-nodisc-icon ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext" data-form="ui-icon" title=" Navigation " data-role="button" role="button"> Home </a>
 		</div>
 		<!-- /header -->
 		<div data-role="content" data-ajax="false">

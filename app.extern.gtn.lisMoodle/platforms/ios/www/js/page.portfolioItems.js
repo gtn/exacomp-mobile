@@ -54,7 +54,7 @@ var portfolioItems = {
 				append += '</div>';
 				append += '<div class="excomdos_tileedit">';
 				append += '<a data-dom-cache="false" href="portfolioEditItem.html" data-app-portfoliotype="note"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>';
-				append += '<a data-dom-cache="false" href="portfolioDeleteItem.html" data-app-portfoliotype="note"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
+				append += '<a data-dom-cache="false" href="#" data-app-portfoliotype="note"  data-app-portfolioid="' + values['id'] + '" class="app-delete-item ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
 				append += '</div>';
 				append += '</div>';
 				$("#portfolioItems .exalis_eport_raster").append(append);
@@ -72,7 +72,7 @@ var portfolioItems = {
 				append += '</div>';
 				append += '<div class="excomdos_tileedit">';
 				append += '<a data-dom-cache="false" href="portfolioEditItem.html" data-app-portfoliotype="file"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>';
-				append += '<a data-dom-cache="false" href="portfolioDeleteItem.html" data-app-portfoliotype="file"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
+				append += '<a data-dom-cache="false" href="#" data-app-portfoliotype="file"  data-app-portfolioid="' + values['id'] + '" class="app-delete-item ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
 				append += '</div>';
 				append += '</div>';
 				$("#portfolioItems .exalis_eport_raster").append(append);
@@ -90,7 +90,7 @@ var portfolioItems = {
 				append += '</div>';
 				append += '<div class="excomdos_tileedit">';
 				append += '<a data-dom-cache="false" href="portfolioEditItem.html" data-app-portfoliotype="link" data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a> ';
-				append += '<a data-dom-cache="false" href="portfolioDeleteItem.html" data-app-portfoliotype="link" data-app-portfolioid="' + values['id'] + '"  class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
+				append += '<a data-dom-cache="false" href="#" data-app-portfoliotype="link" data-app-portfolioid="' + values['id'] + '"  class="app-delete-item ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
 				append += '</div>';
 				append += '</div>';
 				$("#portfolioItems .exalis_eport_raster").append(append);
@@ -107,12 +107,38 @@ var portfolioItems = {
 				append += '<a data-dom-cache="false" href="portfolioItems.html" data-app-portfoliotype="category"  class="app-category-change" data-app-portfolioid="' + values['id'] + '" data-app-portfolioid-last="' + lastId + '">' + values['name'] + '</a>';
 				append += '</div>';
 				append += '<div class="excomdos_tileedit">';
-				append += '<a data-dom-cache="false" href="#" data-app-portfoliotype="category"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>';
-				append += '<a data-dom-cache="false" href="#"data-app-portfoliotype="category"  data-app-portfolioid="' + values['id'] + '"  class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
+				append += '<a data-dom-cache="false" href="portfolioEditItem.html" data-app-portfoliotype="category"  data-app-portfolioid="' + values['id'] + '" class="ui-btn ui-icon-edit ui-btn-icon-notext ui-corner-all ui-btn-inline">edit</a>';
+				append += '<a data-dom-cache="false" href="#" data-app-portfoliotype="category"  data-app-portfolioid="' + values['id'] + '"  class="app-delete-item ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-btn-inline">delete</a>';
 				append += '</div>';
 				append += '</div>';
 				$("#portfolioItems .exalis_eport_raster").append(append);
 			}
+		});
+		var append = '';
+		append += '<p class="centered margin-top">';
+		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="category" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Categorie</a> ';
+		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="note" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Notiz</a> ';
+		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="link" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neuer Link</a> ';
+		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="file" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Datei</a>';
+		append += '</p>';
+		$("#portfolioItems .app-buttons").empty();
+		$("#portfolioItems .app-buttons").append(append);
+	},
+	deleteItem : function(id) {
+		app.debug('portfolioItems.deleteItem(' + id + ')', 2);
+		var success = null;
+		data = "&id=" + id;
+		xml = gtnMoodle.getMoodleXml("block_exaport_delete_item", gtnMoodle.tokenExaport, data);
+		$(xml).find('SINGLE').each(function() {
+			app.debug("SINGLE", 1);
+			var values = new Array();
+			$(this).find('KEY').each(function() {
+				app.debug("SINGLE>KEY", 1);
+				var name = $(this).attr('name');
+				values[name] = $(this).text();
+			});
+			app.debug("Success update portfolioitem: " + values['success'], 2);
+			app.notify("Aufgabe", "Item erfolgreich geändert.");
 		});
 	},
 	defineEvents : function() {
@@ -122,6 +148,12 @@ var portfolioItems = {
 			portfolioItems.loadPortfolioItems(window.localStorage.getItem('data-app-portfolioid'), window.localStorage.getItem('data-app-portfolioid-last'));
 			initIds();
 			portfolioItems.defineEvents();
+		});
+
+		$('#portfolioItems .app-delete-item').on("click", function(e) {
+			var id = window.localStorage.getItem('data-app-portfolioid');
+			portfolioItems.deleteItem(id);
+			location.reload();
 		});
 	}
 };

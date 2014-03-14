@@ -1,33 +1,5 @@
-/* on jquery mobile initialisation */
-$(document).bind("mobileinit", function() {
-	app.debug("mobileinit", 2);
-	$.support.cors = true;
-	$.mobile.allowCrossDomainPages = true;
-	$.mobile.page.prototype.options.domCache = false;
-	settings.initSettings();
-	app.cordovaAvailable = true;
-});
-
-/* on cordova initialisation */
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onDeviceReady() {
-	;// alert("device ready");
-}
-
-/* on pagebeforecreate */
-$(document).on('pagebeforecreate', function(event) {
-	app.debug("pagebeforecreate: each page", 1);
-});
-$(document).on('pageshow', function(event) {
-	app.debug("pageshow: each page");
-	var pageId = $.mobile.activePage.attr('id');
-	if (app.debugDevice && pageId) {
-		app.appendDebugArea(pageId);
-	}
-});
 var app = {
-	debugDevice : false,
+	debugDevice : true,
 	doDebuging : "false",
 	debugLevel : 2,
 	cordovaAvailable : false,
@@ -94,3 +66,33 @@ var app = {
 		});
 	}
 };
+
+/* on jquery mobile initialisation */
+$(document).bind("mobileinit", function() {
+	settings.initSettings();
+	app.debug("mobileinit", 2);
+	// http://demos.jquerymobile.com/1.2.0/docs/api/globalconfig.html
+	$.support.cors = true;
+	$.mobile.allowCrossDomainPages = true;
+	$.mobile.page.prototype.options.domCache = false;
+	// $.mobile.ajaxLinksEnabled = false;
+});
+
+/* on cordova initialisation */
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+	app.cordovaAvailable = true;
+}
+
+/* on pagebeforecreate */
+$(document).on('pagebeforecreate', function(event) {
+	app.debug("pagebeforecreate: each page", 1);
+});
+$(document).on('pageshow', function(event) {
+	app.debug("pageshow: each page");
+	var pageId = $.mobile.activePage.attr('id');
+	if (app.debugDevice && pageId) {
+		app.appendDebugArea(pageId);
+	}
+});

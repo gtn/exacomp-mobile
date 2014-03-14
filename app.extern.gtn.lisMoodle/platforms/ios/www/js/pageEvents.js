@@ -35,6 +35,10 @@ function initIds() {
 			app.debug("cahnge: data-app-portfoliotype", 2);
 			page.changeId('data-app-portfoliotype', $(this).attr('data-app-portfoliotype'));
 		}
+		if ($(this).attr('data-app-portfolioviewid')) {
+			app.debug("cahnge: data-app-portfolioviewid", 2);
+			page.changeId('data-app-portfolioviewid', $(this).attr('data-app-portfolioviewid'));
+		}
 	});
 }
 
