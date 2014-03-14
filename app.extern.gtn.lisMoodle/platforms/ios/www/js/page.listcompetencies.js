@@ -34,7 +34,7 @@ var listcompetencies = {
 			append += '<fieldset data-role="controlgroup exalis_comp_teilbereich">';
 			append += '<ul data-role="listview" data-inset="true" data-divider-theme="a">';
 			append += '<li data-role="list-divider">';
-			append += '<a href="competence.html" class="ui-btn ui-btn-icon-right ui-icon-carat-r exalis_heading" data-app-descriptorid="' + values['descriptorid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
+			append += '<a data-ajax="false" href="competence.html" class="ui-btn ui-btn-icon-right ui-icon-carat-r exalis_heading" data-app-descriptorid="' + values['descriptorid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
 			append += '</li>';
 			append += '<li>';
 			append += '<input class="app-studentcomp" name="checkbox-1a" id="checkbox-1a" data-app-descriptorid="' + values['descriptorid'] + '" type="checkbox" ' + studentcomp + '>';

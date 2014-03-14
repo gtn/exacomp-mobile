@@ -39,7 +39,7 @@
 		7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
-		9025DD29345A449A90B5DA48 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76CF33F16AD4ED5ABFFA22A /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9025DD29345A449A90B5DA48 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76CF33F16AD4ED5ABFFA22A /* ImageIO.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		95E02A9747A24AEC8B661CF5 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B6B5F3423D40F399513765 /* CDVLocalFilesystem.m */; };
 		A7510B4C18D170A300C1A07A /* 640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = A7510B4318D170A300C1A07A /* 640x960.png */; };
 		A7510B4D18D170A300C1A07A /* 640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = A7510B4418D170A300C1A07A /* 640x1136.png */; };
@@ -107,6 +107,7 @@
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* exalis-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "exalis-Prefix.pch"; sourceTree = "<group>"; };
 		47088B6969F147BE9D403AA8 /* CDVCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVCapture.m; path = "org.apache.cordova.media-capture/CDVCapture.m"; sourceTree = "<group>"; };
+		48E0C71068A94709A5DA4774 /* CDVNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVNotification.h; path = org.apache.cordova.dialogs/CDVNotification.h; sourceTree = "<group>"; };
 		5638D53B7C5C4178828FC372 /* CDVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVFile.h; path = org.apache.cordova.file/CDVFile.h; sourceTree = "<group>"; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -122,11 +123,14 @@
 		7E7966DC1810823500FA85AD /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
 		818BB31847BC4E28B03BED83 /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
+		84DCDD8B3A524B549A08B8F5 /* CDVNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVNotification.m; path = org.apache.cordova.dialogs/CDVNotification.m; sourceTree = "<group>"; };
+		89AD5C2926D74104B2B66CD1 /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CDVNotification.bundle; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* exalis-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "exalis-Info.plist"; path = "../exalis-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		902577E08C634F7EA874B744 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.device/CDVDevice.h; sourceTree = "<group>"; };
 		90B8D22BED4B43D59F34C64A /* CDVCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVCapture.h; path = "org.apache.cordova.media-capture/CDVCapture.h"; sourceTree = "<group>"; };
 		911D79CA91B34AA386A01A07 /* CDVAssetLibraryFilesystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVAssetLibraryFilesystem.m; path = org.apache.cordova.file/CDVAssetLibraryFilesystem.m; sourceTree = "<group>"; };
 		9EA0B0F4D98F45349F968281 /* CDVFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVFile.m; path = org.apache.cordova.file/CDVFile.m; sourceTree = "<group>"; };
+		A3F7291528CC43C0A50BB5E9 /* AudioToolbox.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A7510B4318D170A300C1A07A /* 640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640x960.png; sourceTree = "<group>"; };
 		A7510B4418D170A300C1A07A /* 640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640x1136.png; sourceTree = "<group>"; };
 		A7510B4518D170A300C1A07A /* 768x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 768x1024.png; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* exalis-Info.plist */,
 				BD0DF13FAC82445586160F70 /* CDVCapture.bundle */,
+				89AD5C2926D74104B2B66CD1 /* CDVNotification.bundle */,
 			);
 			name = Resources;
 			path = exalis/Resources;
@@ -259,6 +264,7 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				E76CF33F16AD4ED5ABFFA22A /* ImageIO.framework */,
+				A3F7291528CC43C0A50BB5E9 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,6 +299,8 @@
 				5E06760481744FCCAF3584CB /* CDVSound.h */,
 				47088B6969F147BE9D403AA8 /* CDVCapture.m */,
 				90B8D22BED4B43D59F34C64A /* CDVCapture.h */,
+				84DCDD8B3A524B549A08B8F5 /* CDVNotification.m */,
+				48E0C71068A94709A5DA4774 /* CDVNotification.h */,
 			);
 			name = Plugins;
 			path = exalis/Plugins;
@@ -596,7 +604,7 @@
 					"\"$(BUILT_PRODUCTS_DIR)/libCordova.a\"",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "exalis";
+				PRODUCT_NAME = exalis;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -630,7 +638,7 @@
 					"\"$(BUILT_PRODUCTS_DIR)/libCordova.a\"",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "exalis";
+				PRODUCT_NAME = exalis;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -73,7 +73,7 @@ var portfolioNewItem = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success add portfolioitem: " + values['success'], 2);
-			app.notify("Aufgabe", "Item erfolgreich geändert.");
+			success = true;
 		});
 		return success;
 	},
@@ -94,14 +94,19 @@ var portfolioNewItem = {
 			var filename = $('#assign #pFilename').text();
 			var onlinetext = $('#assign #txtText').val();
 
-			
 			var title = $('#portfolioNewItem #txtName').val();
 			var categoryid = window.localStorage.getItem('data-app-portfolioid');
 			var url = $('#portfolioNewItem #txtLink').val();
 			var intro = $('#portfolioNewItem #txtIntro').val();
 			var filename = $('#portfolioNewItem #pFilename').text();
 			var type = window.localStorage.getItem('data-app-portfoliotype');
-			portfolioNewItem.addItem(title, categoryid, url, intro, filename, type);
+			if (portfolioNewItem.addItem(title, categoryid, url, intro, filename, type)) {
+				app.notify("Aufgabe", "Erfolgreich.");
+				$(location).attr('href', 'portfolioItems.html');
+			}
+			else{
+				app.notify("New Item", "Fehler.");
+			}
 		});
 
 		$('#portfolioNewItem #btnUpload').on('click', function() {

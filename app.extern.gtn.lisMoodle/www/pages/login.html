@@ -13,6 +13,7 @@
 <script type="text/javascript" src="../cordova.js"></script>
 <script type="text/javascript" src="../ext/jquery-2.1.0.min.js"></script>
 <!-- page scripts -->
+<script type="text/javascript" src="../js/page.assign.js"></script>
 <script type="text/javascript" src="../js/page.competencies.js"></script>
 <script type="text/javascript" src="../js/page.eportfolio.js"></script>
 <script type="text/javascript" src="../js/page.grid.js"></script>
@@ -29,6 +30,7 @@
 <script type="text/javascript" src="../js/page.portfolioViews.js"></script>
 <script type="text/javascript" src="../js/page.portfolioNewItem.js"></script>
 <script type="text/javascript" src="../js/page.portfolioNewView.js"></script>
+<script type="text/javascript" src="../js/page.itemToCompetence.js"></script>
 <!-- other -->
 <script type="text/javascript" src="../js/pageEvents.js"></script>
 <script type="text/javascript" src="../js/webServiceClient.js"></script>
@@ -61,8 +63,11 @@
 			}
 
 			app.debug("Start Login");
-			gtnMoodle.getToken(username, password);
-			app.debug("Token: " + gtnMoodle.token);
+			if (!gtnMoodle.getToken(username, password)) {
+				app.debug("Can't login", 2);
+				$(location).attr('href', 'login.html');
+				return;
+			}
 			window.localStorage.setItem("token", gtnMoodle.token);
 			window.localStorage.setItem("tokenExacomp", gtnMoodle.tokenExacomp);
 			window.localStorage.setItem("tokenExaport", gtnMoodle.tokenExaport);
@@ -112,6 +117,7 @@
 			<a href="settings.html" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-gear ui-btn-icon-left" data-dom-cache="false">Einstellungen</a>
 		</div>
 		<!-- /content -->
+		<div id="divNotify" data-role="popup" data-transition="flip">lalal</div>
 	</div>
 	<!-- /page -->
 </body>

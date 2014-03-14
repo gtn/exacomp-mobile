@@ -138,8 +138,10 @@ var portfolioItems = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success update portfolioitem: " + values['success'], 2);
-			app.notify("Aufgabe", "Item erfolgreich geändert.");
+			app.notify("Item", "Erfolgreich gelöscht.");
+			success = true;
 		});
+		return success;
 	},
 	defineEvents : function() {
 		app.debug("portfolioItems.defineEvents()", 2);

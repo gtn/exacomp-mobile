@@ -41,7 +41,7 @@ function initIds() {
 		}
 	});
 }
-
+//window.localStorage.getItem('');
 var page = {
 	changeId : function(subject, value) {
 		app.debug("page.changeId(" + subject + " to: " + value + ")", 2);

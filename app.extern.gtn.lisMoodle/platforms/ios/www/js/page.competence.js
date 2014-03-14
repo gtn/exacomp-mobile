@@ -24,15 +24,15 @@ var competence = {
 			var append = "";
 			if ($.trim(values['type']) == 'exaport') { // Portfolio
 				append += '<li>';
-				append += '<a class="ui-btn ui-btn-icon-right ui-icon-portfolio" href="' + values['link'] + '" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
+				append += '<a data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-portfolio" href="' + values['link'] + '" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
 				append += '</li>';
 			} else if ($.trim(values['type']) == 'assign') { // Aufgabe
 				append += '<li>';
-				append += '<a class="ui-btn ui-btn-icon-right ui-icon-star" href="assign.html" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
+				append += '<a data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-star" href="assign.html" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
 				append += '</li>';
 			} else if ($.trim(values['type']) == 'example') { // Beispiel
 				append += '<li>';
-				append += '<a rel="external" class="ui-btn ui-btn-icon-right ui-icon-eye" href="' + values['link'] + '" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
+				append += '<a data-ajax="false" rel="external" class="ui-btn ui-btn-icon-right ui-icon-eye" href="' + values['link'] + '" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
 				append += '</li>';
 			} else {
 				app.debug('Type: ' + values['type']);

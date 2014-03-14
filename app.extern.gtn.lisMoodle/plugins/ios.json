@@ -19,7 +19,8 @@
             },
             "MobileCoreServices.framework": {
                 "false": 3
-            }
+            },
+            "AudioToolbox.framework": {}
         },
         "config.xml": {
             "/*": {

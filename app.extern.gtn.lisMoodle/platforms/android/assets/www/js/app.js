@@ -1,8 +1,9 @@
 var app = {
-	debugDevice : true,
+	debugDevice : false,
 	doDebuging : "false",
 	debugLevel : 2,
 	cordovaAvailable : false,
+	currentPageId : null,
 	init : function() {
 	},
 	debug : function(text, level) {
@@ -17,8 +18,14 @@ var app = {
 	log : function() {
 		;
 	},
+	onPrompt : function() {
+	},
 	notify : function(title, text) {
-		prompt(title, text);
+		if (app.cordovaAvailable) {
+			nativeNotification.notify(text, null, title, "Okay");
+		} else {
+			alert(text);
+		}
 	},
 	notifyForward : function(title, text, forwardPage) {
 		;
@@ -41,7 +48,7 @@ var app = {
 	},
 	appendDebugArea : function(pageId) {
 		if (!($("#" + pageId + " #divDebug").length > 0))
-			$("#" + pageId).append('<div id="divDebug">$nbsp;</div>');
+			$("#" + pageId).append('<div id="divDebug">&nbsp;</div>');
 		$("#" + pageId + " #divDebug").empty();
 		var htmlCode = app.debugAreaCode();
 		$("#" + pageId + " #divDebug").append(htmlCode);
@@ -82,6 +89,7 @@ $(document).bind("mobileinit", function() {
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
+	app.debug("onDeviceReady", 3);
 	app.cordovaAvailable = true;
 }
 
@@ -92,6 +100,7 @@ $(document).on('pagebeforecreate', function(event) {
 $(document).on('pageshow', function(event) {
 	app.debug("pageshow: each page");
 	var pageId = $.mobile.activePage.attr('id');
+	app.currentPageId = pageId;
 	if (app.debugDevice && pageId) {
 		app.appendDebugArea(pageId);
 	}

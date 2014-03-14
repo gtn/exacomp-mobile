@@ -127,7 +127,11 @@ var portfolioEditItem = {
 			var intro = $('#portfolioEditItem #txtIntro').val();
 			var filename = $('#portfolioEditItem #pFilename').text();
 			var type = window.localStorage.getItem('data-app-portfoliotype');
-			portfolioEditItem.updateItem(id, title, url, intro, filename, type);
+			if (type.trim() == "category") {
+				app.notify("title", "Noch nicht implementiert für Kategorie");
+			} else {
+				portfolioEditItem.updateItem(id, title, url, intro, filename, type);
+			}
 		});
 
 		$('#portfolioEditItem #btnUpload').on('click', function() {

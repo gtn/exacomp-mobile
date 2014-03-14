@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C482B451-E23E-44A9-9E5B-4284C1444F56</string>
+	<key>IDESourceControlProjectName</key>
+	<string>exalis</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9D9E33DE-48C8-4409-8885-EDB144C6DDAC</key>
+		<string>https://github.com/gtn/exacomp-mobile.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>app.extern.gtn.lisMoodle/platforms/ios/exalis.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9D9E33DE-48C8-4409-8885-EDB144C6DDAC</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gtn/exacomp-mobile.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9D9E33DE-48C8-4409-8885-EDB144C6DDAC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9D9E33DE-48C8-4409-8885-EDB144C6DDAC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>app.extern.gtn</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -11,7 +11,10 @@ var gtnMoodle = {
 	init : function(pageId, pagename) {
 		app.debug("init(" + pageId + ", " + pagename + ")", 2);
 		this.setToken();
-		this.checkToken();
+		if (!this.checkToken()) {
+			app.notify("Token error", "Du bist ausgelogged!");
+			$(location).attr('href', 'login.html');
+		}
 		this.writeHeader(pageId, pagename);
 	},
 
@@ -22,16 +25,19 @@ var gtnMoodle = {
 	},
 
 	checkToken : function() {
-		if (this.token == null) {
+		app.debug("gtnMoodle.checkToken()", 2);
+		app.debug("Moodle token: " + gtnMoodle.token + "\nExaport token: " + gtnMoodle.tokenExaport + "\nExacomp token: " + gtnMoodle.tokenExacomp, 2);
+		if (gtnMoodle.token.trim() == "null") {
 			app.debug("token == null: token ");
-			$(location).attr('href', 'login.html');
-		} else if (this.tokenExacomp == null) {
+			return false;
+		} else if (gtnMoodle.tokenExacomp.trim() == "null") {
 			app.debug("token == null: tokenExacomp ");
-			$(location).attr('href', 'login.html');
-		} else if (this.tokenExaport == null) {
+			return false;
+		} else if (gtnMoodle.tokenExaport.trim() == "null") {
 			app.debug("token == null: tokenExaport ");
-			$(location).attr('href', 'login.html');
+			return false;
 		}
+		return true;
 	},
 
 	writeHeader : function(pageId, pagename) {
@@ -49,10 +55,19 @@ var gtnMoodle = {
 		data = "username=" + username + "&password=" + password + "&service=moodle_mobile_app";
 		json = wsc.getJson(url, data);
 		if (json.error) {
-			app.debug("Token error: " + json.error);
+			app.debug("Json: " + JSON.stringify(json), 2);
+			app.debug("Token error: " + json.error + "\n" + json.debuginfo.trim().substring(12));
+			if (json.debuginfo.trim().substring(12) == "usernamenotfound") {
+				app.notify("Login", "Benutzername oder Passwort Falsch");
+				return false;
+			} else if (json.debuginfo.trim().substring(12) == "servicenotavailable") {
+				app.notify("Login", "Web service is not available (it doesn't exist or might be disabled)");
+				return false;
+			}
 			this.token = null;
 		} else if (!json) {
 			app.notify("Moodle Timeout", "Moodle Timeout");
+			return false;
 		} else {
 			this.token = json.token;
 		}
@@ -61,11 +76,20 @@ var gtnMoodle = {
 		data = "username=" + username + "&password=" + password + "&service=exaportservices";
 		json = wsc.getJson(url, data);
 		if (json.error) {
-			app.debug("Token error: " + json.error);
-			this.tokenExaport = null;
+			app.debug("Json: " + JSON.stringify(json), 2);
+			app.debug("Token error: " + json.error + "\n" + json.debuginfo.trim().substring(12));
+			if (json.debuginfo.trim().substring(12) == "usernamenotfound") {
+				app.notify("Login", "Benutzername oder Passwort Falsch");
+				return false;
+			} else if (json.debuginfo.trim().substring(12) == "servicenotavailable") {
+				app.notify("Login", "Web service is not available (it doesn't exist or might be disabled)");
+				return false;
+			}
+			this.token = null;
 			// this.tokenExaport = "7b13b05e668b1118711d42b5a898a616";
 		} else if (!json) {
 			app.notify("Moodle Timeout", "Moodle Timeout");
+			return false;
 		} else {
 			this.tokenExaport = json.token;
 		}
@@ -74,15 +98,25 @@ var gtnMoodle = {
 		data = "username=" + username + "&password=" + password + "&service=exacompservices";
 		json = wsc.getJson(url, data);
 		if (json.error) {
-			app.debug("Token error: " + json.error);
-			this.tokenExacomp = null;
+			app.debug("Json: " + JSON.stringify(json), 2);
+			app.debug("Token error: " + json.error + "\n" + json.debuginfo.trim().substring(12));
+			if (json.debuginfo.trim().substring(12) == "usernamenotfound") {
+				app.notify("Login", "Benutzername oder Passwort Falsch");
+				return false;
+			} else if (json.debuginfo.trim().substring(12) == "servicenotavailable") {
+				app.notify("Login", "Web service is not available (it doesn't exist or might be disabled)");
+				return false;
+			}
+			this.token = null;
 			// this.tokenExacomp = "4aafa2c09ae274e7d2c1a6f2b968872e";
 		} else if (!json) {
 			app.notify("Moodle Timeout", "Moodle Timeout");
+			return false;
 		} else {
 			this.tokenExacomp = json.token;
 		}
 		app.debug("Moodle token: " + gtnMoodle.token + "\nExaport token: " + gtnMoodle.tokenExaport + "\nExacomp token: " + gtnMoodle.tokenExacomp, 2);
+		return true;
 	},
 	checkMoodleConnectivity : function() {
 		app.debug("getMoodle.checkMoodleConnectivity()", 2);
