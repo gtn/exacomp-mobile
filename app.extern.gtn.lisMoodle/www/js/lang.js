@@ -1,5 +1,6 @@
 var language = {
 	currentLang : "deu",
+	availableLang : [ 'deu', 'eng' ],
 	dictionary : null,
 	loadLanguage : function(lang) {
 		app.debug("lang.loadLanguage(" + lang + ")", 2);
@@ -18,7 +19,7 @@ var language = {
 			}
 		});
 	},
-	s : function(id, lang) {
+	s : function(id, context, lang) {
 		if (!language.dictionary)
 			language.loadLanguage(language.currentLang);
 		if (app.doDebuging == "true") {
@@ -27,4 +28,7 @@ var language = {
 			return language.dictionary[id];
 		}
 	}
+};
+var L = {
+	s : language.s
 };
