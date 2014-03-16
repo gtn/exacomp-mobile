@@ -9,7 +9,7 @@ var gtnMoodle = {
 	keepAlive : "blocks/exacomp/styles.css",
 
 	init : function(pageId, pagename) {
-		app.debug("init(" + pageId + ", " + pagename + ")", 2);
+		app.debug("gtnMoodle.init(" + pageId + ", " + pagename + ")", 2);
 		this.setToken();
 		if (!this.checkToken()) {
 			app.notify("Token error", "Du bist ausgelogged!");
@@ -17,7 +17,10 @@ var gtnMoodle = {
 		}
 		this.writeHeader(pageId, pagename);
 	},
-
+	initNoTokenCheck : function(pageId, pagename) {
+		app.debug("gtnMoodle.initNoTokenCheck(" + pageId + ", " + pagename + ")", 2);
+		this.writeHeader(pageId, pagename);
+	},
 	setToken : function() {
 		this.token = window.localStorage.getItem("token");
 		this.tokenExacomp = window.localStorage.getItem("tokenExacomp");

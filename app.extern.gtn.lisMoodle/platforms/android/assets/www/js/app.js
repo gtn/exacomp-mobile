@@ -1,5 +1,5 @@
 var app = {
-	debugDevice : false,
+	debugDevice : true,
 	doDebuging : "false",
 	debugLevel : 2,
 	cordovaAvailable : false,

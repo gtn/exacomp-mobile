@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#settings', function(event) {
 	app.debug("pagebeforecreate: settings", 1);
-	gtnMoodle.init("settings", "settings");
+	gtnMoodle.initNoTokenCheck("settings", "settings");
 	settings.initSettings();
 	settings.loadEvents();
 	settings.fillSettings();
@@ -82,7 +82,8 @@ var settings = {
 		app.debug("settings.loadEvents()");
 		$("#frmSettings").on("submit", function(e) {
 			e.preventDefault();
-			settings.saveSettings();
+			if (settings.saveSettings())
+				app.notify(language.s('common_settings'), language.s('common_settings_saved_success'));
 			settings.initSettings();
 		});
 	},
@@ -95,5 +96,6 @@ var settings = {
 		window.localStorage.setItem('data-app-debuglevel', $("#settings #frmSettings #txtDebug").val());
 		window.localStorage.setItem('data-app-timeout', $("#settings #frmSettings #txtTimeout").val());
 		window.localStorage.setItem('data-app-method', $("#settings #frmSettings #txtMethod").val());
+		return true;
 	}
 };

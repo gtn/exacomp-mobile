@@ -20,6 +20,7 @@
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/img \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/index.html \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/lang \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/plugins \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/css/custom.css \
@@ -479,6 +480,7 @@
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/date.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/gtnMoodle.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/index.js \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/lang.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/md5.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/native.camera.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/native.events.js \
@@ -507,6 +509,7 @@
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/pageEvents.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/webServiceClient.js \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/js/xml2json.js \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/lang/lang.deu.json \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/assign.html \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/competence.html \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/assets/www/pages/competencies.html \

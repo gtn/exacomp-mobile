@@ -25,7 +25,7 @@ var portfolioNewView = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success add view: " + values['success'], 2);
-			app.notify("Aufgabe", "View erfolgreich zugefügt.");
+			app.notify("", language.s('portfolio_view_new_success'));
 		});
 		return success;
 	},
