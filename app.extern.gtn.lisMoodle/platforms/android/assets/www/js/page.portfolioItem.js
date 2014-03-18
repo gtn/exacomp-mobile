@@ -8,8 +8,8 @@ $(document).on('pagebeforecreate', '#portfolioItem', function(event) {
 
 var portfolioItem = {
 	loadPortfolioItem : function() {
-		app.debug("portfolioItem.loadPortfolioItem()");
-		$("#portfolioItem .exalis_item").empty();
+		app.debug("portfolioItem.loadPortfolioItem()", 2);
+		$("#portfolioItem .app-content").empty();
 		data = "&itemid=" + window.localStorage.getItem('data-app-portfolioid');
 		xml = gtnMoodle.getMoodleXml("block_exaport_get_item", gtnMoodle.tokenExaport, data);
 		$(xml).find('SINGLE').each(function() {
@@ -32,8 +32,12 @@ var portfolioItem = {
 				append += '<img src="' + values['file'] + '&token=' + gtnMoodle.tokenExaport + '" class="portfolio_item" />';
 			}
 			append += '';
-			$("#portfolioItem .exalis_item").append(append);
+			$("#portfolioItem .app-content").append(append);
 		});
+		$("#portfolioItem .app-actions").empty();
+		var append = '';
+		append += '<a href="itemToCompetence.html" data-app-assign="item-selected" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Item einer Kompetenz zuordnen</a>';
+		$("#portfolioItem .app-actions").append(append);
 	},
 	defineEvents : function() {
 	}

@@ -39,9 +39,13 @@ function initIds() {
 			app.debug("cahnge: data-app-portfolioviewid", 2);
 			page.changeId('data-app-portfolioviewid', $(this).attr('data-app-portfolioviewid'));
 		}
+		if ($(this).attr('data-app-assign')) {
+			app.debug("cahnge: data-app-assign", 2);
+			page.changeId('data-app-assign', $(this).attr('data-app-assign'));
+		}
 	});
 }
-//window.localStorage.getItem('');
+// window.localStorage.getItem('');
 var page = {
 	changeId : function(subject, value) {
 		app.debug("page.changeId(" + subject + " to: " + value + ")", 2);

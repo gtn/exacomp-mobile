@@ -1,5 +1,6 @@
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/ant-build/classes.dex : \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/ant-build/classes/com/gtn_solutions/exalis/BuildConfig.class \
+/Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/ant-build/classes/com/gtn_solutions/exalis/gtnIntent.class \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/ant-build/classes/com/gtn_solutions/exalis/gtnMoodle.class \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/ant-build/classes/com/gtn_solutions/exalis/R$attr.class \
 /Users/martinkattner/stygs/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/android/ant-build/classes/com/gtn_solutions/exalis/R$drawable.class \
