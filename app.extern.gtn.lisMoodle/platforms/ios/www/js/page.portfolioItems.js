@@ -2,7 +2,7 @@ $(document).on('pagebeforecreate', '#portfolioItems', function(event) {
 	app.debug("pagebeforecreate: portfolioItems", 3);
 	gtnMoodle.init("portfolioItems", "portfolioItems");
 	portfolioItems.loadPortfolioItems(0, 0);
-	initIds();
+	page.initPage("portfolioItems");
 	portfolioItems.defineEvents();
 });
 
@@ -138,7 +138,7 @@ var portfolioItems = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success update portfolioitem: " + values['success'], 2);
-			app.notify("Item", "Erfolgreich gelšscht.");
+			app.notify("Item", "Erfolgreich gelï¿½scht.");
 			success = true;
 		});
 		return success;

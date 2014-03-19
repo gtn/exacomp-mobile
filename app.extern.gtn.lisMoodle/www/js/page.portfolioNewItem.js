@@ -15,7 +15,7 @@ $(document).on('pagebeforecreate', '#portfolioNewItem', function(event) {
 	app.debug("urltest gehts?",2);
 	portfolioNewItem.loadportfolioNewItem();
 	portfolioNewItem.defineEvents();
-	initIds();
+	page.initPage("portfolioNewItem");
 });
 
 

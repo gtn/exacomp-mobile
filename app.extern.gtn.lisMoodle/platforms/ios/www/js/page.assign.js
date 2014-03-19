@@ -4,7 +4,7 @@ $(document).on('pagebeforecreate', '#assign', function(event) {
 	var contentid = window.localStorage.getItem('data-app-contentid');
 	assign.loadAssign(contentid);
 	assign.defineEvents();
-	initIds();
+	page.initPage("assign");
 });
 var assign = {
 	loadAssign : function(contentid) {
@@ -63,7 +63,7 @@ var assign = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success udate assign: " + values['success'], 2);
-			app.notify("Aufgabe", "Die Aufgabe wurde erfolgreich geŠndert.");
+			app.notify("Aufgabe", "Die Aufgabe wurde erfolgreich geï¿½ndert.");
 		});
 	},
 	uploadPhoto : function() {

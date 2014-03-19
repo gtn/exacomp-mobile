@@ -3,7 +3,7 @@ $(document).on('pagebeforecreate', '#itemToView', function(event) {
 	app.debug("pagebeforecreate: itemToView", 3);
 	gtnMoodle.init("itemToView", L.s('page_portfolio_item_to_view'));
 	itemToView.loadItemToView();
-	initIds();
+	page.initPage("itemToView");
 	itemToView.defineEvents();
 });
 

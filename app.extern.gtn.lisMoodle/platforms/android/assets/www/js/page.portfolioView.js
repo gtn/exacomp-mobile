@@ -2,7 +2,7 @@ $(document).on('pagebeforecreate', '#portfolioView', function(event) {
 	app.debug("portfolioView: portfolioView", 3);
 	gtnMoodle.init("portfolioView", "portfolioView");
 	portfolioView.loadPortfolioView();
-	initIds();
+	page.initPage("portfolioView");
 	portfolioView.defineEvents();
 });
 

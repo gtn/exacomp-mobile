@@ -247,6 +247,20 @@ module.exports = [
         "clobbers": [
             "navigator.device.capture"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
+        "clobbers": [
+            "window.open"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.dialogs/www/notification.js",
+        "id": "org.apache.cordova.dialogs.notification",
+        "merges": [
+            "navigator.notification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -257,7 +271,9 @@ module.exports.metadata =
     "org.apache.cordova.file": "1.0.1",
     "org.apache.cordova.file-transfer": "0.4.2",
     "org.apache.cordova.media": "0.2.9",
-    "org.apache.cordova.media-capture": "0.2.8"
+    "org.apache.cordova.media-capture": "0.2.8",
+    "org.apache.cordova.inappbrowser": "0.3.3",
+    "org.apache.cordova.dialogs": "0.2.6"
 }
 // BOTTOM OF METADATA
 });

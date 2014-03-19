@@ -5,7 +5,7 @@ $(document).on('pagebeforecreate', '#settings', function(event) {
 	settings.loadEvents();
 	settings.fillSettings();
 	settings.saveSettings();
-	initIds();
+	page.initPage("settings");
 });
 
 var settings = {

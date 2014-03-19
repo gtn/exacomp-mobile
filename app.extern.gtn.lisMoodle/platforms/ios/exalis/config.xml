@@ -38,6 +38,12 @@
     <feature name="Capture">
         <param name="ios-package" value="CDVCapture" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <feature name="Notification">
+        <param name="ios-package" value="CDVNotification" />
+    </feature>
     <name>exalis</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

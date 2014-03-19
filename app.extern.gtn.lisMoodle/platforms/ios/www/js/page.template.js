@@ -1,7 +1,7 @@
 $(document).on('pagebeforecreate', '#portfolioItems', function(event) {
 	app.debug("pagebeforecreate: portfolioItems", 3);
 	gtnMoodle.init("portfolioItems", "portfolioItems");
-	initIds();
+	page.initPage("portfolioItems");
 });
 
 var portfolioItems = {

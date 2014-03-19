@@ -4,7 +4,7 @@ $(document).on('pagebeforecreate', '#grid', function(event) {
 	grid.loadSubjects();
 	grid.loadTopics(grid.subjectId, window.localStorage.getItem('data-app-courseid'));
 	grid.defineEvents();
-	initIds();
+	page.initPage("grid");
 	// $("#grid").page()
 });
 
@@ -100,7 +100,7 @@ var grid = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success setting studentcomp: " + values['success'], 2);
-			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich geŠndert.");
+			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich geï¿½ndert.");
 		});
 	},
 	defineEvents : function() {
@@ -113,7 +113,7 @@ var grid = {
 			$("#grid .app-gridarea").trigger('create');
 			$("#grid .app-gridarea").show();
 			grid.defineEvents();
-			initIds();
+			page.initPage("grid");
 		});
 
 		$("#grid .app-studentcomp").change(function() {

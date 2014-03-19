@@ -4,7 +4,8 @@ $(document).on('pagebeforecreate', '#competence', function(event) {
 	var courseId = window.localStorage.getItem('data-app-courseid');
 	var descriptorId = window.localStorage.getItem('data-app-descriptorid');
 	competence.loadCompetence(courseId, descriptorId);
-	initIds();
+	page.initPage("competence");
+	competence.defineEvents();
 });
 
 var competence = {
@@ -32,7 +33,7 @@ var competence = {
 				append += '</li>';
 			} else if ($.trim(values['type']) == 'example') { // Beispiel
 				append += '<li>';
-				append += '<a data-ajax="false" rel="external" class="ui-btn ui-btn-icon-right ui-icon-eye" href="' + values['link'] + '" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
+				append += '<a data-ajax="false" rel="external" class="app-external ui-btn ui-btn-icon-right ui-icon-eye" href="' + values['link'] + '" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
 				append += '</li>';
 			} else {
 				app.debug('Type: ' + values['type']);
@@ -40,5 +41,14 @@ var competence = {
 			app.debug("Append: " + append);
 			$("#competence .app-competence").append(append);
 		});
+	},
+	defineEvents : function() {
+		$("#competence .app-external").on("click", function(e) {
+			app.debug("#competence .app-external: click", 2);
+			e.preventDefault();
+			var href = $("#competence .app-external").attr("href");
+			nativeInappbrowser.open(href, "_system", "location=yes");
+		});
+
 	}
 };

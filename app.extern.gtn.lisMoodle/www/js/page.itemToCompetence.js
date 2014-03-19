@@ -2,7 +2,7 @@ $(document).on('pagebeforecreate', '#itemToCompetence', function(event) {
 	app.debug("itemToCompetence: itemToCompetence", 3);
 	gtnMoodle.init("itemToCompetence", "itemToCompetence");
 	itemToCompetence.loaditemToCompetence();
-	initIds();
+	page.initPage("itemToCompetence");
 	itemToCompetence.defineEvents();
 });
 
@@ -32,7 +32,7 @@ var itemToCompetence = {
 					var name = $(this).attr('name');
 					values[name] = $(this).text();
 				});
-				append += '<div class="app-collapse" data-role="collapsible">';
+				append += '<div class="app-collapse ui-mini" data-role="collapsible" data-mini="true">';
 				append += '<h3>' + values['name'] + '<h3>';
 
 				$(this).find('>KEY[name=topics]>MULTIPLE>SINGLE').each(function() {
@@ -42,9 +42,9 @@ var itemToCompetence = {
 						values[name] = $(this).text();
 					});
 					append += '<p>' + values['name'] + '<p>';
-					append += '<div class="app-collapse" data-role="collapsible" data-mini="true">';
+					append += '<div class="app-collapse ui-mini" data-role="collapsible" data-mini="true">';
 					append += '<h3>expand<h3>';
-					append += '<ul data-role="listview">';
+					append += '<ul data-role="listview" class="ui-mini" data-mini="true">';
 					$(this).find(">KEY[name=descriptors]>MULTIPLE>SINGLE").each(function() {
 						$(this).find('>KEY').each(function() {
 							app.debug("SINGLE>KEY", 1);
@@ -53,7 +53,7 @@ var itemToCompetence = {
 						});
 
 						append += '<li>';
-						append += '<a data-app-contentid="' + values['id'] + '" class="app-select-competence" href="#">';
+						append += '<a data-app-contentid="' + values['id'] + '" class="app-select-competence ui-mini" href="#" data-role="button" data-mini="true">';
 						append += values['name'];
 						append += '';
 						append += '</a>';

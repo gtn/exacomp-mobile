@@ -3,7 +3,7 @@ $(document).on('pagebeforecreate', '#portfolioItem', function(event) {
 	gtnMoodle.init("portfolioItem", "portfolioItem");
 	portfolioItem.loadPortfolioItem();
 	portfolioItem.defineEvents();
-	initIds();
+	page.initPage("portfolioItem");
 });
 
 var portfolioItem = {

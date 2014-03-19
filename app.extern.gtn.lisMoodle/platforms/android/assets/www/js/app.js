@@ -1,5 +1,5 @@
 var app = {
-	debugDevice : true,
+	debugDevice : false,
 	doDebuging : "false",
 	debugLevel : 2,
 	cordovaAvailable : false,
@@ -74,6 +74,15 @@ var app = {
 	}
 };
 
+/* on cordova initialisation */
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+	app.debug("onDeviceReady", 3);
+	app.cordovaAvailable = true;
+
+}
+
 /* on jquery mobile initialisation */
 $(document).bind("mobileinit", function() {
 	settings.initSettings();
@@ -82,20 +91,25 @@ $(document).bind("mobileinit", function() {
 	$.support.cors = true;
 	$.mobile.allowCrossDomainPages = true;
 	$.mobile.page.prototype.options.domCache = false;
+
+	$.mobile.loader.prototype.options.text = "loading";
+	$.mobile.loader.prototype.options.textVisible = false;
+	$.mobile.loader.prototype.options.theme = "a";
+	$.mobile.loader.prototype.options.html = "";
 	// $.mobile.ajaxLinksEnabled = false;
 });
 
-/* on cordova initialisation */
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onDeviceReady() {
-	app.debug("onDeviceReady", 3);
-	app.cordovaAvailable = true;
-}
-
 /* on pagebeforecreate */
 $(document).on('pagebeforecreate', function(event) {
-	app.debug("pagebeforecreate: each page", 1);
+	app.debug("pagebeforecreate: each page", 2);
+});
+
+$(document).on('pagebeforechange', function(event, data) {
+	app.debug("pagebeforechange: each page", 2);
+
+	//alert(data.toPage.toString());
+	//$("#" + app.currentPageId).append('<div id="overlay">&nbsp;</div>');
+
 });
 $(document).on('pageshow', function(event) {
 	app.debug("pageshow: each page");
@@ -104,4 +118,5 @@ $(document).on('pageshow', function(event) {
 	if (app.debugDevice && pageId) {
 		app.appendDebugArea(pageId);
 	}
+	//$("#" + app.currentPageId + " #overlay").remove();
 });

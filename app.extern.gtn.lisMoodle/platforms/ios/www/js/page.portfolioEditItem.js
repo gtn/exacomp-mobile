@@ -4,7 +4,7 @@ $(document).on('pagebeforecreate', '#portfolioEditItem', function(event) {
 
 	portfolioEditItem.loadPortfolioEditItem();
 	portfolioEditItem.defineEvents();
-	initIds();
+	page.initPage("portfolioEditItem");
 });
 
 var portfolioEditItem = {
@@ -100,7 +100,7 @@ var portfolioEditItem = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success update portfolioitem: " + values['success'], 2);
-			app.notify("Aufgabe", "Item erfolgreich geŠndert.");
+			app.notify("Aufgabe", "Item erfolgreich geï¿½ndert.");
 		});
 		return success;
 	},
@@ -128,7 +128,7 @@ var portfolioEditItem = {
 			var filename = $('#portfolioEditItem #pFilename').text();
 			var type = window.localStorage.getItem('data-app-portfoliotype');
 			if (type.trim() == "category") {
-				app.notify("title", "Noch nicht implementiert fŸr Kategorie");
+				app.notify("title", "Noch nicht implementiert fï¿½r Kategorie");
 			} else {
 				portfolioEditItem.updateItem(id, title, url, intro, filename, type);
 			}

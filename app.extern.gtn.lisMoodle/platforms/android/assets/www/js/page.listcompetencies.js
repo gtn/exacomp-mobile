@@ -5,7 +5,7 @@ $(document).on('pagebeforecreate', '#listcompetencies', function(event) {
 	var subtopicId = window.localStorage.getItem('data-app-subtopicid');
 	listcompetencies.loadCompetencies(courseId, subtopicId);
 	listcompetencies.defineEvents();
-	initIds();
+	page.initPage("listcompetencies");
 });
 
 var listcompetencies = {
@@ -63,7 +63,7 @@ var listcompetencies = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success setting studentcomp: " + values['success'], 2);
-			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich geŠndert.");
+			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich geï¿½ndert.");
 		});
 	},
 	defineEvents : function() {

@@ -1,40 +1,38 @@
 body {
-	font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	font-family: 'open_sansregular', Helvetica, Arial, sans-serif;
 }
 
-
-
-body, input, select, textarea, button, .ui-btn {
-    font-family: 'open_sanssemibold',Helvetica,Arial,sans-serif;
-    font-size: 1em;
-    line-height: 1.3;
-    font-weight: normal;
+body,input,select,textarea,button,.ui-btn {
+	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
+	font-size: 1em;
+	line-height: 1.3;
+	font-weight: normal;
 }
 
 p {
-	font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	font-family: 'open_sansregular', Helvetica, Arial, sans-serif;
 }
 
-.ui-page-theme-a a, html .ui-bar-a a, html .ui-body-a a, html body .ui-group-theme-a a {
-    font-weight: normal;
+.ui-page-theme-a a,html .ui-bar-a a,html .ui-body-a a,html body .ui-group-theme-a a {
+	font-weight: normal;
 }
 
-.exalis_list .ui-listview a   {
-	  color: #545454;
-	   font-weight: normal;
-	 font-size: 14px;
-	 font-family: 'open_sanssemibold',Helvetica,Arial,sans-serif;
+.exalis_list .ui-listview a {
+	color: #545454;
+	font-weight: normal;
+	font-size: 14px;
+	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
 }
 
-.ui-page-theme-a a, html .ui-bar-a a, html .ui-body-a a, html body .ui-group-theme-a a, .exalis_heading {
- 
+.ui-page-theme-a a,html .ui-bar-a a,html .ui-body-a a,html body .ui-group-theme-a a,.exalis_heading {
+	
 }
 
 .exalis_list_teilb li label.ui-btn {
 	font-weight: normal;
-	 font-size: 14px;
-	 font-family: 'open_sanssemibold',Helvetica,Arial,sans-serif;
-	 color: #545454;
+	font-size: 14px;
+	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
+	color: #545454;
 }
 
 .exalis_list_teilb .ui-listview .ui-li-divider a.ui-link {
@@ -42,68 +40,66 @@ p {
 	text-decoration: none;
 	font-weight: normal;
 	font-size: 15px;
-	font-family: 'open_sanssemibold',Helvetica,Arial,sans-serif;
+	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
 }
 
-.exalis_list .ui-listview a.exalis_heading, h4.ui-collapsible-heading a {
+.exalis_list .ui-listview a.exalis_heading,h4.ui-collapsible-heading a {
 	color: #545454 !important;
 	font-size: 15px !important;
-	font-family: 'open_sanssemibold',Helvetica,Arial,sans-serif;
+	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
 }
 
-.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
+.ui-bar-a,.ui-page-theme-a .ui-bar-inherit,html .ui-bar-a .ui-bar-inherit,html .ui-body-a .ui-bar-inherit,html body .ui-group-theme-a .ui-bar-inherit {
 	color: #fff;
-	background: -moz-linear-gradient(center top , #e3e6ea 0%, #bac1ca 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-background: #ec7533; /* Old browsers */
-background: -moz-linear-gradient(top,  #ec7533 37%, #e95d10 60%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(37%,#ec7533), color-stop(60%,#e95d10)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #ec7533 37%,#e95d10 60%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #ec7533 37%,#e95d10 60%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #ec7533 37%,#e95d10 60%); /* IE10+ */
-background: linear-gradient(to bottom,  #ec7533 37%,#e95d10 60%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ec7533', endColorstr='#e95d10',GradientType=0 ); /* IE6-9 */
-
-
-
+	background: -moz-linear-gradient(center top, #e3e6ea 0%, #bac1ca 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background: #ec7533; /* Old browsers */
+	background: -moz-linear-gradient(top, #ec7533 37%, #e95d10 60%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(37%, #ec7533), color-stop(60%, #e95d10)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ec7533 37%, #e95d10 60%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ec7533 37%, #e95d10 60%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ec7533 37%, #e95d10 60%); /* IE10+ */
+	background: linear-gradient(to bottom, #ec7533 37%, #e95d10 60%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(               startColorstr='#ec7533', endColorstr='#e95d10', GradientType=0); /* IE6-9 */
 }
 
-.ui-header, .ui-footer  {
+.ui-header,.ui-footer {
 	border: 0;
 }
 
-.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit  {
+.ui-bar-a,.ui-page-theme-a .ui-bar-inherit,html .ui-bar-a .ui-bar-inherit,html .ui-body-a .ui-bar-inherit,html body .ui-group-theme-a .ui-bar-inherit {
 	text-shadow: none;
 }
+
+.exalis-header {
+	padding-top: 30px;
+}
+
 .ui-header h1 {
-		font-family: 'open_sanslight',Helvetica,Arial,sans-serif;
+	font-family: 'open_sanslight', Helvetica, Arial, sans-serif;
 }
 
 .ui-header .ui-btn {
 	border-width: 0;
 	background-color: transparent !important;
 	text-shadow: none !important;
-	
 }
 
-body.exalis_start .ui-page, body .ui-page  {
+body.exalis_start .ui-page,body .ui-page {
 	background: #bebebe; /* Old browsers */
-	background: -moz-linear-gradient(45deg,  #bebebe 0%, #ffffff 40%, #ffffff 60%, #bebebe 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#bebebe), color-stop(40%,#ffffff), color-stop(60%,#ffffff), color-stop(100%,#bebebe)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(45deg,  #bebebe 0%,#ffffff 40%,#ffffff 60%,#bebebe 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(45deg,  #bebebe 0%,#ffffff 40%,#ffffff 60%,#bebebe 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(45deg,  #bebebe 0%,#ffffff 40%,#ffffff 60%,#bebebe 100%); /* IE10+ */
-	background: linear-gradient(45deg,  #bebebe 0%,#ffffff 40%,#ffffff 60%,#bebebe 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bebebe', endColorstr='#bebebe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
+	background: -moz-linear-gradient(45deg, #bebebe 0%, #ffffff 40%, #ffffff 60%, #bebebe 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #bebebe), color-stop(40%, #ffffff), color-stop(60%, #ffffff), color-stop(100%, #bebebe)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(45deg, #bebebe 0%, #ffffff 40%, #ffffff 60%, #bebebe 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(45deg, #bebebe 0%, #ffffff 40%, #ffffff 60%, #bebebe 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(45deg, #bebebe 0%, #ffffff 40%, #ffffff 60%, #bebebe 100%); /* IE10+ */
+	background: linear-gradient(45deg, #bebebe 0%, #ffffff 40%, #ffffff 60%, #bebebe 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(               startColorstr='#bebebe', endColorstr='#bebebe', GradientType=1); /* IE6-9 fallback on horizontal gradient */
 }
 
-body.exalis_start .ui-page, body .ui-page  {
+body.exalis_start .ui-page,body .ui-page {
 	
-
 }
 
-
-body.exalis_start .my-breakpoint.ui-grid-start .ui-block-a, .menue_logo {
+body.exalis_start .my-breakpoint.ui-grid-start .ui-block-a,.menue_logo {
 	width: 100%;
 	text-align: center;
 }
@@ -122,55 +118,48 @@ body.exalis_start .ui-content {
 }
 
 body.exalis_start .start_logo {
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     width: 200px;
-     height: 200px;
-     margin-left: -100px;
-	 margin-top: -100px;
-     background: #fff;
-     box-sizing: border-box;
-     background-color: transparent;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 200px;
+	height: 200px;
+	margin-left: -100px;
+	margin-top: -100px;
+	background: #fff;
+	box-sizing: border-box;
+	background-color: transparent;
 }
 
 /* .ui-btn-icon-left {
     padding-left: 1.25em;
 }
 */
-
 .ui-icon-portfolio:after {
-    background-image: url("images/portfolio_white.png");
-    /* Make your icon fit */
-    background-size: 18px 18px;
+	background-image: url("images/portfolio_white.png");
+	/* Make your icon fit */
+	background-size: 18px 18px;
 }
 
-
-
-.exalis_menue .ui-btn-exalis, .ui-btn-exalis, .ui-icon-action {
-	background: -moz-linear-gradient(center top , #e3e6ea 0%, #bac1ca 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border: 1px solid #bac1ca;
-    border-radius: 15px;
-    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
-    
-    font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
-    color: #545454 !important;
+.exalis_menue .ui-btn-exalis,.ui-btn-exalis,.ui-icon-action {
+	background: -moz-linear-gradient(center top, #e3e6ea 0%, #bac1ca 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+	border: 1px solid #bac1ca;
+	border-radius: 15px;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
+	font-family: 'open_sansregular', Helvetica, Arial, sans-serif;
+	color: #545454 !important;
 }
-
 
 .exalis_menue_button {
 	margin-bottom: 20px;
 }
 
-.exalis_list .ui-listview  {
+.exalis_list .ui-listview {
 	border-radius: 15px;
-	 box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 230, 230, 0.5);
-	  border: 1px solid #bac1ca;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 230, 230, 0.5);
+	border: 1px solid #bac1ca;
 }
 
-
-
-.exalis_list .ui-filterable .ui-input-search  {
+.exalis_list .ui-filterable .ui-input-search {
 	border-radius: 15px !important;
 	box-shadow: none;
 	margin-bottom: 20px;
@@ -181,16 +170,17 @@ body.exalis_start .start_logo {
 	border-top-right-radius: 15px;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
-	 box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 230, 230, 0.5);
-	 border-top: 1px solid #BAC1CA;
-	 border-left: 1px solid #BAC1CA;
-	 border-right: 1px solid #BAC1CA;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 230, 230, 0.5);
+	border-top: 1px solid #BAC1CA;
+	border-left: 1px solid #BAC1CA;
+	border-right: 1px solid #BAC1CA;
 }
 
 .ui-collapsible .ui-collapsible-heading a {
 	/* font-size: 14px !important; */
 	/* color: #545454; */
-} 
+	
+}
 
 .ui-collapsible .ui-collapsible-heading-collapsed {
 	border-bottom: 1px solid #BAC1CA;
@@ -204,16 +194,313 @@ body.exalis_start .start_logo {
 	border-top: 0;
 }
 
-.ui-collapsible-content > .ui-listview:not(.ui-listview-inset) {
-    border-radius: inherit;
-    border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-}
+.ui-collapsible-content
+>
+.ui-listview
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:not
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+(
+.ui-listview-inset
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+)
+{
+border-radius
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+inherit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+border-bottom-left-radius
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+15
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+border-bottom-right-radius
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+15
+px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+}
 .ui-collapsible-inset.ui-collapsible-themed-content .ui-collapsible-content {
-    border-left-width: 1px;
-    border-right-width: 1px;
-     border-bottom-left-radius: 15px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
 
@@ -222,24 +509,22 @@ body.exalis_start .start_logo {
 	padding: 0;
 }
 
- .ui-listview > .ui-li-static {
+.ui-listview>.ui-li-static {
 	padding: 0 !important;
 }
 
-.exalis_list_teilb .ui-checkbox, .ui-radio {
-    margin: 0 0;
-    position: relative;
+.exalis_list_teilb .ui-checkbox,.ui-radio {
+	margin: 0 0;
+	position: relative;
 }
 
 .exalis_list_teilb .ui-btn {
 	border: 0;
 }
- 
+
 .exalis_list_teilb .ui-li-divider {
 	
 }
-
-
 
 .exalis_list_teilb .ui-bar-a {
 	background: none repeat scroll 0 0 #E9E9E9;
@@ -249,23 +534,23 @@ body.exalis_start .start_logo {
     background: linear-gradient(to bottom, #EC7533 37%, #E95D10 60%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     color: #FFFFFF;
 }*/
-
-.ui-page-theme-a .ui-btn.ui-btn-active, html .ui-bar-a .ui-btn.ui-btn-active, html .ui-body-a .ui-btn.ui-btn-active, html body .ui-group-theme-a .ui-btn.ui-btn-active, html head + body .ui-btn.ui-btn-a.ui-btn-active, .ui-page-theme-a .ui-checkbox-on:after, html .ui-bar-a .ui-checkbox-on:after, html .ui-body-a .ui-checkbox-on:after, html body .ui-group-theme-a .ui-checkbox-on:after, .ui-btn.ui-checkbox-on.ui-btn-a:after, .ui-page-theme-a .ui-flipswitch-active, html .ui-bar-a .ui-flipswitch-active, html .ui-body-a .ui-flipswitch-active, html body .ui-group-theme-a .ui-flipswitch-active, html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active, .ui-page-theme-a .ui-slider-track .ui-btn-active, html .ui-bar-a .ui-slider-track .ui-btn-active, html .ui-body-a .ui-slider-track .ui-btn-active, html body .ui-group-theme-a .ui-slider-track .ui-btn-active, html body div.ui-slider-track.ui-body-a .ui-btn-active {
-    background-color: #ec7533;
-    border-color: #3388CC;
-    color: #FFFFFF !important;
-    text-shadow: 0 1px 0 #e95d10;
-    border-color: #ec7533;
+.ui-page-theme-a .ui-btn.ui-btn-active,html .ui-bar-a .ui-btn.ui-btn-active,html .ui-body-a .ui-btn.ui-btn-active,html body .ui-group-theme-a .ui-btn.ui-btn-active,html head+body .ui-btn.ui-btn-a.ui-btn-active,.ui-page-theme-a .ui-checkbox-on:after,html .ui-bar-a .ui-checkbox-on:after,html .ui-body-a .ui-checkbox-on:after,html body .ui-group-theme-a .ui-checkbox-on:after,.ui-btn.ui-checkbox-on.ui-btn-a:after,.ui-page-theme-a .ui-flipswitch-active,html .ui-bar-a .ui-flipswitch-active,html .ui-body-a .ui-flipswitch-active,html body .ui-group-theme-a .ui-flipswitch-active,html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active,.ui-page-theme-a .ui-slider-track .ui-btn-active,html .ui-bar-a .ui-slider-track .ui-btn-active,html .ui-body-a .ui-slider-track .ui-btn-active,html body .ui-group-theme-a .ui-slider-track .ui-btn-active,html body div.ui-slider-track.ui-body-a .ui-btn-active
+	{
+	background-color: #ec7533;
+	border-color: #3388CC;
+	color: #FFFFFF !important;
+	text-shadow: 0 1px 0 #e95d10;
+	border-color: #ec7533;
 }
 
-.exalis_list_teilb .ui-listview > .ui-li-divider {
-    padding: 0;
+.exalis_list_teilb .ui-listview>.ui-li-divider {
+	padding: 0;
 }
 
-.ui-disabled, .ui-state-disabled, button[disabled], .ui-select .ui-btn.ui-state-disabled {
-    cursor: default !important;
-    opacity: 0.5;
-    pointer-events: none;
+.ui-disabled,.ui-state-disabled,button[disabled],.ui-select .ui-btn.ui-state-disabled {
+	cursor: default !important;
+	opacity: 0.5;
+	pointer-events: none;
 }
 
 .centered {
@@ -273,26 +558,15 @@ body.exalis_start .start_logo {
 }
 
 /* Focus */
-.ui-page-theme-a .ui-btn:focus,
-html .ui-bar-a .ui-btn:focus,
-html .ui-body-a .ui-btn:focus,
-html body .ui-group-theme-a .ui-btn:focus,
-html head + body .ui-btn.ui-btn-a:focus,
-/* Focus buttons and text inputs with div wrap */
-.ui-page-theme-a .ui-focus,
-html .ui-bar-a .ui-focus,
-html .ui-body-a .ui-focus,
-html body .ui-group-theme-a .ui-focus,
-html head + body .ui-btn-a.ui-focus,
-html head + body .ui-body-a.ui-focus {
-	-webkit-box-shadow: 0 0 12px 	#ec7533 /*{a-active-background-color}*/;
-	-moz-box-shadow: 0 0 12px 		#ec7533 /*{a-active-background-color}*/;
-	box-shadow: 0 0 12px 			#ec7533 /*{a-active-background-color}*/;
+.ui-page-theme-a .ui-btn:focus,html .ui-bar-a .ui-btn:focus,html .ui-body-a .ui-btn:focus,html body .ui-group-theme-a .ui-btn:focus,html head+body .ui-btn.ui-btn-a:focus, /* Focus buttons and text inputs with div wrap */ .ui-page-theme-a .ui-focus,html .ui-bar-a .ui-focus,html .ui-body-a .ui-focus,html body .ui-group-theme-a .ui-focus,html head+body .ui-btn-a.ui-focus,html head+body .ui-body-a.ui-focus {
+	-webkit-box-shadow: 0 0 12px #ec7533 /*{a-active-background-color}*/;
+	-moz-box-shadow: 0 0 12px #ec7533 /*{a-active-background-color}*/;
+	box-shadow: 0 0 12px #ec7533 /*{a-active-background-color}*/;
 }
 
-.file_upload .ui-input-text, .ui-input-text {
+.file_upload .ui-input-text,.ui-input-text {
 	border-radius: 15px;
-	 box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 230, 230, 0.5);
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 230, 230, 0.5);
 }
 
 .exalis_list .ui-select {
@@ -300,64 +574,61 @@ html head + body .ui-body-a.ui-focus {
 }
 
 .ui-btn-inline {
-	background: -moz-linear-gradient(center top , #e3e6ea 0%, #bac1ca 100%) repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
-    border: 1px solid #bac1ca;
-    border-radius: 15px;
-    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
-    font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
-    color: #545454 !important;
-    border-radius: 15px !important;
+	background: -moz-linear-gradient(center top, #e3e6ea 0%, #bac1ca 100%) repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+	border: 1px solid #bac1ca;
+	border-radius: 15px;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
+	font-family: 'open_sansregular', Helvetica, Arial, sans-serif;
+	color: #545454 !important;
+	border-radius: 15px !important;
 }
 
 .exalis_list .ui-select .ui-btn {
-
-    border: 1px solid #bac1ca;
-    border-radius: 15px;
-    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
-    font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
-    color: #545454 !important;
-    border-radius: 15px !important;
+	border: 1px solid #bac1ca;
+	border-radius: 15px;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
+	font-family: 'open_sansregular', Helvetica, Arial, sans-serif;
+	color: #545454 !important;
+	border-radius: 15px !important;
 }
 
-.exalis_comp_komprastercheck .ui-checkbox .ui-btn, .exalis_comp_komprastercheck .ui-checkbox input  {
-
+.exalis_comp_komprastercheck .ui-checkbox .ui-btn,.exalis_comp_komprastercheck .ui-checkbox input {
 	border: 0 none;
 }
 
 .exalis_comp_komprastercheck {
-	float:left;
+	float: left;
 	width: 20px;
 }
 
 .excomdos_tile {
-    float: left;
-    height: 11.5em;
-    margin: 0.5em;
-    overflow: hidden;
-    padding: 0.625em;
-    width: 6.5em;
- 
-    border: 1px solid #BAC1CA;
-    border-radius: 15px !important;
-    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
-    color: #545454 !important;
-} 
+	float: left;
+	height: 11.5em;
+	margin: 0.5em;
+	overflow: hidden;
+	padding: 0.625em;
+	width: 6.5em;
+	border: 1px solid #BAC1CA;
+	border-radius: 15px !important;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
+	color: #545454 !important;
+}
 
 .excomdos_tileimage {
-    height: 4.361em;
-    padding-bottom: 0.2em;
-    text-align: center;
+	height: 4.361em;
+	padding-bottom: 0.2em;
+	text-align: center;
 }
 
 .excomdos_tileimage img {
-    width: 6.5em;
+	width: 6.5em;
 }
 
 .exomdos_tiletitle {
-    font-size: 0.8rem;
-    overflow: hidden;
-    word-wrap: break-word;
-    margin-top: 10px;
+	font-size: 0.8rem;
+	overflow: hidden;
+	word-wrap: break-word;
+	margin-top: 10px;
 }
 
 .excomdos_tileinfo {
@@ -365,13 +636,12 @@ html head + body .ui-body-a.ui-focus {
 }
 
 .excomdos_tilehead .excomdos_tileinfo {
-    float: left;
+	float: left;
 }
 
 .excomdos_tileedit {
-    text-align: center;
-    margin-top: 20px;
-    
+	text-align: center;
+	margin-top: 20px;
 }
 
 .excomdos_tileinfo {
@@ -380,21 +650,21 @@ html head + body .ui-body-a.ui-focus {
 
 .upload_success {
 	background-color: #DFF0D8;
-    border-color: #D6E9C6;
-    color: #3C763D;
-    font-family: 'open_sansbold',Helvetica,Arial,sans-serif;
-    border-radius: 15px;
-    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 230, 230, 0.5);
-    padding: 20px;
-    margin-bottom: 25px;
-    text-align: center;
+	border-color: #D6E9C6;
+	color: #3C763D;
+	font-family: 'open_sansbold', Helvetica, Arial, sans-serif;
+	border-radius: 15px;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 230, 230, 0.5);
+	padding: 20px;
+	margin-bottom: 25px;
+	text-align: center;
 }
 
 .margin-top {
 	margin-top: 30px;
 }
 
-.exalis_eport_raster, .clear {
+.exalis_eport_raster,.clear {
 	clear: both;
 }
 
@@ -407,66 +677,86 @@ html head + body .ui-body-a.ui-focus {
 	background-color: transparent !important;
 }
 
-.exalis_comp_komprastercheck .ui-checkbox input, .ui-radio input  {
+.exalis_comp_komprastercheck .ui-checkbox input,.ui-radio input {
 	margin-top: 0px !important;
 	height: 10px;
 	display: none;
 }
 
 img.portfolio_item {
-    max-width:100% !important;
-    height:auto;
-    display:block;
-    margin: 0 auto;
+	max-width: 100% !important;
+	height: auto;
+	display: block;
+	margin: 0 auto;
 }
 
 .exalis_item h2 {
 	font-size: 1.3rem;
 	font-weight: normal;
-	font-family: 'open_sanssemibold',Helvetica,Arial,sans-serif;
+	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
 }
 
 .exalis_views .ui-listview h2 {
 	margin-top: 24px;
 	font-weight: normal;
-	font-family: 'open_sanssemibold',Helvetica,Arial,sans-serif;
+	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
 }
 
 .single_view .ui-listview h2 {
 	margin-top: 0px;
 	font-weight: normal;
-	font-family: 'open_sanssemibold',Helvetica,Arial,sans-serif;
+	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
 }
 
 .exalis_views .ui-listview {
 	border-radius: 15px;
-    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 230, 230, 0.5);
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(230, 230, 230, 0.5);
 }
 
 .exalis_views {
 	
 }
 
-.ui-listview .ui-li-has-thumb > img:first-child, .ui-listview .ui-li-has-thumb > .ui-btn > img:first-child, .ui-listview .ui-li-has-thumb .ui-li-thumb {
-    left: 0;
-    max-height: 8em !important;
-    max-width: 5em;
-    position: absolute;
-    top: 0;
+.ui-listview .ui-li-has-thumb>img:first-child,.ui-listview .ui-li-has-thumb>.ui-btn>img:first-child,.ui-listview .ui-li-has-thumb .ui-li-thumb {
+	left: 0;
+	max-height: 8em !important;
+	max-width: 5em;
+	position: absolute;
+	top: 0;
+}
+
+.exalis-panel {
+	background-color: white;
+	width: 80%;
+}
+
+#apple-spacer {
+	height: 20px;
+	background-color: green;
+}
+
+#overlay {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: red;
+	z-index: 1000;
 }
 
 @media all and (max-width: 35em) {
-.my-breakpoint .ui-block-a,
-.my-breakpoint .ui-block-b,
-.my-breakpoint .ui-block-c,
-.my-breakpoint .ui-block-d,
-.my-breakpoint .ui-block-e {
-width: 100%;
-float:none;
+	.my-breakpoint .ui-block-a,.my-breakpoint .ui-block-b,.my-breakpoint .ui-block-c,.my-breakpoint .ui-block-d,.my-breakpoint .ui-block-e {
+		width: 100%;
+		float: none;
+	}
 }
-}
+
 @media all and (min-width: 45em) {
-.my-breakpoint.ui-grid-b .ui-block-a { width: 49.95%; }
-.my-breakpoint.ui-grid-b .ui-block-b,
-.my-breakpoint.ui-grid-b .ui-block-c { width: 24.925%; }
+	.my-breakpoint.ui-grid-b .ui-block-a {
+		width: 49.95%;
+	}
+	.my-breakpoint.ui-grid-b .ui-block-b,.my-breakpoint.ui-grid-b .ui-block-c {
+		width: 24.925%;
+	}
 }

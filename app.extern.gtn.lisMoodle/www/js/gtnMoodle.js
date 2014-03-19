@@ -43,6 +43,8 @@ var gtnMoodle = {
 		return true;
 	},
 
+	
+
 	writeHeader : function(pageId, pagename) {
 		app.debug("pagename(" + pageId + ", " + pagename + ")");
 		$("#" + pageId + " .app-pagename").html(pagename);
@@ -139,7 +141,7 @@ var gtnMoodle = {
 			app.debug("xml: " + new XMLSerializer().serializeToString(xml), 2);
 			return xml;
 		} else {
-			app.notify("Moodle Timeout", "Mšglicherweise hat dein GerŠt keine Internetverbindung");
+			app.notify("Moodle Timeout", "Mï¿½glicherweise hat dein Gerï¿½t keine Internetverbindung");
 			return false;
 		}
 	},
