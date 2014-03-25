@@ -25,7 +25,7 @@ var competence = {
 			var append = "";
 			if ($.trim(values['type']) == 'exaport') { // Portfolio
 				append += '<li>';
-				append += '<a data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-portfolio" href="' + values['link'] + '" data-app-contentid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
+				append += '<a  class="ui-btn ui-btn-icon-right ui-icon-portfolio" href="portfolioItem.html" data-app-portfolioid="' + values['contentid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
 				append += '</li>';
 			} else if ($.trim(values['type']) == 'assign') { // Aufgabe
 				append += '<li>';

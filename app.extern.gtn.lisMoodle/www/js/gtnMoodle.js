@@ -141,7 +141,7 @@ var gtnMoodle = {
 			app.debug("xml: " + new XMLSerializer().serializeToString(xml), 2);
 			return xml;
 		} else {
-			app.notify("Moodle Timeout", "M�glicherweise hat dein Ger�t keine Internetverbindung");
+			app.notify("Moodle Timeout", "Möglicherweise hat dein Gerät keine Internetverbindung");
 			return false;
 		}
 	},
