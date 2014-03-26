@@ -28,38 +28,38 @@
             "/*": {
                 "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>": 1,
                 "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>": 1,
+                "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>": 1,
                 "<feature name=\"File\"><param name=\"ios-package\" value=\"CDVFile\" /><param name=\"onload\" value=\"true\" /></feature>": 1,
                 "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>": 1,
-                "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>": 1,
-                "<feature name=\"Capture\"><param name=\"ios-package\" value=\"CDVCapture\" /></feature>": 1,
                 "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>": 1,
-                "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>": 1
+                "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>": 1,
+                "<feature name=\"Capture\"><param name=\"ios-package\" value=\"CDVCapture\" /></feature>": 1
             }
         }
     },
     "installed_plugins": {
         "org.apache.cordova.camera": {
-            "PACKAGE_NAME": "com.gtn-solutions.gtnMoodle"
+            "PACKAGE_NAME": "com.gtn-solutions.exalis"
         },
         "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.gtn-solutions.gtnMoodle"
+            "PACKAGE_NAME": "com.gtn-solutions.exalis"
+        },
+        "org.apache.cordova.dialogs": {
+            "PACKAGE_NAME": "com.gtn-solutions.exalis"
         },
         "org.apache.cordova.file": {
-            "PACKAGE_NAME": "com.gtn-solutions.gtnMoodle"
+            "PACKAGE_NAME": "com.gtn-solutions.exalis"
         },
         "org.apache.cordova.file-transfer": {
-            "PACKAGE_NAME": "com.gtn-solutions.gtnMoodle"
-        },
-        "org.apache.cordova.media": {
-            "PACKAGE_NAME": "com.gtn-solutions.gtnMoodle"
-        },
-        "org.apache.cordova.media-capture": {
-            "PACKAGE_NAME": "com.gtn-solutions.gtnMoodle"
+            "PACKAGE_NAME": "com.gtn-solutions.exalis"
         },
         "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.gtn-solutions.exalis"
         },
-        "org.apache.cordova.dialogs": {
+        "org.apache.cordova.media": {
+            "PACKAGE_NAME": "com.gtn-solutions.exalis"
+        },
+        "org.apache.cordova.media-capture": {
             "PACKAGE_NAME": "com.gtn-solutions.exalis"
         }
     },

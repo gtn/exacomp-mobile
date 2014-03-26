@@ -17,7 +17,7 @@
  under the License.
  */
 //
-// Prefix header for all source files of the 'gtnMoodle' target in the 'gtnMoodle' project
+// Prefix header for all source files of the 'exalis' target in the 'exalis' project
 //
 
 #ifdef __OBJC__
