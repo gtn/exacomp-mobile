@@ -2,22 +2,26 @@ $(document).on('pagebeforecreate', '#portfolioNewItem', function(event) {
 	app.debug("pagebeforecreate: portfolioNewItem", 3);
 	gtnMoodle.init("portfolioNewItem", "portfolioNewItem");
 
-	/*var vars = [], hash;
+	var vars = [], hash;
 	var q = document.URL.split('?')[1];
-	if(q != undefined){
-	    q = q.split('&');
-	    for(var i = 0; i < q.length; i++){
-	        hash = q[i].split('=');
-	        app.debug("urltest",hash[0] + " = " + hash[1]);
-	    }
-	}*/
-	alert("hallo?");
-	app.debug("urltest gehts?",2);
+	if (q != undefined) {
+		q = q.split('&');
+		for ( var i = 0; i < q.length; i++) {
+			hash = q[i].split('=');
+			vars[hash[0]] = hash[1];
+		}
+	}
+	app.debug("Image: " + vars['image'], 2);
+	//alert(vars['image']);
+	if (vars['image'] != undefined) {
+		window.localStorage.setItem('data-app-imageurl', vars['image']);
+		window.localStorage.setItem('data-app-portfolioid', 0);
+		window.localStorage.setItem('data-app-portfoliotype', 'file');
+	}
 	portfolioNewItem.loadportfolioNewItem();
 	portfolioNewItem.defineEvents();
 	page.initPage("portfolioNewItem");
 });
-
 
 var portfolioNewItem = {
 	loadportfolioNewItem : function() {
@@ -115,8 +119,7 @@ var portfolioNewItem = {
 			if (portfolioNewItem.addItem(title, categoryid, url, intro, filename, type)) {
 				app.notify("Aufgabe", "Erfolgreich.");
 				$(location).attr('href', 'portfolioItems.html');
-			}
-			else{
+			} else {
 				app.notify("New Item", "Fehler.");
 			}
 		});
