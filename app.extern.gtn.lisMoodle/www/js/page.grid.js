@@ -43,18 +43,30 @@ var grid = {
 				var name = $(this).attr('name');
 				values[name] = $(this).text();
 			});
-			var append = '<div class="clear">&nbsp;</div>';
-			append += '<fieldset data-role="controlgroup" class="exalis_comp_komprastercheck">';
-			append += '<input name="checkbox-1b" id="checkbox-1b" type="checkbox">';
-			append += '<label for="checkbox-1b">&nbsp;</label>';
-			append += '</fieldset>';
 
+			var append = '';
+			/*
+			 * append += '<fieldset data-role="controlgroup"
+			 * class="exalis_comp_komprastercheck">'; append += '<input
+			 * name="checkbox-1b" id="checkbox-1b" type="checkbox">'; append += '<label
+			 * for="checkbox-1b">&nbsp;</label>'; append += '</fieldset>';
+			 * 
+			 * append += '<div data-role="collapsible"
+			 * data-content-theme="false" class="kompetenzraster_pushright">';
+			 * append += '<h4>' + values['title'] + '</h4>'; append += '<ul data-role="listview" class="app-subtopic-' + values['topicid'] + '">';
+			 * append += grid.loadSubtopics(courseId, values['topicid']); append += '</ul>';
+			 * append += '</div>';
+			 * 
+			 */
+
+			append += '<div class="clear">&nbsp;</div>';
 			append += '<div data-role="collapsible" data-content-theme="false" class="kompetenzraster_pushright">';
 			append += '<h4>' + values['title'] + '</h4>';
-			append += '<ul data-role="listview" class="app-subtopic-' + values['topicid'] + '">';
+			append += '<ul data-role="listview" data-split-icon="carat-r" data-split-theme="a" class="app-subtopic-' + values['topicid'] + '"> ';
 			append += grid.loadSubtopics(courseId, values['topicid']);
 			append += '</ul>';
 			append += '</div>';
+
 			$("#grid .app-gridarea").append(append);
 		});
 	},
@@ -74,14 +86,22 @@ var grid = {
 				values[name] = $(this).text();
 			});
 			var studentcomp = "";
+			var teachercomp = "";
 			if (parseInt(values['studentcomp']))
 				studentcomp = ' checked="checked"';
-			append += '<li>';
-			append += '<input class="app-studentcomp" name="checkbox-' + values['subtopicid'] + '" id="checkbox-' + values['subtopicid'] + '" type="checkbox" ' + studentcomp + ' data-app-subtopicid="' + values['subtopicid'] + '" data-app-topicid="' + topicId + '">';
-			append += '<label for="checkbox-' + values['subtopicid'] + '">Selbsteinschaetzung<label>';
-			append += '</li><li>';
-			append += '<a href="listcompetencies.html" data-app-subtopicid="' + values['subtopicid'] + '" data-ajax="false" data-dom-cache="false">' + values['title'] + '</a>';
+			if (parseInt(values['teachercomp']))
+				teachercomp = 'lehrereinschaetzung';
+
+			append += '<li><a href="#" style="padding-top: 0px;padding-bottom: 0px;padding-right: 42px;padding-left: 0px;" class="' + teachercomp + '">';
+			append += '<label style="border-top-width: 0px;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;border-left-width: 0px;border-right-width: 0px;" data-corners="false">';
+			append += '<fieldset data-role="controlgroup" >';
+			append += '<input id="2" name="2" class="app-studentcomp" type="checkbox" name="checkbox-' + values['subtopicid'] + '" id="checkbox-' + values['subtopicid'] + '" type="checkbox" ' + studentcomp + ' data-app-subtopicid="' + values['subtopicid'] + '" data-app-topicid="' + topicId + '"/>';
+			append += '' + values['title'] + '';
+			append += '</fieldset>';
+			append += '</label>';
+			append += '</a><a href="listcompetencies.html" data-app-topicid="' + topicId + '" data-app-subtopicid="' + values['subtopicid'] + '" data-ajax="false"></a>';
 			append += '</li>';
+
 			// $("#grid app-subtopic-" + topicId + "").append(append);
 		});
 		return append;
@@ -100,7 +120,7 @@ var grid = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success setting studentcomp: " + values['success'], 2);
-			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich ge�ndert.");
+			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich geändert.");
 		});
 	},
 	defineEvents : function() {

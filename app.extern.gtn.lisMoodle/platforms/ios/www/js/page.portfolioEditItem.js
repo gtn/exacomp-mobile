@@ -100,7 +100,8 @@ var portfolioEditItem = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success update portfolioitem: " + values['success'], 2);
-			app.notify("Aufgabe", "Item erfolgreich ge�ndert.");
+			app.notify("Aufgabe", "Item erfolgreich geändert.");
+			$(location).attr('href', 'portfolioItems.html');
 		});
 		return success;
 	},
@@ -128,7 +129,7 @@ var portfolioEditItem = {
 			var filename = $('#portfolioEditItem #pFilename').text();
 			var type = window.localStorage.getItem('data-app-portfoliotype');
 			if (type.trim() == "category") {
-				app.notify("title", "Noch nicht implementiert f�r Kategorie");
+				app.notify("title", "Noch nicht implementiert für Kategorie");
 			} else {
 				portfolioEditItem.updateItem(id, title, url, intro, filename, type);
 			}

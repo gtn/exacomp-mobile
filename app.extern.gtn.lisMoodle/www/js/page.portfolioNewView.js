@@ -35,7 +35,8 @@ var portfolioNewView = {
 			var name = $('#portfolioNewView #txtName').val();
 			var description = $('#portfolioNewView #txtDescription').val();
 			portfolioNewView.addView(name, description);
-			history.back();
+			//portfolioViews.html
+			$(location).attr('href', 'portfolioViews.html');
 		});
 	}
 };

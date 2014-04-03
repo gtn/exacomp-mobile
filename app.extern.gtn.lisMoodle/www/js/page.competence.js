@@ -12,6 +12,22 @@ var competence = {
 	loadCompetence : function(courseId, descriptorId) {
 		app.debug("competence.loadCompetence(" + courseId + "," + descriptorId + ")");
 		$("#competence .app-competence").empty();
+		
+		// headline
+		data = "&competenceid=" + descriptorId;
+		xml = gtnMoodle.getMoodleXml("block_exacomp_get_competence_by_id", gtnMoodle.tokenExacomp, data);
+		$(xml).find('SINGLE').each(function() {
+			app.debug("MULTIPLE>SINGLE", 1);
+			var values = new Array();
+			$(this).find('KEY').each(function() {
+				app.debug("MULTIPLE>SINGLE>KEY", 1);
+				var name = $(this).attr('name');
+				values[name] = $(this).text();
+			});
+			$("#competence .app-content").prepend('<p>' + values['title'] + '</p>');
+		});
+		
+		// content
 		data = "&courseid=" + courseId + "&descriptorid=" + descriptorId;
 		xml = gtnMoodle.getMoodleXml("block_exacomp_get_associated_content", gtnMoodle.tokenExacomp, data);
 		$(xml).find('MULTIPLE>SINGLE').each(function() {

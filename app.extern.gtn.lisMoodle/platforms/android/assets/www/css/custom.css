@@ -194,309 +194,12 @@ body.exalis_start .start_logo {
 	border-top: 0;
 }
 
-.ui-collapsible-content
->
-.ui-listview
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:not
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-(
-.ui-listview-inset
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-)
-{
-border-radius
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-inherit
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;
-border-bottom-left-radius
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-15
-px
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;
-border-bottom-right-radius
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:
-
-
-
-
-
-
-
-
-
-
-
-
-15
-px
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;
+.ui-collapsible-content>.ui-listview:not(.ui-listview-inset) {
+	border-radius:inherit;
+	border-bottom-left-radius:15px;
+	border-bottom-right-radius: 15px;
 }
+
 .ui-collapsible-inset.ui-collapsible-themed-content .ui-collapsible-content {
 	border-left-width: 1px;
 	border-right-width: 1px;
@@ -583,14 +286,18 @@ px
 	border-radius: 15px !important;
 }
 
-.exalis_list .ui-select .ui-btn {
-	border: 1px solid #bac1ca;
+.exalis_list .ui-select .ui-btn  {
+	border: 1px solid #bac1ca !important;
 	border-radius: 15px;
 	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(188, 188, 188, 0.5);
 	font-family: 'open_sansregular', Helvetica, Arial, sans-serif;
 	color: #545454 !important;
 	border-radius: 15px !important;
 }
+
+
+
+
 
 .exalis_comp_komprastercheck .ui-checkbox .ui-btn,.exalis_comp_komprastercheck .ui-checkbox input {
 	border: 0 none;
@@ -669,7 +376,7 @@ px
 }
 
 .kompetenzraster_pushright {
-	margin-left: 59px;
+/*	margin-left: 59px; */
 }
 
 .exalis_comp_komprastercheck .ui-checkbox label.ui-btn {
@@ -727,7 +434,6 @@ img.portfolio_item {
 
 .exalis-panel {
 	background-color: white;
-	
 }
 
 #apple-spacer {
@@ -760,3 +466,89 @@ img.portfolio_item {
 		width: 24.925%;
 	}
 }
+
+
+.ui-listview > .ui-li-static, .ui-listview > .ui-li-divider, .ui-listview > li > a.ui-btn {
+    white-space: normal;
+}
+
+.ui-select .ui-btn > span:not(.ui-li-count) {
+    text-overflow: initial;
+    white-space: normal;
+}
+
+.ui-mobile label, div.ui-controlgroup-label {
+    font-size: 14px;
+    font-weight: normal !important;
+}
+
+.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head + body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head + body .ui-btn.ui-btn-a:visited {
+    border-color: #DDDDDD !important;
+}
+	
+.ui-page-theme-a .lehrereinschaetzung, .ui-page-theme-a .lehrereinschaetzung .ui-btn  {
+    background: none repeat scroll 0 0 #d5f3d5;
+}	
+
+.ui-content h2 {
+	font-family: 'open_sansregular', Helvetica, Arial, sans-serif;
+	font-size: 22px;
+}
+
+/*
+.kompetenzraster_pushright .ui-checkbox {
+	margin: 0;
+}
+/*
+.kompetenzraster_pushright .ui-collapsible-content > .ui-listview-inset {
+	margin: 0;
+}
+
+.kompetenzraster_pushright .ui-collapsible-content {
+
+    padding: 0;
+}
+
+.kompetenzraster_pushright .ui-listview > li.ui-first-child, .ui-listview > li.ui-first-child > a.ui-btn {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.kompetenzraster_pushright .ui-listview {
+	border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+*/
+
+/*
+html body .kompetenzraster_pushright li.ui-body-inherit {
+	background-color: #F6F6F6 !important;
+}
+
+.kompetenzraster_pushright .ui-block-a {
+	width: 90%;
+}
+.kompetenzraster_pushright .ui-block-b {
+	width: 10%;
+	text-align: right;
+	min-width: 34px !important;
+}
+
+.kompetenzraster_pushright .ui-block-b a {
+	float: right;
+}
+
+body .kompetenzraster_pushright .label.ui-btn, .kompetenzraster_pushright .ui-btn {
+	font-weight: normal !important;
+	font-size: 14px;
+	line-height: 1.2;
+}
+
+html body .kompetenzraster_pushright .ui-checkbox .ui-btn {
+	border-radius: 0;
+	border: 0;
+}
+/* 
+.floattest .ui-checkbox {
+	float:left;
+} */

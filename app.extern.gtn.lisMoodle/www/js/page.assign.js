@@ -3,8 +3,9 @@ $(document).on('pagebeforecreate', '#assign', function(event) {
 	gtnMoodle.init("assign", L.s("page_assign"));
 	var contentid = window.localStorage.getItem('data-app-contentid');
 	assign.loadAssign(contentid);
-	assign.defineEvents();
+
 	page.initPage("assign");
+	assign.defineEvents();
 });
 var assign = {
 	loadAssign : function(contentid) {
@@ -21,13 +22,12 @@ var assign = {
 				values[name] = $(this).text();
 			});
 			var append = "";
-			append += '<h1>' + values['title'] + '</h1>';
+			// append += '<h1>' + values['title'] + '</h1>';
 			append += '<h2>Aufgabe</h2>';
-			append += values['intro'];
-			append += '<h2>Status</h2>';
-			append += '<p>' + values['submissionstatus'] + '</p>';
-			append += '<h2>Abgabedatum</h2>';
-			append += '<p>' + date('F j, Y, g:i a', values['deadline']) + '</p>';
+			append += '<p>' + values['intro'] + '</p>';
+			append += '<p><b>Status: </b>' + values['submissionstatus'] + '</p>';
+			// append += '<h2>Abgabedatum</h2>';
+			append += '<p>Abgabedatum: ' + date('F j, Y, g:i a', values['deadline']) + '</p>';
 
 			if (parseInt(values['onlinetextenabled'])) {
 				append += '<div data-role="fieldcontain">';
@@ -35,16 +35,16 @@ var assign = {
 				append += '<textarea cols="40" rows="8" name="txtText" id="txtText">' + values['onlinetext'] + '</textarea>';
 			}
 			if (parseInt(values['fileenabled'])) {
-				append += '<h2>Datei</h2>';
+				append += '<p><b>Datei:</b></p>';
 				append += '<p id="pFilename">' + values['filename'] + '</p>';
 				append += '<p>' + values['file'] + '</p>';
-				append += '<input id="btnSelectFromSavedPhotoAlbum" type="button" value="Foto aus Album">';
-				append += '<input id="btnTakePhoto" type="button" value="Foto aufnehmen">';
-				append += '<input id="btnSelectFromPhotoLibrary" type="button" value="Foto aus Bibliothek">';
+				append += '<a class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-action ui-btn-icon-left" id="btnSelectFromSavedPhotoAlbum" >Foto aus Album</a>';
+				append += '<a class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-camera ui-btn-icon-left" id="btnTakePhoto" type="button" >Foto aufnehmen</a>';
+				append += '<a class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-action ui-btn-icon-left" id="btnSelectFromPhotoLibrary" >Foto aus Bibliothek</a>';
 			}
 			if (parseInt(values['submissionenabled'])) {
-				append += '<input id="btnUpload" type="button" value="Upload Photo">';
-				append += '<input id="btnSubmit" type="button" value="Abgeben">';
+				append += '<a class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-check ui-btn-icon-left" id="btnUpload" type="button" value="Upload Photo">Upload Photo</a>';
+				append += '<a class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-check ui-btn-icon-left" id="btnSubmit" type="button" value="Abgeben">Abgeben</a>';
 			}
 			$("#assign").append(append);
 		});

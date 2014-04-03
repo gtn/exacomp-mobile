@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#competencies', function(event) {
 	app.debug("pagebeforecreate: competencies");
-	gtnMoodle.init("competencies", "competencies");
+	gtnMoodle.init("competencies", L.s("page_competencies"));
 	$("#competencies .app-competencies").empty();
 	var xml = gtnMoodle.getMoodleXml("block_exacomp_get_courses", gtnMoodle.tokenExacomp);
 

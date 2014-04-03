@@ -12,6 +12,22 @@ var listcompetencies = {
 	loadCompetencies : function(courseId, subtopicId) {
 		app.debug("listcompetencies.loadCompetencies(" + courseId + "," + subtopicId + ")");
 		$("#listcompetencies .app-content").empty();
+
+		// headline
+		data = "&topicid=" + subtopicId;
+		xml = gtnMoodle.getMoodleXml("block_exacomp_get_topic_by_id", gtnMoodle.tokenExacomp, data);
+		$(xml).find('SINGLE').each(function() {
+			app.debug("MULTIPLE>SINGLE", 1);
+			var values = new Array();
+			$(this).find('KEY').each(function() {
+				app.debug("MULTIPLE>SINGLE>KEY", 1);
+				var name = $(this).attr('name');
+				values[name] = $(this).text();
+			});
+			$("#listcompetencies .app-content").append('<p>' + values['title'] + '</p>');
+		});
+
+		// content
 		data = "&courseid=" + courseId + "&subtopicid=" + subtopicId;
 		xml = gtnMoodle.getMoodleXml("block_exacomp_get_competencies", gtnMoodle.tokenExacomp, data);
 		$(xml).find('MULTIPLE>SINGLE').each(function() {
@@ -23,30 +39,33 @@ var listcompetencies = {
 				values[name] = $(this).text();
 			});
 
-			var teachercomp = "";
-			var studentcomp = "";
-			if (parseInt(values['teachercomp']))
-				teachercomp = 'checked="checked"';
-			if (parseInt(values['studentcomp']))
-				studentcomp = 'checked="checked"';
+			if (parseInt(values['isexpandable'])) {
 
-			var append = '<div class="clear">&nbsp;</div>';
-			append += '<fieldset data-role="controlgroup exalis_comp_teilbereich">';
-			append += '<ul data-role="listview" data-inset="true" data-divider-theme="a">';
-			append += '<li data-role="list-divider">';
-			append += '<a data-ajax="false" href="competence.html" class="ui-btn ui-btn-icon-right ui-icon-carat-r exalis_heading" data-app-descriptorid="' + values['descriptorid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
-			append += '</li>';
-			append += '<li>';
-			append += '<input class="app-studentcomp" name="checkbox-1a" id="checkbox-1a" data-app-descriptorid="' + values['descriptorid'] + '" type="checkbox" ' + studentcomp + '>';
-			append += '<label for="checkbox-1a">Selbsteinschaetzung Teilbereich</label>';
-			append += '</li>';
-			append += '<li>';
-			append += '<input name="checkbox-2a" id="checkbox-2a" disabled="disabled" type="checkbox"  ' + teachercomp + '>';
-			append += '<label for="checkbox-2a">Lehrer Einschaetzung</label>';
-			append += '</li>';
-			append += '</ul>';
-			append += '</fieldset>';
-			$("#listcompetencies .app-content").append(append);
+				var teachercomp = "";
+				var studentcomp = "";
+				if (parseInt(values['teachercomp']))
+					teachercomp = 'lehrereinschaetzung';
+				if (parseInt(values['studentcomp']))
+					studentcomp = 'checked="checked"';
+
+				var append = '';
+
+				append += '<fieldset data-role="controlgroup exalis_comp_teilbereich kompetenzraster_pushright">';
+				append += '<ul data-role="listview" data-inset="true" data-divider-theme="a" data-split-icon="carat-r">';
+				append += '<li><a href="#" style="padding-top: 0px;padding-bottom: 0px;padding-right: 42px;padding-left: 0px;" class="' + teachercomp + '">';
+				append += '<label style="border-top-width: 0px;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;border-left-width: 0px;border-right-width: 0px;" data-corners="false">';
+				append += '<fieldset data-role="controlgroup" >';
+				append += '<input id="1" name="1" type="checkbox" class="app-studentcomp"  data-app-descriptorid="' + values['descriptorid'] + '"  ' + studentcomp + '/> ';
+				append += '' + values['title'] + '';
+				append += '</fieldset>';
+				append += '</label>';
+				append += '</a><a data-ajax="false"  data-app-descriptorid="' + values['descriptorid'] + '"  href="competence.html" ></a>';
+				append += '</li>';
+				append += '</ul>';
+				append += '</fieldset>';
+
+				$("#listcompetencies .app-content").append(append);
+			}
 		});
 	},
 	setCompetenceStudentcomp : function(courseid, descriptorid, value) {
@@ -63,7 +82,7 @@ var listcompetencies = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success setting studentcomp: " + values['success'], 2);
-			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich ge�ndert.");
+			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich geändert.");
 		});
 	},
 	defineEvents : function() {

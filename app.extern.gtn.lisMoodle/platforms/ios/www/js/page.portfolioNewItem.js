@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#portfolioNewItem', function(event) {
 	app.debug("pagebeforecreate: portfolioNewItem", 3);
-	gtnMoodle.init("portfolioNewItem", "portfolioNewItem");
+	gtnMoodle.init("portfolioNewItem", L.s("portfolio_new_"+window.localStorage.getItem('data-app-portfoliotype')));
 
 	var vars = [], hash;
 	var q = document.URL.split('?')[1];
@@ -28,7 +28,7 @@ var portfolioNewItem = {
 		app.debug("portfolioNewItem.loadportfolioNewItem()");
 		$("#portfolioNewItem .app-portfolioNewItem").empty();
 		var append = '';
-		append += '<h2>Type: ' + window.localStorage.getItem('data-app-portfoliotype') + '</h2>';
+		append += '<h2>Typ: ' + L.s("portfolio_type_"+window.localStorage.getItem('data-app-portfoliotype')) + '</h2>';
 		if (window.localStorage.getItem('data-app-portfoliotype').trim() == "note") {
 			append += '<label for="txtName">Name:</label>';
 			append += '<input name="txtName" id="txtName" value="" type="text">';
