@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#portfolioItems', function(event) {
 	app.debug("pagebeforecreate: portfolioItems", 3);
-	gtnMoodle.init("portfolioItems", "portfolioItems");
+	gtnMoodle.init("portfolioItems", L.s("page_eportfolioItems"));
 	portfolioItems.loadPortfolioItems(0, 0);
 	page.initPage("portfolioItems");
 	portfolioItems.defineEvents();
@@ -44,7 +44,7 @@ var portfolioItems = {
 				var append = '';
 				append += '<div class="excomdos_tile">';
 				append += '<div class="excomdos_tilehead">';
-				append += '<span class="excomdos_tileinfo"> Note </span>';
+				append += '<span class="excomdos_tileinfo"> '+L.s("portfolio_type_note")+' </span>';
 				append += '</div>';
 				append += '<div class="excomdos_tileimage">';
 				append += '<img src="../img/note_tile.png" />';
@@ -62,7 +62,7 @@ var portfolioItems = {
 				var append = '';
 				append += '<div class="excomdos_tile">';
 				append += '<div class="excomdos_tilehead">';
-				append += '<span class="excomdos_tileinfo"> File </span>';
+				append += '<span class="excomdos_tileinfo"> '+L.s("portfolio_type_file")+' </span>';
 				append += '</div>';
 				append += '<div class="excomdos_tileimage">';
 				append += '<img src="../img/file_tile.png" />';
@@ -80,7 +80,7 @@ var portfolioItems = {
 				var append = '';
 				append += '<div class="excomdos_tile">';
 				append += '<div class="excomdos_tilehead">';
-				append += '<span class="excomdos_tileinfo"> Link </span>';
+				append += '<span class="excomdos_tileinfo"> '+L.s("portfolio_type_link")+' </span>';
 				append += '</div>';
 				append += '<div class="excomdos_tileimage">';
 				append += '<img src="../img/logo.jpg" />';
@@ -98,7 +98,7 @@ var portfolioItems = {
 				var append = '';
 				append += '<div class="excomdos_tile">';
 				append += '<div class="excomdos_tilehead">';
-				append += '<span class="excomdos_tileinfo"> Category </span>';
+				append += '<span class="excomdos_tileinfo"> '+L.s("portfolio_type_category")+' </span>';
 				append += '</div>';
 				append += '<div class="excomdos_tileimage">';
 				append += '<img src="../img/folder_tile.png" />';
@@ -116,10 +116,10 @@ var portfolioItems = {
 		});
 		var append = '';
 		append += '<p class="centered margin-top">';
-		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="category" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Categorie</a> ';
-		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="note" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Notiz</a> ';
-		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="link" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neuer Link</a> ';
-		append += '<a data-app-portfolioid="' + id + '" data-app-portfoliotype="file" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue Datei</a>';
+		append += '<a data-ajax="false" data-app-portfolioid="' + id + '" data-app-portfoliotype="category" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">'+L.s("portfolio_new_category")+'</a> ';
+		append += '<a data-ajax="false" data-app-portfolioid="' + id + '" data-app-portfoliotype="note" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">'+L.s("portfolio_new_note")+'</a> ';
+		append += '<a data-ajax="false" data-app-portfolioid="' + id + '" data-app-portfoliotype="link" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">'+L.s("portfolio_new_link")+'</a> ';
+		append += '<a data-ajax="false" data-app-portfolioid="' + id + '" data-app-portfoliotype="file" href="portfolioNewItem.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">'+L.s("portfolio_new_file")+'</a>';
 		append += '</p>';
 		$("#portfolioItems .app-buttons").empty();
 		$("#portfolioItems .app-buttons").append(append);

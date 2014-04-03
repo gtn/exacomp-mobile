@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#grid', function(event) {
 	app.debug("pagebeforecreate: grid");
-	gtnMoodle.init("grid", "grid");
+	gtnMoodle.init("grid", L.s("page_grid"));
 	grid.loadSubjects();
 	grid.loadTopics(grid.subjectId, window.localStorage.getItem('data-app-courseid'));
 	grid.defineEvents();
@@ -80,7 +80,7 @@ var grid = {
 			append += '<input class="app-studentcomp" name="checkbox-' + values['subtopicid'] + '" id="checkbox-' + values['subtopicid'] + '" type="checkbox" ' + studentcomp + ' data-app-subtopicid="' + values['subtopicid'] + '" data-app-topicid="' + topicId + '">';
 			append += '<label for="checkbox-' + values['subtopicid'] + '">Selbsteinschaetzung<label>';
 			append += '</li><li>';
-			append += '<a href="listcompetencies.html" data-app-subtopicid="' + values['subtopicid'] + '" data-dom-cache="false">' + values['title'] + '</a>';
+			append += '<a href="listcompetencies.html" data-app-subtopicid="' + values['subtopicid'] + '" data-ajax="false" data-dom-cache="false">' + values['title'] + '</a>';
 			append += '</li>';
 			// $("#grid app-subtopic-" + topicId + "").append(append);
 		});

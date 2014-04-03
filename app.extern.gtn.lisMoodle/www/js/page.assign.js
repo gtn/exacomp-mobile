@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#assign', function(event) {
 	app.debug("pagebeforecreate: assign", 3);
-	gtnMoodle.init("assign", "assign");
+	gtnMoodle.init("assign", L.s("page_assign"));
 	var contentid = window.localStorage.getItem('data-app-contentid');
 	assign.loadAssign(contentid);
 	assign.defineEvents();

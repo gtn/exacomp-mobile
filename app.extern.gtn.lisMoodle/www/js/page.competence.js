@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#competence', function(event) {
 	app.debug("pagebeforecreate: competence", 3);
-	gtnMoodle.init("competence", "competence");
+	gtnMoodle.init("competence", L.s("page_competence"));
 	var courseId = window.localStorage.getItem('data-app-courseid');
 	var descriptorId = window.localStorage.getItem('data-app-descriptorid');
 	competence.loadCompetence(courseId, descriptorId);

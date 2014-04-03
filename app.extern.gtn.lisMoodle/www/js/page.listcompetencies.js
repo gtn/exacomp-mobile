@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#listcompetencies', function(event) {
 	app.debug("pagebeforecreate: listcompetencies", 3);
-	gtnMoodle.init("listcompetencies", "listcompetencies");
+	gtnMoodle.init("listcompetencies", L.s("page_listcompetencies"));
 	var courseId = window.localStorage.getItem('data-app-courseid');
 	var subtopicId = window.localStorage.getItem('data-app-subtopicid');
 	listcompetencies.loadCompetencies(courseId, subtopicId);
