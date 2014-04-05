@@ -120,7 +120,7 @@ var grid = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success setting studentcomp: " + values['success'], 2);
-			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich geändert.");
+			app.notify(L.s("notify_selfevaluation_title"), L.s("notify_selfevaluation_text"));
 		});
 	},
 	defineEvents : function() {

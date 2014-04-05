@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#portfolioViews', function(event) {
 	app.debug("pagebeforecreate: portfolioViews", 3);
-	gtnMoodle.init("portfolioViews", "portfolioViews");
+	gtnMoodle.init("portfolioViews", L.s("page_portfolio_views"));
 	portfolioViews.loadportfolioViews();
 	portfolioViews.defineEvents();
 	page.initPage("portfolioViews");
@@ -33,7 +33,7 @@ var portfolioViews = {
 		$("#portfolioViews .app-buttons").empty();
 		var append = '';
 		append += '<p class="centered margin-top">';
-		append += '<a href="portfolioNewView.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Neue View erstellen!</a>';
+		append += '<a href="portfolioNewView.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">'+L.s("portfolio_new_view")+'</a>';
 		append += '</p>';
 		append += '';
 		append += '';

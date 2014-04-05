@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#portfolioItems', function(event) {
 	app.debug("pagebeforecreate: portfolioItems", 3);
-	gtnMoodle.init("portfolioItems", L.s("page_eportfolioItems"));
+	gtnMoodle.init("portfolioItems", L.s("page_portfolio_items"));
 	portfolioItems.loadPortfolioItems(0, 0);
 	page.initPage("portfolioItems");
 	portfolioItems.defineEvents();
@@ -124,7 +124,8 @@ var portfolioItems = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success update portfolioitem: " + values['success'], 2);
-			app.notify("Item", "Erfolgreich gelöscht.");
+			app.notify(L.s("notify_portfolio_item_delete_title"), L.s("notify_portfolio_item_delete_text"));
+
 			success = true;
 		});
 		return success;
