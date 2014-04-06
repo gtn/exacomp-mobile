@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#itemToCompetence', function(event) {
 	app.debug("itemToCompetence: itemToCompetence", 3);
-	gtnMoodle.init("itemToCompetence", "itemToCompetence");
+	gtnMoodle.init("itemToCompetence", L.s("portfolio_competence_selection"));
 	itemToCompetence.loaditemToCompetence();
 	page.initPage("itemToCompetence");
 	itemToCompetence.defineEvents();
@@ -156,20 +156,19 @@ var itemToCompetence = {
 			if ($(this).prop("checked")) {
 				val = 1;
 				if (itemToCompetence.setItemToCompetence(itemid, descriptorid, val)) {
-					app.notify("", "Ich kann das!");
+					app.notify("", L.s("notify_portfolio_set_competence_text"));
+
 				} else {
-					app.notify("", "nicht erfolgreich");
+					app.notify("", L.s("notify_portfolio_competence_failure"));
 				}
 			} else {
 				val = 0;
 				if (itemToCompetence.setItemToCompetence(itemid, descriptorid, val)) {
-					app.notify("", "Ich kann das nicht mehr!");
+					app.notify("", L.s("notify_portfolio_unset_competence_text"));
 				} else {
-					app.notify("", "nicht erfolgreich");
+					app.notify("", L.s("notify_portfoliocompetence_failure"));
 				}
 			}
-
 		});
-
 	}
 };

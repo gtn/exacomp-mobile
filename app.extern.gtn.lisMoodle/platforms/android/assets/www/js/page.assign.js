@@ -63,7 +63,8 @@ var assign = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success udate assign: " + values['success'], 2);
-			app.notify("Aufgabe", "Die Aufgabe wurde erfolgreich ge�ndert.");
+			app.notify(L.s("notify_assign_title"), L.s("notify_assign_text"));
+
 		});
 	},
 	uploadPhoto : function() {

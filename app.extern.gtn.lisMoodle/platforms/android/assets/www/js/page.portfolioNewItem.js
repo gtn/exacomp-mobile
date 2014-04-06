@@ -117,10 +117,10 @@ var portfolioNewItem = {
 			var filename = $('#portfolioNewItem #pFilename').text();
 			var type = window.localStorage.getItem('data-app-portfoliotype');
 			if (portfolioNewItem.addItem(title, categoryid, url, intro, filename, type)) {
-				app.notify("Aufgabe", "Erfolgreich.");
+				app.notify(L.s("notify_portfolio_item_add_title"), L.s("notify_portfolio_item_add_text"));
 				$(location).attr('href', 'portfolioItems.html');
 			} else {
-				app.notify("New Item", "Fehler.");
+				app.notify("New item", "Unknown failure.");
 			}
 		});
 

@@ -100,7 +100,8 @@ var portfolioEditItem = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success update portfolioitem: " + values['success'], 2);
-			app.notify("Aufgabe", "Item erfolgreich geändert.");
+			app.notify(L.s("notify_portfolio_assign_title"), L.s("notify_portfolio_assign_text"));
+
 			$(location).attr('href', 'portfolioItems.html');
 		});
 		return success;

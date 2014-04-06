@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#portfolioItem', function(event) {
 	app.debug("pagebeforecreate: portfolioItem", 3);
-	gtnMoodle.init("portfolioItem", "portfolioItem");
+	gtnMoodle.init("portfolioItem", L.s("page_portfolio_item"));
 	portfolioItem.loadPortfolioItem();
 	portfolioItem.defineEvents();
 	page.initPage("portfolioItem");
@@ -36,7 +36,7 @@ var portfolioItem = {
 		});
 		$("#portfolioItem .app-actions").empty();
 		var append = '';
-		append += '<a href="itemToCompetence.html" data-app-assign="item-selected" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">Item einer Kompetenz zuordnen</a>';
+		append += '<a href="itemToCompetence.html" data-app-assign="item-selected" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus ui-mini">'+L.s("portfolio_competence_selection")+'</a>';
 		$("#portfolioItem .app-actions").append(append);
 	},
 	defineEvents : function() {
