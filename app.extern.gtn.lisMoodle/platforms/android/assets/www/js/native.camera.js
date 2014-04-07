@@ -29,8 +29,15 @@ var nativeCamera = {
 	receivedImageUri : function(imageUri) {
 		window.localStorage.setItem('data-app-imageurl', imageUri);
 		window.localStorage.setItem('data-app-imagename', imageUri.substr(imageUri.lastIndexOf('/') + 1));
+		
+		// dirty dirty dirty
+		if (imageUri.substring(0, 21) == "content://com.android") {
+			photo_split = imageUri.split("%3A");
+			imageUri = "content://media/external/images/media/" + photo_split[1];
+		}
+		$('#pFile').attr("src", imageUri);
 	},
 	cameraFailed : function(message) {
-		app.notify("Camera", 'Failed because: ' + message);
+		app.notify("Camera", 'Grund: ' + message);
 	}
 };

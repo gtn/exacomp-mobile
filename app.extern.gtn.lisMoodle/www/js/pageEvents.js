@@ -68,8 +68,8 @@ var page = {
 		append += '<a data-ajax="false" href="#" data-rel="back" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-grid ui-btn-icon-left" data-dom-cache="false">Zurück</a>';
 		append += '<a data-ajax="false" href="competencies.html" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-grid ui-btn-icon-left" data-dom-cache="false">Competencies</a>';
 		append += '<a data-ajax="false" href="eportfolio.html" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-portfolio ui-btn-icon-left" data-dom-cache="false">ePortfolio</a>';
-		append += '<a data-ajax="false" href="portfolioItems.html" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-portfolio ui-btn-icon-left" data-dom-cache="false">ePortfolio items</a>';
-		append += '<a data-ajax="false" href="portfolioViews.html" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-portfolio ui-btn-icon-left" data-dom-cache="false">ePortfolio views</a>';
+		//append += '<a data-ajax="false" href="portfolioItems.html" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-portfolio ui-btn-icon-left" data-dom-cache="false">ePortfolio items</a>';
+		//append += '<a data-ajax="false" href="portfolioViews.html" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-portfolio ui-btn-icon-left" data-dom-cache="false">ePortfolio views</a>';
 		append += '<a data-ajax="false" href="settings.html" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-gear ui-btn-icon-left" data-dom-cache="false">Einstellungen</a>';
 		append += '<a data-ajax="false" href="login.html" class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-gear ui-btn-icon-left" data-dom-cache="false">Logout</a>';
 		append += '<a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true" data-icon="delete" data-iconpos="right" data-dom-cache="false">Menu schließen</a>';
@@ -83,13 +83,7 @@ var page = {
 			app.debug("Append slide Panel", 2);
 			$('#' + pageId).append(append);
 		}
-		/*
-		 * Swipe events $(document).on("swipeleft swiperight", "#" + pageId,
-		 * function(e) { if ($.mobile.activePage.jqmData("panel") !== "open") {
-		 * if (e.type === "swipeleft") { $("#right-panel").panel("open"); } else
-		 * if (e.type === "swiperight") { $("#left-panel").panel("open"); } }
-		 * });
-		 */
+		
 		$("#" + pageId + " #btnBack").off('click');
 		$("#" + pageId + " #btnBack").on('click', function(e) {
 			app.debug("#" + pageId + " #btnBack: click", 2);

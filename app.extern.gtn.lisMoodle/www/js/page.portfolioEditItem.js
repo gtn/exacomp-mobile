@@ -10,6 +10,8 @@ $(document).on('pagebeforecreate', '#portfolioEditItem', function(event) {
 var portfolioEditItem = {
 	loadPortfolioEditItem : function() {
 		app.debug("portfolioEditItem.loadPortfolioEditItem()");
+		window.localStorage.setItem('data-app-imageurl', false);
+		window.localStorage.setItem('data-app-imagename', false);
 		$("#portfolioEditItem .app-portfolioEditItem").empty();
 		if (window.localStorage.getItem('data-app-portfoliotype').trim() == "category") {
 			data = "&categoryid=" + window.localStorage.getItem('data-app-portfolioid');
@@ -56,11 +58,12 @@ var portfolioEditItem = {
 					append += '<input name="txtIntro" id="txtIntro" value="' + values['intro'] + '" type="text">';
 					append += '<h2>Datei:</h2>';
 					append += '<p id="pFilename">' + values['filename'] + '</p>';
-					append += '<p>' + values['file'] + '</p>';
+					append += '<img style="width:100%;" alt="" id="pFile" src="' + values['file'] + '?token=' + gtnMoodle.token + '" />';
 					append += '<input id="btnSelectFromSavedPhotoAlbum" type="button" value="Foto aus Album">';
 					append += '<input id="btnTakePhoto" type="button" value="Foto aufnehmen">';
 					append += '<input id="btnSelectFromPhotoLibrary" type="button" value="Foto aus Bibliothek">';
-					append += '<input id="btnUpload" type="button" value="Upload Photo">';
+					// append += '<input id="btnUpload" type="button"
+					// value="Upload Photo">';
 				}
 				if (values['type'].trim() == "link") {
 					append += '<label for="txtName">Name:</label>';
@@ -70,6 +73,7 @@ var portfolioEditItem = {
 					append += '<label for="txtLink">Link:</label>';
 					append += '<input name="txtLink" id="txtLink" value="' + values['url'] + '" type="text">';
 				}
+				
 
 				append += '';
 				append += '';
@@ -106,6 +110,36 @@ var portfolioEditItem = {
 		});
 		return success;
 	},
+
+	checkupload : function() {
+		portfolioEditItem.waitInSeconds--;
+		if (portfolioEditItem.waitInSeconds == 0) {
+			window.clearInterval(portfolioEditItem.uploadWaiter);
+			app.notify("", "Upload failed... timeout");
+			$(location).attr('href', 'portfolioEditItem.html');
+		}
+		if (window.localStorage.getItem('data-app-photoupload') == "true") {
+			window.clearInterval(portfolioEditItem.uploadWaiter);
+			app.notify("Upload", "Das Foto wurde hochgeladen.");
+			$('#portfolioEditItem #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
+
+			var id = window.localStorage.getItem('data-app-portfolioid');
+			var title = $('#portfolioEditItem #txtName').val();
+			var url = $('#portfolioEditItem #txtLink').val();
+			var intro = $('#portfolioEditItem #txtIntro').val();
+			var filename = $('#portfolioEditItem #pFilename').text();
+			var type = window.localStorage.getItem('data-app-portfoliotype');
+			if (type.trim() == "category") {
+				app.notify("title", "Noch nicht implementiert für Kategorie");
+			} else {
+				portfolioEditItem.updateItem(id, title, url, intro, filename, type);
+			}
+
+		}
+	},
+	uploadWaiter : null,
+	waitInSeconds : 60,
+
 	defineEvents : function() {
 		$('#portfolioEditItem #btnTakePhoto').on('click', function() {
 			app.debug("on btn click: upload", 2)
@@ -120,25 +154,31 @@ var portfolioEditItem = {
 			nativeCamera.selectFromPhotoLibrary();
 		});
 		$('#portfolioEditItem #btnSubmit').on('click', function() {
-			var filename = $('#assign #pFilename').text();
-			var onlinetext = $('#assign #txtText').val();
 
-			var id = window.localStorage.getItem('data-app-portfolioid');
-			var title = $('#portfolioEditItem #txtName').val();
-			var url = $('#portfolioEditItem #txtLink').val();
-			var intro = $('#portfolioEditItem #txtIntro').val();
-			var filename = $('#portfolioEditItem #pFilename').text();
-			var type = window.localStorage.getItem('data-app-portfoliotype');
-			if (type.trim() == "category") {
-				app.notify("title", "Noch nicht implementiert für Kategorie");
+			if (window.localStorage.getItem('data-app-imagename').trim() != "false") {
+				$.mobile.loading("show", {
+					text : "Upload Foto...",
+					textVisible : true,
+					theme : "a",
+					html : ""
+				});
+				portfolioEditItem.uploadWaiter = window.setInterval("portfolioEditItem.checkupload()", 1000);
+				window.localStorage.setItem('data-app-photoupload', 'false');
+				portfolioEditItem.uploadPhoto();
 			} else {
-				portfolioEditItem.updateItem(id, title, url, intro, filename, type);
+				var id = window.localStorage.getItem('data-app-portfolioid');
+				var title = $('#portfolioEditItem #txtName').val();
+				var url = $('#portfolioEditItem #txtLink').val();
+				var intro = $('#portfolioEditItem #txtIntro').val();
+				var filename = $('#portfolioEditItem #pFilename').text();
+				var type = window.localStorage.getItem('data-app-portfoliotype');
+				if (type.trim() == "category") {
+					app.notify("title", "Noch nicht implementiert für Kategorie");
+				} else {
+					portfolioEditItem.updateItem(id, title, url, intro, filename, type);
+				}
 			}
 		});
 
-		$('#portfolioEditItem #btnUpload').on('click', function() {
-			portfolioEditItem.uploadPhoto();
-			$('#assign #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
-		});
 	}
 };

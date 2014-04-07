@@ -48,10 +48,10 @@ var itemToCompetence = {
 						var name = $(this).attr('name');
 						values[name] = $(this).text();
 					});
-					append += '<p>' + values['name'] + '<p>';
-					append += '<div class="app-collapse ui-mini" data-role="collapsible" data-mini="true">';
-					append += '<h3>aufklappen<h3>';
-					append += '<ul data-role="listview" class="ui-mini" data-mini="true">';
+					//append += '<p>' + values['name'] + '<p>';
+					append += '<div class="app-collapse" data-role="collapsible" data-collapsed-icon="arrow-r"  data-expanded-icon="arrow-d">';
+					append += '<h3  >' + values['name'] + '<h3>';
+					append += '<ul data-role="listview">';
 					$(this).find(">KEY[name=descriptors]>MULTIPLE>SINGLE").each(function() {
 						$(this).find('>KEY').each(function() {
 							app.debug("SINGLE>KEY", 1);
@@ -63,16 +63,16 @@ var itemToCompetence = {
 						if (assigned[values['id']])
 							var checked = 'checked="checked"';
 
-						append += '<li>';
+						append += '<li data-icon="false">';
 
-						append += '<a class="" href="#" style="padding-top: 0px;padding-bottom: 0px;padding-right: 42px;padding-left: 0px;" data-app-contentid="' + values['id'] + '">';
+						append += '<a class="" href="#" style="heigth:100%; padding-top: 0px;padding-bottom: 0px;padding-right: 42px;padding-left: 0px;" data-app-contentid="' + values['id'] + '">';
 						append += '<label style="border-top-width: 0px;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;border-left-width: 0px;border-right-width: 0px;" data-corners="false">';
 						append += '<fieldset data-role="controlgroup" >';
 						append += '<input class="app-select-competence" id="2" name="2" type="checkbox" ' + checked + ' />';
 						append += values['name'];
 						append += '</fieldset>';
 						append += '</label>';
-						append += '</a><a href="#" rel="external"></a>';
+						append += '</a>';
 
 						append += '<li>';
 

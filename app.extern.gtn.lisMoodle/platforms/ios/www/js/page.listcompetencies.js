@@ -38,9 +38,7 @@ var listcompetencies = {
 				var name = $(this).attr('name');
 				values[name] = $(this).text();
 			});
-
 			if (parseInt(values['isexpandable'])) {
-
 				var teachercomp = "";
 				var studentcomp = "";
 				if (parseInt(values['teachercomp']))
@@ -52,7 +50,7 @@ var listcompetencies = {
 
 				append += '<fieldset data-role="controlgroup exalis_comp_teilbereich kompetenzraster_pushright">';
 				append += '<ul data-role="listview" data-inset="true" data-divider-theme="a" data-split-icon="carat-r">';
-				append += '<li><a href="#" style="padding-top: 0px;padding-bottom: 0px;padding-right: 42px;padding-left: 0px;" class="' + teachercomp + '">';
+				append += '<li ><a href="#" style="padding-top: 0px;padding-bottom: 0px;padding-right: 42px;padding-left: 0px;" class="' + teachercomp + '">';
 				append += '<label style="border-top-width: 0px;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;border-left-width: 0px;border-right-width: 0px;" data-corners="false">';
 				append += '<fieldset data-role="controlgroup" >';
 				append += '<input id="1" name="1" type="checkbox" class="app-studentcomp"  data-app-descriptorid="' + values['descriptorid'] + '"  ' + studentcomp + '/> ';
@@ -63,9 +61,33 @@ var listcompetencies = {
 				append += '</li>';
 				append += '</ul>';
 				append += '</fieldset>';
-
-				$("#listcompetencies .app-content").append(append);
 			}
+			else{
+				var teachercomp = "";
+				var studentcomp = "";
+				if (parseInt(values['teachercomp']))
+					teachercomp = 'lehrereinschaetzung';
+				if (parseInt(values['studentcomp']))
+					studentcomp = 'checked="checked"';
+				var append = '';
+
+				append += '<fieldset data-role="controlgroup">';
+				append += '<ul data-role="listview" data-inset="true" >';
+				append += '<li data-icon="false">';
+				append += '<a href="#" style="padding-top: 0px;padding-bottom: 0px;padding-right: 42px;padding-left: 0px;" class="' + teachercomp + '">';
+				append += '<label style="border-top-width: 0px;margin-top: 0px;border-bottom-width: 0px;margin-bottom: 0px;border-left-width: 0px;border-right-width: 0px;" data-corners="false">';
+				append += '<fieldset data-role="controlgroup" >';
+				append += '<input id="1" name="1" type="checkbox" class="app-studentcomp"  data-app-descriptorid="' + values['descriptorid'] + '"  ' + studentcomp + '/> ';
+				append += '' + values['title'] + '';
+				append += '</fieldset>';
+				append += '</label>';
+				append += '</a>';
+				append += '</li>';
+				append += '</ul>';
+				append += '</fieldset>';
+				
+			}
+			$("#listcompetencies .app-content").append(append);
 		});
 	},
 	setCompetenceStudentcomp : function(courseid, descriptorid, value) {
@@ -82,7 +104,7 @@ var listcompetencies = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success setting studentcomp: " + values['success'], 2);
-			app.notify("Selbsteinschaetzung", "Selbsteinschaetzung wurde erfolgreich geändert.");
+			app.notify(L.s("notify_selfevaluation_title"), L.s("notify_selfevaluation_text"));
 		});
 	},
 	defineEvents : function() {

@@ -6,6 +6,7 @@ $(document).on('pagebeforecreate', '#settings', function(event) {
 	settings.fillSettings();
 	settings.saveSettings();
 	page.initPage("settings");
+	//window.localStorage.clear();
 });
 
 var settings = {

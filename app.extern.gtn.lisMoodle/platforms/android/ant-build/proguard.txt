@@ -1,6 +1,6 @@
-# view AndroidManifest.xml #generated:12
+# view AndroidManifest.xml #generated:45
 -keep class com.gtn_solutions.exalis.gtnIntent { <init>(...); }
 
-# view AndroidManifest.xml #generated:6
+# view AndroidManifest.xml #generated:39
 -keep class com.gtn_solutions.exalis.gtnMoodle { <init>(...); }
 

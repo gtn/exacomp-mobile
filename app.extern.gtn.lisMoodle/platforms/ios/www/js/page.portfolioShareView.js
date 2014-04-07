@@ -1,7 +1,7 @@
 //portfolioShareView
 $(document).on('pagebeforecreate', '#portfolioShareView', function(event) {
 	app.debug("pagebeforecreate: portfolioShareView", 3);
-	gtnMoodle.init("portfolioShareView", "portfolioShareView");
+	gtnMoodle.init("portfolioShareView", L.s("page_portfolio_share_view"));
 	portfolioShareView.loadPortfolioShareView();
 	page.initPage("portfolioShareView");
 	portfolioShareView.defineEvents();
@@ -121,11 +121,12 @@ var portfolioShareView = {
 			if ($(this).prop("checked")) {
 				val = 1;
 				portfolioShareView.grantUser(viewid, userid, val);
-				app.notify("Item", "Erfolgreich freigegeben.");
+				app.notify(L.s("notify_view_grant_user_access_title"), L.s("notify_view_grant_user_access_text"));
+
 			} else {
 				val = 0;
 				portfolioShareView.grantUser(viewid, userid, val);
-				app.notify("Item", "Freigabe zurückgezogen.");
+				app.notify(L.s("notify_view_prohibit_user_access_title"), L.s("notify_view_prohibit_user_access_text"));
 			}
 
 		});
@@ -134,7 +135,7 @@ var portfolioShareView = {
 			var id = window.localStorage.getItem('data-app-portfolioviewid');
 			var val = 1;
 			if (portfolioShareView.grantAll(id, val)) {
-				app.notify("Item", "Erfolgreich für alle freigegeben.");
+				app.notify(L.s("notify_view_grant_access_title"), L.s("notify_view_grant_access_text"));
 				$(location).attr('href', 'portfolioShareView.html');
 			}
 		});
@@ -143,7 +144,7 @@ var portfolioShareView = {
 			var id = window.localStorage.getItem('data-app-portfolioviewid');
 			var val = 0;
 			if (portfolioShareView.grantAll(id, val)) {
-				app.notify("Item", "View ist nicht mehr Freigegeben.");
+				app.notify(L.s("notify_view_prohibit_access_title"), L.s("notify_view_prohibit_access_text"));
 				$(location).attr('href', 'portfolioShareView.html');
 			}
 		});

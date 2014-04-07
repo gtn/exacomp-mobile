@@ -25,9 +25,9 @@ var portfolioItem = {
 			append += '<p>Categorie: ' + values['category'] + '</p>';
 			append += '<p>Url: ' + values['url'] + '</p>';
 			append += '<p>Intro: ' + values['intro'] + '</p>';
-			append += '<p>Filename: ' + values['filename'] + '</p>';
-			append += '<p>File: ' + values['file'] + '</p>';
-			append += '<p>Is image: ' + values['isimage'] + '</p>';
+			//append += '<p>Filename: ' + values['filename'] + '</p>';
+			//append += '<p>File: ' + values['file'] + '</p>';
+			//append += '<p>Is image: ' + values['isimage'] + '</p>';
 			if (parseInt(values['isimage'])) {
 				append += '<img src="' + values['file'] + '&token=' + gtnMoodle.tokenExaport + '" class="portfolio_item" />';
 			}

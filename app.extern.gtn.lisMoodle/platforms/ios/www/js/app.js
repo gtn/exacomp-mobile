@@ -1,5 +1,5 @@
 var app = {
-	debugDevice : true,
+	debugDevice : false,
 	doDebuging : "false",
 	debugLevel : 2,
 	cordovaAvailable : false,
@@ -109,7 +109,6 @@ $(document).on('pagebeforechange', function(event, data) {
 
 	//alert(data.toPage.toString());
 	//$("#" + app.currentPageId).append('<div id="overlay">&nbsp;</div>');
-
 });
 $(document).on('pageshow', function(event) {
 	app.debug("pageshow: each page");

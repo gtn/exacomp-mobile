@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#portfolioNewItem', function(event) {
 	app.debug("pagebeforecreate: portfolioNewItem", 3);
-	gtnMoodle.init("portfolioNewItem", L.s("portfolio_new_"+window.localStorage.getItem('data-app-portfoliotype')));
+	gtnMoodle.init("portfolioNewItem", L.s("portfolio_new_" + window.localStorage.getItem('data-app-portfoliotype')));
 
 	var vars = [], hash;
 	var q = document.URL.split('?')[1];
@@ -12,7 +12,7 @@ $(document).on('pagebeforecreate', '#portfolioNewItem', function(event) {
 		}
 	}
 	app.debug("Image: " + vars['image'], 2);
-	//alert(vars['image']);
+	// alert(vars['image']);
 	if (vars['image'] != undefined) {
 		window.localStorage.setItem('data-app-imageurl', vars['image']);
 		window.localStorage.setItem('data-app-portfolioid', 0);
@@ -26,9 +26,11 @@ $(document).on('pagebeforecreate', '#portfolioNewItem', function(event) {
 var portfolioNewItem = {
 	loadportfolioNewItem : function() {
 		app.debug("portfolioNewItem.loadportfolioNewItem()");
+		window.localStorage.setItem('data-app-imageurl', false);
+		window.localStorage.setItem('data-app-imagename', false);
 		$("#portfolioNewItem .app-portfolioNewItem").empty();
 		var append = '';
-		append += '<h2>Typ: ' + L.s("portfolio_type_"+window.localStorage.getItem('data-app-portfoliotype')) + '</h2>';
+		append += '<h2>Typ: ' + L.s("portfolio_type_" + window.localStorage.getItem('data-app-portfoliotype')) + '</h2>';
 		if (window.localStorage.getItem('data-app-portfoliotype').trim() == "note") {
 			append += '<label for="txtName">Name:</label>';
 			append += '<input name="txtName" id="txtName" value="" type="text">';
@@ -43,11 +45,12 @@ var portfolioNewItem = {
 			append += '<input name="txtIntro" id="txtIntro" value="" type="text">';
 			append += '<h2>Datei:</h2>';
 			append += '<p id="pFilename"></p>';
+			append += '<img style="width:100%;" alt="" id="pFile" src="" />';
 			append += '<p>Filename</p>';
 			append += '<input id="btnSelectFromSavedPhotoAlbum" type="button" value="Foto aus Album">';
 			append += '<input id="btnTakePhoto" type="button" value="Foto aufnehmen">';
 			append += '<input id="btnSelectFromPhotoLibrary" type="button" value="Foto aus Bibliothek">';
-			append += '<input id="btnUpload" type="button" value="Upload Photo">';
+			//append += '<input id="btnUpload" type="button" value="Upload Photo">';
 		}
 		if (window.localStorage.getItem('data-app-portfoliotype').trim() == "link") {
 			append += '<label for="txtName">Name:</label>';
@@ -93,6 +96,37 @@ var portfolioNewItem = {
 		});
 		return success;
 	},
+
+	checkupload : function() {
+		portfolioNewItem.waitInSeconds--;
+		if (portfolioNewItem.waitInSeconds == 0) {
+			window.clearInterval(portfolioNewItem.uploadWaiter);
+			app.notify("", "Upload failed... timeout");
+			$(location).attr('href', 'portfolioNewItem.html');
+		}
+		if (window.localStorage.getItem('data-app-photoupload') == "true") {
+			window.clearInterval(portfolioNewItem.uploadWaiter);
+			app.notify("Upload", "Das Foto wurde hochgeladen.");
+		
+			$('#portfolioNewItem #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
+
+			var title = $('#portfolioNewItem #txtName').val();
+			var categoryid = window.localStorage.getItem('data-app-portfolioid');
+			var url = $('#portfolioNewItem #txtLink').val();
+			var intro = $('#portfolioNewItem #txtIntro').val();
+			var filename = $('#portfolioNewItem #pFilename').text();
+			var type = window.localStorage.getItem('data-app-portfoliotype');
+			if (portfolioNewItem.addItem(title, categoryid, url, intro, filename, type)) {
+				app.notify(L.s("notify_portfolio_item_add_title"), L.s("notify_portfolio_item_add_text"));
+				$(location).attr('href', 'portfolioItems.html');
+			} else {
+				app.notify("New item", "Unknown failure.");
+			}
+		}
+	},
+	uploadWaiter : null,
+	waitInSeconds : 60,
+
 	defineEvents : function() {
 		$('#portfolioNewItem #btnTakePhoto').on('click', function() {
 			app.debug("on btn click: upload", 2)
@@ -107,26 +141,41 @@ var portfolioNewItem = {
 			nativeCamera.selectFromPhotoLibrary();
 		});
 		$('#portfolioNewItem #btnSubmit').on('click', function() {
-			var filename = $('#assign #pFilename').text();
-			var onlinetext = $('#assign #txtText').val();
 
-			var title = $('#portfolioNewItem #txtName').val();
-			var categoryid = window.localStorage.getItem('data-app-portfolioid');
-			var url = $('#portfolioNewItem #txtLink').val();
-			var intro = $('#portfolioNewItem #txtIntro').val();
-			var filename = $('#portfolioNewItem #pFilename').text();
-			var type = window.localStorage.getItem('data-app-portfoliotype');
-			if (portfolioNewItem.addItem(title, categoryid, url, intro, filename, type)) {
-				app.notify(L.s("notify_portfolio_item_add_title"), L.s("notify_portfolio_item_add_text"));
-				$(location).attr('href', 'portfolioItems.html');
-			} else {
-				app.notify("New item", "Unknown failure.");
+			if (window.localStorage.getItem('data-app-imagename').trim() != "false") {
+				$.mobile.loading("show", {
+					text : "Upload Foto...",
+					textVisible : true,
+					theme : "a",
+					html : ""
+				});
+				portfolioNewItem.uploadWaiter = window.setInterval("portfolioNewItem.checkupload()", 1000);
+				window.localStorage.setItem('data-app-photoupload', 'false');
+				portfolioNewItem.uploadPhoto();
+			}
+
+			else {
+
+				var title = $('#portfolioNewItem #txtName').val();
+				var categoryid = window.localStorage.getItem('data-app-portfolioid');
+				var url = $('#portfolioNewItem #txtLink').val();
+				var intro = $('#portfolioNewItem #txtIntro').val();
+				var filename = $('#portfolioNewItem #pFilename').text();
+				var type = window.localStorage.getItem('data-app-portfoliotype');
+				if (portfolioNewItem.addItem(title, categoryid, url, intro, filename, type)) {
+					app.notify(L.s("notify_portfolio_item_add_title"), L.s("notify_portfolio_item_add_text"));
+					$(location).attr('href', 'portfolioItems.html');
+				} else {
+					app.notify("New item", "Unknown failure.");
+				}
 			}
 		});
 
-		$('#portfolioNewItem #btnUpload').on('click', function() {
-			portfolioNewItem.uploadPhoto();
-			$('#portfolioNewItem #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
-		});
+		/*
+		 * $('#portfolioNewItem #btnUpload').on('click', function() {
+		 * portfolioNewItem.uploadPhoto(); $('#portfolioNewItem
+		 * #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
+		 * });
+		 */
 	}
 };

@@ -10,6 +10,8 @@ $(document).on('pagebeforecreate', '#assign', function(event) {
 var assign = {
 	loadAssign : function(contentid) {
 		app.debug("assign.loadAssign(" + contentid + ")", 2);
+		window.localStorage.setItem('data-app-imageurl', false);
+		window.localStorage.setItem('data-app-imagename', false);
 		$("#assign .app-content").empty();
 		data = "&assignid=" + contentid;
 		xml = gtnMoodle.getMoodleXml("block_exacomp_get_assign_information", gtnMoodle.tokenExacomp, data);
@@ -37,16 +39,19 @@ var assign = {
 			if (parseInt(values['fileenabled'])) {
 				append += '<p><b>Datei:</b></p>';
 				append += '<p id="pFilename">' + values['filename'] + '</p>';
-				append += '<p>' + values['file'] + '</p>';
+				append += '<img style="width:100%;" alt="" id="pFile" src="' + values['file'] + '?token=' + gtnMoodle.token + '" />';
 				append += '<a class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-action ui-btn-icon-left" id="btnSelectFromSavedPhotoAlbum" >Foto aus Album</a>';
 				append += '<a class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-camera ui-btn-icon-left" id="btnTakePhoto" type="button" >Foto aufnehmen</a>';
 				append += '<a class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-action ui-btn-icon-left" id="btnSelectFromPhotoLibrary" >Foto aus Bibliothek</a>';
 			}
 			if (parseInt(values['submissionenabled'])) {
-				append += '<a class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-check ui-btn-icon-left" id="btnUpload" type="button" value="Upload Photo">Upload Photo</a>';
+				// append += '<a class="ui-btn ui-btn-exalis ui-corner-all
+				// exalis_menue_button ui-icon-check ui-btn-icon-left"
+				// id="btnUpload" type="button" value="Upload
+				// Photo">Abgeben</a>';
 				append += '<a class="ui-btn ui-btn-exalis ui-corner-all exalis_menue_button ui-icon-check ui-btn-icon-left" id="btnSubmit" type="button" value="Abgeben">Abgeben</a>';
 			}
-			$("#assign").append(append);
+			$("#assign .app-content").append(append);
 		});
 	},
 	saveAssign : function(assignid, onlinetext, filename) {
@@ -63,12 +68,34 @@ var assign = {
 				values[name] = $(this).text();
 			});
 			app.debug("Success udate assign: " + values['success'], 2);
-			app.notify("Aufgabe", "Die Aufgabe wurde erfolgreich ge�ndert.");
+			app.notify(L.s("notify_assign_title"), L.s("notify_assign_text"));
+		});
+		$(xml).find("EXCEPTION").each(function() {
+			app.notify("", "Fehler im Webservice");
 		});
 	},
 	uploadPhoto : function() {
 		nativeUpload.uploadPhoto(window.localStorage.getItem('data-app-imageurl'));
 	},
+	checkupload : function() {
+		assign.waitInSeconds--;
+		if (assign.waitInSeconds == 0) {
+			window.clearInterval(assign.uploadWaiter);
+			app.notify("", "Upload failed... timeout");
+			$(location).attr('href', 'assign.html');
+		}
+		if (window.localStorage.getItem('data-app-photoupload') == "true") {
+			window.clearInterval(assign.uploadWaiter);
+			app.notify("Upload", "Das Foto wurde hochgeladen.");
+			$('#assign #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
+			var filename = $('#assign #pFilename').text();
+			var onlinetext = $('#assign #txtText').val();
+			var assignid = window.localStorage.getItem('data-app-contentid');
+			assign.saveAssign(assignid, onlinetext, filename);
+		}
+	},
+	uploadWaiter : null,
+	waitInSeconds : 60,
 	defineEvents : function() {
 		app.debug("assign.defineEvents()", 2);
 		$('#assign #btnTakePhoto').on('click', function() {
@@ -83,16 +110,33 @@ var assign = {
 			app.debug("on btn click: selectFromPhotoLibrary", 2)
 			nativeCamera.selectFromPhotoLibrary();
 		});
-		$('#assign #btnSubmit').on('click', function() {
-			var filename = $('#assign #pFilename').text();
-			var onlinetext = $('#assign #txtText').val();
-			var assignid = window.localStorage.getItem('data-app-contentid');
-			assign.saveAssign(assignid, onlinetext, filename);
-		});
+		/*
+		 * $('#assign #btnSubmit').on('click', function() { var filename =
+		 * $('#assign #pFilename').text(); var onlinetext = $('#assign
+		 * #txtText').val(); var assignid =
+		 * window.localStorage.getItem('data-app-contentid');
+		 * assign.saveAssign(assignid, onlinetext, filename); });
+		 */
 
-		$('#assign #btnUpload').on('click', function() {
-			assign.uploadPhoto();
-			$('#assign #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
+		$('#assign #btnSubmit').on('click', function() {
+
+			if (window.localStorage.getItem('data-app-imagename').trim() != "false") {
+				$.mobile.loading("show", {
+					text : "Upload Foto...",
+					textVisible : true,
+					theme : "a",
+					html : ""
+				});
+				assign.uploadWaiter = window.setInterval("assign.checkupload()", 1000);
+				window.localStorage.setItem('data-app-photoupload', 'false');
+				assign.uploadPhoto();
+			} else {
+				var filename = $('#assign #pFilename').text();
+				var onlinetext = $('#assign #txtText').val();
+				var assignid = window.localStorage.getItem('data-app-contentid');
+				assign.saveAssign(assignid, onlinetext, filename);
+			}
+
 		});
 	}
 };

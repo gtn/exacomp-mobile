@@ -13,7 +13,6 @@ var gtnMoodle = {
 		this.setToken();
 		if (!this.checkToken()) {
 			app.notify("Token error", "Du bist ausgelogged!");
-			$(location).attr('href', 'login.html');
 		}
 		this.writeHeader(pageId, pagename);
 	},
@@ -71,7 +70,7 @@ var gtnMoodle = {
 			}
 			this.token = null;
 		} else if (!json) {
-			app.notify("Moodle Timeout", "Moodle Timeout");
+			app.notify(L.s("webservice_moodletimeout"), L.s("webservice_noconnection"));
 			return false;
 		} else {
 			this.token = json.token;
@@ -93,7 +92,7 @@ var gtnMoodle = {
 			this.token = null;
 			// this.tokenExaport = "7b13b05e668b1118711d42b5a898a616";
 		} else if (!json) {
-			app.notify("Moodle Timeout", "Moodle Timeout");
+			app.notify(L.s("webservice_moodletimeout"), L.s("webservice_noconnection"));
 			return false;
 		} else {
 			this.tokenExaport = json.token;
@@ -115,7 +114,7 @@ var gtnMoodle = {
 			this.token = null;
 			// this.tokenExacomp = "4aafa2c09ae274e7d2c1a6f2b968872e";
 		} else if (!json) {
-			app.notify("Moodle Timeout", "Moodle Timeout");
+			app.notify(L.s("webservice_moodletimeout"), L.s("webservice_noconnection"));
 			return false;
 		} else {
 			this.tokenExacomp = json.token;
@@ -141,7 +140,8 @@ var gtnMoodle = {
 			app.debug("xml: " + new XMLSerializer().serializeToString(xml), 2);
 			return xml;
 		} else {
-			app.notify("Moodle Timeout", "Möglicherweise hat dein Gerät keine Internetverbindung");
+			app.notify(L.s("webservice_moodletimeout"), L.s("webservice_noconnection"));
+			//$(location).attr('href', 'start.html');
 			return false;
 		}
 	},

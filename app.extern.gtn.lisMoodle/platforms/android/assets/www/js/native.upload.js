@@ -24,16 +24,18 @@ var nativeUpload = {
 		ft.upload(photoUri, encodeURI(gtnMoodle.moodleUrl + gtnMoodle.uploadUrl), nativeUpload.uploadPhotoSuccess, nativeUpload.uploadPhotoFail, options);
 	},
 	uploadPhotoFail : function(fileTransferError) {
-		alert("Upload failed");
-		window.localStorage.setItem('data-app-photoupload', 'true');
+		$.mobile.loading("hide");
+		//alert("Upload failed");
+		window.localStorage.setItem('data-app-photoupload', 'false');
 		// alert("An error has occurred: Code = " + fileTransferError.code);
 		// alert("upload error source " + fileTransferError.source);
 		// alert("upload error target " + fileTransferError.target);
 
 	},
 	uploadPhotoSuccess : function(fileUploadResult) {
-		alert("Photo uploaded");
-		window.localStorage.setItem('data-app-photoupload', 'false');
+		$.mobile.loading("hide");
+		//alert("Photo uploaded");
+		window.localStorage.setItem('data-app-photoupload', 'true');
 		// alert("Code = " + fileUploadResult.responseCode);
 		// alert("Response = " + fileUploadResult.response);
 		// alert("Sent = " + fileUploadResult.bytesSent);

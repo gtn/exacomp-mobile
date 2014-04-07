@@ -46,10 +46,10 @@
     </feature>
     <name>exalis</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        exalis
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="mkattner@gtn-solutions.com" href="http://www.gtn-solutions.com">
+        Gtn Solutins
     </author>
     <content src="index.html" />
     <access origin="*" />

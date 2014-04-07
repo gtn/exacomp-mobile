@@ -1,6 +1,6 @@
 $(document).on('pagebeforecreate', '#portfolioView', function(event) {
 	app.debug("portfolioView: portfolioView", 3);
-	gtnMoodle.init("portfolioView", "portfolioView");
+	gtnMoodle.init("portfolioView", L.s("page_portfolio_view"));
 	portfolioView.loadPortfolioView();
 	page.initPage("portfolioView");
 	portfolioView.defineEvents();
@@ -87,6 +87,7 @@ var portfolioView = {
 			var itemid = window.localStorage.getItem('data-app-portfolioid');
 			if (portfolioView.deleteItem(viewid, itemid)) {
 				app.notify("Item", "Item aus View entfernt.");
+				app.notify(L.s("notify_portfolio_view_delete_title"), L.s("notify_portfolio_view_delete_text"));
 				location.reload();
 			}
 		});
