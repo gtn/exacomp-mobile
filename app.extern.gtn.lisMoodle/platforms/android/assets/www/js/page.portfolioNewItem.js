@@ -11,23 +11,31 @@ $(document).on('pagebeforecreate', '#portfolioNewItem', function(event) {
 			vars[hash[0]] = hash[1];
 		}
 	}
+
+	//app.doDebuging = "true";
 	app.debug("Image: " + vars['image'], 2);
 	// alert(vars['image']);
+	var isAndroid = false;
 	if (vars['image'] != undefined) {
 		window.localStorage.setItem('data-app-imageurl', vars['image']);
+		window.localStorage.setItem('data-app-imagename', vars['image'].substr(vars['image'].lastIndexOf('/') + 1));
 		window.localStorage.setItem('data-app-portfolioid', 0);
 		window.localStorage.setItem('data-app-portfoliotype', 'file');
+		isAndroid = true;
 	}
-	portfolioNewItem.loadportfolioNewItem();
+
+	if (!window.localStorage.getItem('data-app-portfoliotype')) {
+		window.localStorage.setItem('data-app-portfoliotype', 'file');
+	}
+
+	portfolioNewItem.loadportfolioNewItem(isAndroid);
 	portfolioNewItem.defineEvents();
 	page.initPage("portfolioNewItem");
 });
 
 var portfolioNewItem = {
-	loadportfolioNewItem : function() {
+	loadportfolioNewItem : function(isAndroid) {
 		app.debug("portfolioNewItem.loadportfolioNewItem()");
-		window.localStorage.setItem('data-app-imageurl', false);
-		window.localStorage.setItem('data-app-imagename', false);
 		$("#portfolioNewItem .app-portfolioNewItem").empty();
 		var append = '';
 		append += '<h2>Typ: ' + L.s("portfolio_type_" + window.localStorage.getItem('data-app-portfoliotype')) + '</h2>';
@@ -50,7 +58,8 @@ var portfolioNewItem = {
 			append += '<input id="btnSelectFromSavedPhotoAlbum" type="button" value="Foto aus Album">';
 			append += '<input id="btnTakePhoto" type="button" value="Foto aufnehmen">';
 			append += '<input id="btnSelectFromPhotoLibrary" type="button" value="Foto aus Bibliothek">';
-			//append += '<input id="btnUpload" type="button" value="Upload Photo">';
+			// append += '<input id="btnUpload" type="button" value="Upload
+			// Photo">';
 		}
 		if (window.localStorage.getItem('data-app-portfoliotype').trim() == "link") {
 			append += '<label for="txtName">Name:</label>';
@@ -64,16 +73,16 @@ var portfolioNewItem = {
 			append += '<label for="txtName">Name:</label>';
 			append += '<input name="txtName" id="txtName" value="" type="text">';
 		}
-
-		append += '';
-		append += '';
-		append += '';
-		append += '';
-		append += '';
-		append += '';
 		append += '<input id="btnSubmit" type="button" value="Speichern">';
 		$("#portfolioNewItem .app-portfolioNewItem").append(append);
 
+		// has image from android
+		if (isAndroid != undefined && isAndroid) {
+			$('#pFile').attr("src", window.localStorage.getItem('data-app-imageurl'));
+		} else {
+			window.localStorage.setItem('data-app-imageurl', false);
+			window.localStorage.setItem('data-app-imagename', false);
+		}
 	},
 	uploadPhoto : function() {
 		nativeUpload.uploadPhoto(window.localStorage.getItem('data-app-imageurl'));
@@ -107,7 +116,7 @@ var portfolioNewItem = {
 		if (window.localStorage.getItem('data-app-photoupload') == "true") {
 			window.clearInterval(portfolioNewItem.uploadWaiter);
 			app.notify("Upload", "Das Foto wurde hochgeladen.");
-		
+
 			$('#portfolioNewItem #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
 
 			var title = $('#portfolioNewItem #txtName').val();
@@ -170,12 +179,5 @@ var portfolioNewItem = {
 				}
 			}
 		});
-
-		/*
-		 * $('#portfolioNewItem #btnUpload').on('click', function() {
-		 * portfolioNewItem.uploadPhoto(); $('#portfolioNewItem
-		 * #pFilename').text(window.localStorage.getItem('data-app-photofilename'));
-		 * });
-		 */
 	}
 };
