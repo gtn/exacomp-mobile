@@ -371,6 +371,18 @@ body.exalis_start .start_logo {
 	margin-top: 30px;
 }
 
+.exalis_eport_raster_centered {
+     float: left;
+    left: 50%;
+    position: relative;
+}
+
+.exalis_eport_raster {
+    float: left;
+    left: -50%;
+    position: relative;
+}
+
 .exalis_eport_raster,.clear {
 	clear: both;
 }
