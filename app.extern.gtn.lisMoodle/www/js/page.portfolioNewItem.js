@@ -12,15 +12,26 @@ $(document).on('pagebeforecreate', '#portfolioNewItem', function(event) {
 		}
 	}
 
-	//app.doDebuging = "true";
+	// app.doDebuging = "true";
 	app.debug("Image: " + vars['image'], 2);
 	// alert(vars['image']);
 	var isAndroid = false;
+	var isIOS = false;
 	if (vars['image'] != undefined) {
 		window.localStorage.setItem('data-app-imageurl', vars['image']);
 		window.localStorage.setItem('data-app-imagename', vars['image'].substr(vars['image'].lastIndexOf('/') + 1));
 		window.localStorage.setItem('data-app-portfolioid', 0);
 		window.localStorage.setItem('data-app-portfoliotype', 'file');
+		isAndroid = true;
+	}
+	var iOSurl = window.localStorage.getItem('data-app-ios-url');
+	if (window.localStorage.getItem('data-app-ios-data') == "true") {
+		window.localStorage.setItem('data-app-imageurl', iOSurl);
+		window.localStorage.setItem('data-app-imagename', iOSurl.substr(iOSurl.lastIndexOf('/') + 1));
+		window.localStorage.setItem('data-app-portfolioid', 0);
+		window.localStorage.setItem('data-app-portfoliotype', 'file');
+		//alert(iOSurl);
+		isIOS = true;
 		isAndroid = true;
 	}
 

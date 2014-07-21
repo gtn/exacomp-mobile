@@ -107,8 +107,8 @@ $(document).on('pagebeforecreate', function(event) {
 $(document).on('pagebeforechange', function(event, data) {
 	app.debug("pagebeforechange: each page", 2);
 
-	//alert(data.toPage.toString());
-	//$("#" + app.currentPageId).append('<div id="overlay">&nbsp;</div>');
+	// alert(data.toPage.toString());
+	// $("#" + app.currentPageId).append('<div id="overlay">&nbsp;</div>');
 });
 $(document).on('pageshow', function(event) {
 	app.debug("pageshow: each page");
@@ -117,5 +117,11 @@ $(document).on('pageshow', function(event) {
 	if (app.debugDevice && pageId) {
 		app.appendDebugArea(pageId);
 	}
-	//$("#" + app.currentPageId + " #overlay").remove();
+	// $("#" + app.currentPageId + " #overlay").remove();
 });
+
+function handleOpenURL(url) {
+	window.localStorage.setItem('data-app-ios-data', 'true');
+	window.localStorage.setItem('data-app-ios-url', url);
+	$(location).attr('href', "portfolioNewItem.html");
+}

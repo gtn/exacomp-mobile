@@ -35,7 +35,7 @@ var nativeUpload = {
 		}
 
 		// upload it
-
+//alert(photoUri);
 		ft.upload(photoUri, encodeURI(gtnMoodle.moodleUrl + gtnMoodle.uploadUrl), nativeUpload.uploadPhotoSuccess, nativeUpload.uploadPhotoFail, options);
 	},
 	uploadPhotoFail : function(fileTransferError) {

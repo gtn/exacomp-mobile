@@ -507,6 +507,18 @@ img.portfolio_item {
 	font-size: 22px;
 }
 
+.ui-header h1, .ui-header a {
+    padding-top: 30px !important;
+}
+
+.text-onlylist > .ui-li-static {
+    color: #545454 !important;
+    padding: 12px !important;
+    padding-left: 15px !important;
+    font-size: 14px;
+    background-color: #f6f6f6;
+}
+
 /*
 .kompetenzraster_pushright .ui-checkbox {
 	margin: 0;
