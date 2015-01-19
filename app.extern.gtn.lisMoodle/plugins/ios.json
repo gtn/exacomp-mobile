@@ -22,19 +22,19 @@
                     "CoreGraphics.framework": [
                         {
                             "xml": "false",
-                            "count": 9
+                            "count": 3
                         }
                     ],
                     "AssetsLibrary.framework": [
                         {
                             "xml": "false",
-                            "count": 9
+                            "count": 3
                         }
                     ],
                     "MobileCoreServices.framework": [
                         {
                             "xml": "false",
-                            "count": 9
+                            "count": 3
                         }
                     ],
                     "AudioToolbox.framework": [

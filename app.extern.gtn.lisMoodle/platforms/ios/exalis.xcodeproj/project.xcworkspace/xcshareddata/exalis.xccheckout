@@ -5,36 +5,53 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8A8D3008-2BC5-40B4-A8F7-54EB2492F170</string>
+	<string>F1CE1328-AFE4-462E-9F5D-5F007D4B0CC2</string>
 	<key>IDESourceControlProjectName</key>
 	<string>exalis</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9D9E33DE-48C8-4409-8885-EDB144C6DDAC</key>
+		<key>5e05fe40-3b8f-4a6a-bda9-c5fa7ae88371++4826</key>
+		<string>http://svn.stygs.com/svn/stygs/dev1/app.extern.gtn.lisMoodle</string>
+		<key>EAE1DFA9E9232F0FE8C6208E5A2A64CD3D7A4A8F</key>
 		<string>https://github.com/gtn/exacomp-mobile.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>app.extern.gtn.lisMoodle/platforms/ios/exalis.xcodeproj/project.xcworkspace</string>
+	<string>app.extern.gtn.lisMoodle/platforms/ios/exalis.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9D9E33DE-48C8-4409-8885-EDB144C6DDAC</key>
+		<key>5e05fe40-3b8f-4a6a-bda9-c5fa7ae88371++4826</key>
+		<string>../../../../..</string>
+		<key>EAE1DFA9E9232F0FE8C6208E5A2A64CD3D7A4A8F</key>
 		<string>../../../../..</string>
 	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>5e05fe40-3b8f-4a6a-bda9-c5fa7ae88371++4826</key>
+		<string>http://svn.stygs.com/svn/stygs/dev1</string>
+	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/gtn/exacomp-mobile.git</string>
+	<string>http://svn.stygs.com/svn/stygs/dev1/app.extern.gtn.lisMoodle/app.extern.gtn.lisMoodle/platforms/ios/exalis.xcodeproj</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9D9E33DE-48C8-4409-8885-EDB144C6DDAC</string>
+	<string>5e05fe40-3b8f-4a6a-bda9-c5fa7ae88371++4826</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5e05fe40-3b8f-4a6a-bda9-c5fa7ae88371++4826</string>
+			<key>IDESourceControlWCCName</key>
+			<string>app.extern.gtn.lisMoodle</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9D9E33DE-48C8-4409-8885-EDB144C6DDAC</string>
+			<string>EAE1DFA9E9232F0FE8C6208E5A2A64CD3D7A4A8F</string>
 			<key>IDESourceControlWCCName</key>
-			<string>app.extern.gtn</string>
+			<string>app.extern.gtn.lisMoodle</string>
 		</dict>
 	</array>
 </dict>
